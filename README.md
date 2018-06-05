@@ -1,2 +1,2 @@
-# LotusprizeServer
-芙蓉杯竞赛系统后台
+#DESIGN-YL
+老年人产品设计竞赛系统后台
