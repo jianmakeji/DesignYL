@@ -30,6 +30,7 @@ public class Production implements java.io.Serializable {
 	private String title;
 	private int userId;
 	private String content;
+	private String attachFile;
 	private byte fileType;
 	private String videoAddress;
 	private String h5Address;
@@ -49,7 +50,7 @@ public class Production implements java.io.Serializable {
 	public Production() {
 	}
 
-	public Production(String title, int userId, String content,byte participantType,
+	public Production(String title, int userId, String content,String attachFile,byte participantType,
 			String participantName, String participantIdNumber, String teamMember, Date createTime) {
 		this.title = title;
 		this.userId = userId;
@@ -59,9 +60,10 @@ public class Production implements java.io.Serializable {
 		this.participantIdNumber = participantIdNumber;
 		this.teamMember = teamMember;
 		this.createTime = createTime;
+		this.attachFile = attachFile;
 	}
 
-	public Production(String title, int userId, byte fileType, String pimage, String content,
+	public Production(String title, int userId, byte fileType, String pimage, String content,String attachFile,
 			String videoAddress, String h5Address,Byte status,byte participantType, String participantName,
 			String participantIdNumber, String participantBrief, String teamMember, Float score,
 			Date createTime) {
@@ -80,6 +82,7 @@ public class Production implements java.io.Serializable {
 		this.teamMember = teamMember;
 		this.score = score;
 		this.createTime = createTime;
+		this.attachFile = attachFile;
 	}
 
 	@Id
@@ -118,8 +121,17 @@ public class Production implements java.io.Serializable {
 		return this.content;
 	}
 
+	@Column(name = "attach_file", length = 100)
 	public void setContent(String content) {
 		this.content = content;
+	}
+
+	public String getAttachFile() {
+		return attachFile;
+	}
+
+	public void setAttachFile(String attachFile) {
+		this.attachFile = attachFile;
 	}
 
 	@Column(name = "fileType")
