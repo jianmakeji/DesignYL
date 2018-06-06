@@ -217,6 +217,12 @@
 								</div>
 								<span class="zyRequired">*</span>
 							</div>
+							<div class="zyFormRow">
+								<label class="zyFormLabel">附件</label>
+								<button type="default" id="browse">选择文件</button>
+			           			<button type="default" id="upload-btn">开始上传</button><br/>
+			           			<label id="zyFormAttachTitle"></label>
+							</div>
 						</div>
 						<div id="zyProductSloganInfo" class="zyProductInfoPanel zyHidden">
 							<div class="zyFormRow">
@@ -285,6 +291,7 @@
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
 	<script src="resources/js/lib/jquery.toastmessage.js"></script>
 	<script src="resources/js/lib/plupload.full.min.js"></script>
+	<script src="resources/frontend/js/lib/plupLoad.js"></script>
 	<script src="resources/js/lib/juicer-min.js"></script>
 	<script src="resources/frontend/js/src/config.js"></script>
 	<script src="resources/js/src/functions.js"></script>

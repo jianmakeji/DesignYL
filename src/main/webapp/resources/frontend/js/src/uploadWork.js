@@ -1,3 +1,4 @@
+var attachUrl = ""; 
 var uploadWork = (function (config, functions) {
     return {
         
@@ -21,7 +22,7 @@ var uploadWork = (function (config, functions) {
                     workInfoPanel.find("input[name='h5Address']").val(data.h5Address);
                     workInfoPanel.find("textarea[name='videoAddress']").val(data.videoAddress);
                     workInfoPanel.find("textarea[name='content']").val(data.content);
-                    workInfoPanel.find(".zyActionOtherImage").attr("src", data.pimage + "?x-oss-process=style/thumb_210_300");
+                    workInfoPanel.find(".zyActionOtherImage").attr("src", data.pimage);
                 }else if(data.fileType == 3){
                     workInfoPanel.find("input[name='title']").val(data.title);
                     workInfoPanel.find("textarea[name='content']").val(data.content);
@@ -51,7 +52,8 @@ var uploadWork = (function (config, functions) {
                 obj.content = workInfoPanel.find("textarea[name='content']").val();
                 obj.videoAddress = workInfoPanel.find("textarea[name='videoAddress']").val();
                 obj.h5Address = workInfoPanel.find("input[name='h5Address']").val();
-                obj.pimage = $("#uploadBg").attr('src').replace("?x-oss-process=style/thumb_210_300","");
+                obj.attachFile = attachUrl;
+                obj.pimage = $("#uploadBg").attr('src');
                 obj.fileType = 1;
                 obj.status = 1;
             }else if(productType == "3"){
@@ -92,7 +94,6 @@ var uploadWork = (function (config, functions) {
                 $("#zyInfoPanel").removeClass("zyHidden");
                 $("#zyPreview").addClass("zyHidden");
                 $("#zyStep2Tip").removeClass("zyHidden");
-
             }
             if (stepId == "#zyPreview") {
                 //检测数据，设置数据
@@ -125,6 +126,47 @@ var uploadWork = (function (config, functions) {
 })(config, functions);
 
 $(document).ready(function () {
+//  ***************************附件上传******************************    
+    var uploader = new plupload.Uploader({
+        browse_button : 'browse', //触发文件选择对话框的按钮，为那个元素id
+        url : config.ajaxUrls.attachUpload, //服务器端的上传页面地址
+        multi_selection:false,
+        filters:{
+        	mime_types : [{ title : "Zip files", extensions : "zip,rar" }],
+        	max_file_size : '200mb',
+        	prevent_duplicates : true
+        },
+        multipart_params:{	//上传的参数
+        	fileType:1,
+        	file:[]
+        }
+    });    
+
+    uploader.init();
+
+    uploader.bind('FilesAdded',function(uploader,files){
+//    	uploader.settings.multipart_params.file = files;
+//    	that.vedioTitle = files[0].name;
+//    	that.progressModel = true;
+    });
+ 
+    uploader.bind('UploadProgress',function(uploader,file){
+//    	that.percent = file.percent; 
+    });
+    
+    uploader.bind('FileUploaded',function(up, file, info){
+    	$("#zyFormAttachTitle").html(file.name);
+    	attachUrl = JSON.parse(info.response).object;
+    });
+    
+    uploader.bind('Error',function(uploader,file){
+//    	that.percent = file.percent; 
+    });
+    //最后给"开始上传"按钮注册事件
+    document.getElementById('upload-btn').onclick = function(){
+        uploader.start(); 
+    }
+	
     var submitUrl = config.ajaxUrls.workCreate;
     juicer.set({
         'tag::interpolateOpen': '$ZY{'
@@ -150,13 +192,13 @@ $(document).ready(function () {
 
     });
 
-    /***************************填写参赛者信息******************************/
+//    ***************************填写参赛者信息******************************
     $("#zySelectPersonType input[type='radio']").click(function () {
         var targetPanel = $(this).data("target");
         $(".zyPersonInfoPanel").addClass("zyHidden");
         $(targetPanel).removeClass("zyHidden");
     });
-    /*****************************验证身份证信息****************************/ 
+//    *****************************验证身份证信息****************************
  // 验证身份证 
     function isCardNo(card) {
     	var pattern = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)/; 
@@ -208,7 +250,7 @@ $(document).ready(function () {
     $("#identityCaptain").blur(function(){
     	formValidate1();
     }) 
-    /*****************************验证营业执照信息****************************/
+//    *****************************验证营业执照信息****************************
     //  验证营业执照
     function isBusinessLicenseNo(BusinessLicense) { 
     	var pattern = /^(?:(?![IOZSV])[\dA-Z]){2}\d{6}(?:(?![IOZSV])[\dA-Z]){10}$/; 
@@ -254,14 +296,14 @@ $(document).ready(function () {
     $("#slogan").blur(function(){
     	checkSlogan();
     })
-    /*****************************作品上传**********************************/
+//    *****************************作品上传**********************************
     	//  图幅、口号按钮选择
 	  $("#zySelectProductType input[type='radio']").click(function () {
 	  	var targetPanel = $(this).data("target");
 	  	$(".zyProductInfoPanel").addClass("zyHidden");
 	      $(targetPanel).removeClass("zyHidden");
 	  });
-    /*****************************作品上传**********************************/
+//    *****************************作品上传**********************************
     $("#zySelectGroup input[type='radio']").click(function () {
         var targetPanel = $(this).data("target");
         $(".zyWorkInfoPanel").addClass("zyHidden");
@@ -272,4 +314,5 @@ $(document).ready(function () {
         formValidate();
         zyFormHandler.submitFormWithJSON(null, uploadWork.getSubmitData());
     });
+
 });

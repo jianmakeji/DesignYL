@@ -92,11 +92,6 @@ $(document).ready(function () {
 		}
         var totalRecords = totalCount;
         var pageNo = 1;
-
-		console.log("totalCount", totalCount);
-		console.log("totalPage", totalPage);
-		console.log("totalRecords", totalRecords);
-		console.log("pageNo", pageNo);
         kkpager.generPageHtml({
             pno: pageNo,
             isGoPage: false,
@@ -114,9 +109,7 @@ $(document).ready(function () {
                 //...
                 //处理完后可以手动条用selectPage进行页码选中切换
                 this.selectPage(n);
-
                 works.loadData((n - 1) * 10);
-
             }
         });
     });

@@ -54,8 +54,10 @@ var config = {
         workDetail: "production/getProductionDetailById/:id",
         workRemove: "production/deleteProduction/:id",
         worksGetByPage: "production/getProductionPageByCondition",
+        attachUpload: "../../file/uploadMultiFile",
         judgeToScoreList:"review/getReviewListByUserId",
         judgeScore:"review/updateReviewScore"
+        
     },
     viewUrls: {
         login: "login",

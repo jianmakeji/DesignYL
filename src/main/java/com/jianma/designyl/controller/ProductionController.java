@@ -313,13 +313,13 @@ public class ProductionController  extends DcController{
 	 * @param sEcho
 	 * @return
 	 */
-	//@RequiresRoles(value ={"竞赛者"})
+	@RequiresRoles(value ={"竞赛者"})
 	@ResponseBody
 	@RequestMapping(value="/getProductionPageByCondition", method = RequestMethod.GET)
 	public ListResultModel getProductionPageByCondition(HttpServletRequest request, HttpServletResponse response, 
 			@RequestParam int groupId, @RequestParam int category, @RequestParam int status, int fileType,
-			@RequestParam int userId, @RequestParam int round, @RequestParam int offset,
-			@RequestParam int limit){
+			@RequestParam int userId, @RequestParam int round, @RequestParam int iDisplayStart,
+			@RequestParam int iDisplayLength,@RequestParam String sEcho){
 		
 		ListResultModel listResultModel = new ListResultModel();
 		try {
@@ -334,7 +334,7 @@ public class ProductionController  extends DcController{
 			}
 
 			
-			PagingModel pagingModel = productionServiceImpl.getProductionPageByCondition(groupId, category, status, fileType, userId, round, limit, offset);
+			PagingModel pagingModel = productionServiceImpl.getProductionPageByCondition(groupId, category, status, fileType, userId, round, iDisplayLength, iDisplayStart);
 			
 			listResultModel.setAaData(pagingModel.getList());
 			

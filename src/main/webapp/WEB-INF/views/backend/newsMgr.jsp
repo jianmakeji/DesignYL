@@ -50,14 +50,8 @@
 		var pageName = "news";
 	</script>
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
-	<!-- <script src="resources/js/lib/jquery.validate.min.js"></script> -->
-	<!-- <script src="resources/js/lib/jquery.serialize-object.min.js"></script> -->
-	<!-- <script src="resources/js/lib/jquery.toastmessage.js"></script> -->
 	<script src="resources/backend/js/lib/bootstrap.min.js"></script>
-	<!-- <script src="resources/backend/js/lib/jquery.dataTables.min.js"></script> -->
 	<script src="resources/backend/js/src/config.js"></script>
-	<!-- <script src="resources/js/src/functions.js"></script> -->
-	<!-- <script src="resources/backend/js/src/ZYTableHandler.js"></script> -->
 	<!-- iview插件生成的js文件 -->
 	<script src="resources/backend/js/src/newsMgr.js"></script>
 	

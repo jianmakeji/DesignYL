@@ -318,8 +318,20 @@ var vm = new Vue({
                 that.roundModel = "0";
             }
         });	
-		
-		initData(config.ajaxUrls.worksGetByPage, this.aoData1, this.dataList, this.totalPage);
+		$.ajax({
+	      "dataType":'json',
+	      "type":"post",
+	      "url":config.ajaxUrls.worksGetByPage,
+	      "data":this.aoData1,
+	      "success": function (response) {
+	          if(response.success===false){
+	          		that.$Notice.error({title:response.message});
+	          }else{
+	        	  	that.dataList = response.aaData;
+	        	  	that.totalPage = response.iTotalRecords;
+	          }
+	      }
+	  });	
 		
 		
 	}

@@ -1,6 +1,6 @@
 var g_object_name = "";
 var key = '';
-var hostPrefix = "http://sdx-kt.oss-cn-shanghai.aliyuncs.com/";
+var hostPrefix = "http://dc-yl.oss-cn-hangzhou.aliyuncs.com/";
 
 var uploadImage = "resources/backend/images/app/defaultPeopleImage.jpg";
 function random_string(len) {
@@ -139,7 +139,7 @@ var Component = new Vue({
             var that = this;
             $.ajax({
                 type: 'GET',
-                url: '/uploadKey/1',
+                url: 'uploadKey/2',
                 async: false,
                 dataType: 'json',
                 success: function(result) {

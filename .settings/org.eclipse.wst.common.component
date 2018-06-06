@@ -4,7 +4,7 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <property name="context-root" value="design"/>
         <property name="java-output-path" value="/com.cidic.design-1.0.0-BUILD-SNAPSHOT/target/classes"/>
+        <property name="context-root" value="design_yl"/>
     </wb-module>
 </project-modules>

@@ -36,7 +36,6 @@ var vm = new Vue({
 		    });
 		},
 		roundCheck:function(index){
-			console.log("index",index);
 			this.roundModel = index;
 			this.dataSourse.round = index;
 		}

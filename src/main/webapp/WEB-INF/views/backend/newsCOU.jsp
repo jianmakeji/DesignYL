@@ -30,12 +30,6 @@
 			<i-col span="24">新建/修改新闻</i-col>	<br/><br/>
 			<div>
 			    <i-form :model="dataSourse" :rules="ruleDataSourse" :label-width="180" style="width:80%;" id="myForm">
-			    	<form-item label="新闻版本*" prop="language">
-			            <radio-group v-model="dataSourse.language" name>
-			                <radio label="0"><span>中文版本</span></radio>
-			                <radio label="1"><span>英文版本</span></radio>
-			            </radio-group>
-			        </form-item>
 			        <form-item label="封面图*">
 		                <upload ref="upload" :action="host" :on-success="handleSuccess" :format="['jpg','jpeg','png']" :max-size="2048" :on-format-error="handleFormatError" :on-exceeded-size="handleMaxSize" :before-upload="handleBeforeUpload" 
 		                	:data="{
@@ -77,16 +71,9 @@
 	</script>
 
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
-<!--	<script src="resources/js/lib/jquery.toastmessage.js"></script>	
- 	<script src="resources/js/lib/plupload.full.min.js"></script>		
-	<script src="resources/js/lib/jquery.validate.min.js"></script>			
-	<script src="resources/js/lib/jquery.serialize-object.min.js"></script> -->	
 	<script src="resources/backend/js/lib/bootstrap.min.js"></script>	
 	<script src="resources/backend/js/lib/tinyMCE/tinymce.min.js"></script>		<!-- 富文本编辑插件 -->
 	<script src="resources/backend/js/src/config.js"></script>
-	<!-- <script src="resources/js/src/functions.js"></script>
-	<script src="resources/js/src/ZYFormHandler.js"></script>
-	<script src="resources/js/src/ZYCOUHandler.js"></script> -->
 	<script src="resources/backend/js/src/newsCOU.js"></script>
 
 </body>

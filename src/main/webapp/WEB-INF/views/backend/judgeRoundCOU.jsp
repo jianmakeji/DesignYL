@@ -54,14 +54,8 @@
 	</script>
 
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
-	<!-- <script src="resources/js/lib/jquery.toastmessage.js"></script>
-	<script src="resources/js/lib/jquery.validate.min.js"></script>
-	<script src="resources/js/lib/jquery.serialize-object.min.js"></script> -->
 	<script src="resources/backend/js/lib/bootstrap.min.js"></script>
 	<script src="resources/backend/js/src/config.js"></script>
-	<!-- <script src="resources/js/src/functions.js"></script>
-	<script src="resources/js/src/ZYFormHandler.js"></script>
-	<script src="resources/js/src/ZYCOUHandler.js"></script> -->
 	<script src="resources/backend/js/src/judgeRoundCOU.js"></script>
 
 </body>

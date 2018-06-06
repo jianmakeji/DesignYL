@@ -1,7 +1,7 @@
 //图片上传
 var g_object_name = "";
 var key = '';
-var hostPrefix = "http://sdx-kt.oss-cn-shanghai.aliyuncs.com/";
+var hostPrefix = "http://dc-yl.oss-cn-hangzhou.aliyuncs.com/";
 var uploadImage = "resources/backend/images/app/defaultPeopleImage.jpg";
 function random_string(len) {
     var len = len || 32;
@@ -47,13 +47,10 @@ var Component = new Vue({
         	headicon: uploadImage,
         	id:"",
         	name:"",
-        	name_en:"",
         	email:"",
         	password:"",
         	subTitle:"",
-        	subTitle_en:"",
         	description:"",
-        	description_en:""
         },
         ruleDataSourse:{
         	email: [{ required: true,type:"email",message: '请输入正确格式的邮箱', trigger: 'blur' }],
@@ -77,13 +74,10 @@ var Component = new Vue({
                     if(response.success){
                     	that.dataSourse.headicon = response.object.headicon;
                     	that.dataSourse.name = response.object.name;
-                    	that.dataSourse.name_en = response.object.name_en;
                     	that.dataSourse.email = response.object.email;
                     	that.dataSourse.password = response.object.password;
                     	that.dataSourse.subTitle = response.object.subTitle;
-                    	that.dataSourse.subTitle_en = response.object.subTitle_en;
                     	that.dataSourse.description = response.object.description;
-                    	that.dataSourse.description_en = response.object.description_en;
                     	that.submitUrl = config.ajaxUrls.judgeUpdate;
                     }else{
 	            		that.$Notice.error({title:response.message});
@@ -116,22 +110,6 @@ var Component = new Vue({
                 });
             }
         });
-    	tinymce.init({
-            selector: "#description_en",
-            height:300,
-            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-            toolbar2: 'print preview media | forecolor backcolor emoticons',
-            //image_advtab: true,
-            plugins : 'link image preview fullscreen table textcolor colorpicker code',
-            setup: function (ed) {
-                ed.on('blur', function (e) {
-                    $("#description_en").val(ed.getContent());
-                    if(ed.getContent()){
-                        $(".error[for='description_en']").remove();
-                    }
-                });
-            }
-        });
     },
     methods:{
 //      **********************	图片上传		*******************************
@@ -150,7 +128,7 @@ var Component = new Vue({
             
             $.ajax({
                 type: 'GET',
-                url: '/uploadKey/1',
+                url: 'uploadKey/3',
                 async: false,
                 dataType: 'json',
                 success: function(result) {
@@ -175,7 +153,6 @@ var Component = new Vue({
     		img.src = this.dataSourse.headicon;
     		if(img.width  == img.height){
     			this.dataSourse.description = tinyMCE.editors[0].getContent();
-    			this.dataSourse.description_en = tinyMCE.editors[1].getContent();
         		var that = this;
         		$.ajax({
         	        url:that.submitUrl,

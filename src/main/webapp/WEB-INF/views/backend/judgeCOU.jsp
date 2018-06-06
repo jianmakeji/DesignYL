@@ -47,24 +47,19 @@
 			        </form-item>
 			        
 			        <form-item label="姓名*">
-			            <i-input v-model="dataSourse.name" placeholder="请输入中文名(Chinese name)"></i-input>
-			            <i-input v-model="dataSourse.name_en" placeholder="请输入英文名(English Name)"></i-input>
+			            <i-input v-model="dataSourse.name" placeholder="请输入姓名"></i-input>
 			        </form-item>
 			        <form-item label="邮箱*"  prop="email">
-			            <i-input v-model="dataSourse.email" placeholder="请输入邮箱(email)"></i-input>
+			            <i-input v-model="dataSourse.email" placeholder="请输入邮箱"></i-input>
 			        </form-item>
 			        <form-item label="密码*" prop="password">
-			            <i-input v-model="dataSourse.password" placeholder="请输入密码(password)"></i-input>
+			            <i-input v-model="dataSourse.password" placeholder="请输入密码"></i-input>
 			        </form-item>
 			        <form-item label="职位*">
-			            <i-input v-model="dataSourse.subTitle" placeholder="中文职位(Chinese position)"></i-input>
-			            <i-input v-model="dataSourse.subTitle_en" placeholder="英文职位(English position)"></i-input>
+			            <i-input v-model="dataSourse.subTitle" placeholder="职位"></i-input>
 			        </form-item>
-			         <form-item label="中文描述(Chinese description)*">
+			         <form-item label="描述*">
 			            <textarea v-model="dataSourse.description" name="content" id="description"></textarea>
-			        </form-item>
-			        <form-item label="英文描述(English description)*">
-			            <textarea v-model="dataSourse.description_en" name="content" id="description_en"></textarea>
 			        </form-item>
 			        <form-item>
 			        	<i-button type="primary" v-on:click="submit" long>确定</i-button>
@@ -82,16 +77,9 @@
 	</script>
 
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
-	<!-- <script src="resources/js/lib/jquery.toastmessage.js"></script>
-	<script src="resources/js/lib/plupload.full.min.js"></script>
-	<script src="resources/js/lib/jquery.validate.min.js"></script>
-	<script src="resources/js/lib/jquery.serialize-object.min.js"></script> -->
 	<script src="resources/backend/js/lib/bootstrap.min.js"></script>
 	<script src="resources/backend/js/lib/tinyMCE/tinymce.min.js"></script>
 	<script src="resources/backend/js/src/config.js"></script>
-	<!-- <script src="resources/js/src/functions.js"></script>
-	<script src="resources/js/src/ZYFormHandler.js"></script>
-	<script src="resources/js/src/ZYCOUHandler.js"></script> -->
 	<script src="resources/backend/js/src/judgeCOU.js"></script>
 
 </body>
