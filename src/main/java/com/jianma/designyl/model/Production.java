@@ -121,11 +121,12 @@ public class Production implements java.io.Serializable {
 		return this.content;
 	}
 
-	@Column(name = "attach_file", length = 100)
+	
 	public void setContent(String content) {
 		this.content = content;
 	}
 
+	@Column(name = "attach_file", length = 100)
 	public String getAttachFile() {
 		return attachFile;
 	}
