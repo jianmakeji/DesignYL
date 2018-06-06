@@ -87,7 +87,7 @@ public class HomeController extends DcController {
 		    if (!request.getHeader("ACCEPT-LANGUAGE").contains("zh-CN")){
 		    	language = 1;
 		    }
-			List<News> newsList = newsServiceImpl.getTopNews(language, top);
+			List<News> newsList = newsServiceImpl.getTopNews(top);
 			ModelAndView modelView = new ModelAndView();
 			modelView.setViewName("/frontend/index");
 			modelView.addObject(newsList);
@@ -121,10 +121,7 @@ public class HomeController extends DcController {
 				top = Integer.parseInt(request.getParameter("top"));
 			}
 			
-		    if (!request.getHeader("ACCEPT-LANGUAGE").contains("zh-CN")){
-		    	language = 1;
-		    }
-			List<News> newsList = newsServiceImpl.getTopNews(language, top);
+			List<News> newsList = newsServiceImpl.getTopNews(top);
 			ModelAndView modelView = new ModelAndView();
 			modelView.setViewName("/frontend/index");
 			modelView.addObject(newsList);

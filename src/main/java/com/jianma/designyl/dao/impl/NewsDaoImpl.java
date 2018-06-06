@@ -49,20 +49,11 @@ public class NewsDaoImpl implements NewsDao {
 	}
 
 	@Override
-	public List<News> findNewsByPage(int offset, int limit,int language) {
+	public List<News> findNewsByPage(int offset, int limit) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "";
-		if (language == -1){
-			hql = " from News n order by publishTime desc";
-		}
-		else{
-			hql = " from News n where n.language = ? order by publishTime desc";
-		}
+		String hql = " from News n order by publishTime desc";
 		
 		Query query = session.createQuery(hql);
-		if (language != -1){
-			query.setParameter(0, (byte)language);
-		}
 		
 		query.setFirstResult(offset);
 		query.setMaxResults(limit);
@@ -70,31 +61,21 @@ public class NewsDaoImpl implements NewsDao {
 	}
 
 	@Override
-	public int getCountNews(int language) {
+	public int getCountNews() {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = "";
-		if (language == -1){
-			hql = "select count(n) from News n ";
-		}
-		else{
-			hql = "select count(n) from News n where n.language = ? ";
-		}
+		String hql = "select count(n) from News n ";
 		
 		Query query = session.createQuery(hql); 
 		
-		if (language != -1){
-			query.setParameter(0, (byte)language);
-		}
         return (int)((Long)query.uniqueResult()).longValue();
 	}
 
 
 	@Override
-	public List<News> getTopNews(int language, int top) {
+	public List<News> getTopNews(int top) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = " from News where language = ? order by publishTime desc";
+		String hql = " from News order by publishTime desc";
 		Query query = session.createQuery(hql);
-		query.setParameter(0, (byte)language);
 		query.setMaxResults(2);
 		return query.list();
 	}

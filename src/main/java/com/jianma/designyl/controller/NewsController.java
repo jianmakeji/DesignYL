@@ -45,11 +45,8 @@ public class NewsController extends DcController {
 	@RequestMapping(value = "/news/{page}")
 	public ModelAndView news(HttpServletRequest request, Model model, @PathVariable int page) {
 		try {
-			int language = 0;
-		    if (!request.getHeader("ACCEPT-LANGUAGE").contains("zh-CN")){
-		    	language = 1;
-		    }
-			PagingModel pagingModel = newsServiceImpl.findNewsByPage((page - 1) * 10, 10,language);
+			
+			PagingModel pagingModel = newsServiceImpl.findNewsByPage((page - 1) * 10, 10);
 			pagingModel.setCurrentPage(page);
 			ModelAndView modelView = new ModelAndView();
 			modelView.setViewName("frontend/news");
@@ -178,11 +175,8 @@ public class NewsController extends DcController {
 
 		ListResultModel listResultModel = new ListResultModel();
 		try {
-			int language = 0;
-		    if (!request.getHeader("ACCEPT-LANGUAGE").contains("zh-CN")){
-		    	language = 1;
-		    }
-			PagingModel pagingModel = newsServiceImpl.findNewsByPage(offset, limit,language);
+			
+			PagingModel pagingModel = newsServiceImpl.findNewsByPage(offset, limit);
 			listResultModel.setAaData(pagingModel.getList());
 			listResultModel.setiTotalRecords(pagingModel.getCount());
 			listResultModel.setSuccess(true);

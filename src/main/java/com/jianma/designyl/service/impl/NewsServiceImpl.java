@@ -46,24 +46,24 @@ public class NewsServiceImpl implements NewsService {
 	}
 
 	@Override
-	public PagingModel findNewsByPage(int offset, int limit,int language) {
+	public PagingModel findNewsByPage(int offset, int limit) {
 		PagingModel pagingModel = new PagingModel();
-		pagingModel.setList(newsDaoImpl.findNewsByPage(offset, limit,language));
-		pagingModel.setCount(newsDaoImpl.getCountNews(language));
+		pagingModel.setList(newsDaoImpl.findNewsByPage(offset, limit));
+		pagingModel.setCount(newsDaoImpl.getCountNews());
 		return pagingModel;
 	}
 
 	@Override
-	public List<News> getTopNews(int language, int top) {
+	public List<News> getTopNews(int top) {
 		// TODO Auto-generated method stub
-		return newsDaoImpl.getTopNews(language, top);
+		return newsDaoImpl.getTopNews(top);
 	}
 
 	@Override
 	public PagingModel findManageNewsByPage(int offset, int limit) {
 		PagingModel pagingModel = new PagingModel();
-		pagingModel.setList(newsDaoImpl.findNewsByPage(offset, limit,-1));
-		pagingModel.setCount(newsDaoImpl.getCountNews(-1));
+		pagingModel.setList(newsDaoImpl.findNewsByPage(offset, limit));
+		pagingModel.setCount(newsDaoImpl.getCountNews());
 		return pagingModel;
 	}
 

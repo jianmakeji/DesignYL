@@ -16,9 +16,9 @@ public interface NewsService {
 	
 	public Optional<News> findNewsById(int id);
 	
-	public PagingModel findNewsByPage(int offset, int limit,int language);
+	public PagingModel findNewsByPage(int offset, int limit);
 	
 	public PagingModel findManageNewsByPage(int offset, int limit);
 	
-	public List<News> getTopNews(int language, int top);
+	public List<News> getTopNews(int top);
 }

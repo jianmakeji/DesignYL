@@ -15,9 +15,9 @@ public interface NewsDao {
 	
 	public Optional<News> findNewsById(int id);
 	
-	public List<News> findNewsByPage(int offset, int limit,int language);
+	public List<News> findNewsByPage(int offset, int limit);
 	
-	public int getCountNews(int language);
+	public int getCountNews();
 	
-	public List<News> getTopNews(int language, int top);
+	public List<News> getTopNews(int top);
 }
