@@ -309,6 +309,18 @@ public class HomeController extends DcController {
         if (type == 1){
         	dir = "product/";
         }
+        else if (type == 2){
+        	dir = "news/";
+        }
+        else if (type == 3){
+        	dir = "judges/";
+        }
+        else if (type == 4){
+        	dir = "others/";
+        }
+        else if (type == 5){
+        	dir = "attachment/";
+        }
         
         String host = "http://" + bucket + "." + endpoint;
         OSSClient client = new OSSClient(endpoint, accessId, accessKey);
