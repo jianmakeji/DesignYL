@@ -15,6 +15,8 @@ public interface ReviewDao {
 	
 	public void deleteReview(int id);
 	
+	public void deleteReviewByRoundId(int roundId);
+	
 	public List<Review> getReviewListByProductionId(int productionId);
 	
 	public List<Production> getReviewListByUserId(int userId, int scoreSign, int round, int offset, int limit);

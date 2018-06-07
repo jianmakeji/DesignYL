@@ -133,7 +133,7 @@ $(document).ready(function () {
         multi_selection:false,
         filters:{
         	mime_types : [{ title : "Zip files", extensions : "zip,rar" }],
-        	max_file_size : '200mb',
+        	max_file_size : '100mb',
         	prevent_duplicates : true
         },
         multipart_params:{	//上传的参数
@@ -145,21 +145,25 @@ $(document).ready(function () {
     uploader.init();
 
     uploader.bind('FilesAdded',function(uploader,files){
+    	console.log("======文件======",files);
 //    	uploader.settings.multipart_params.file = files;
 //    	that.vedioTitle = files[0].name;
 //    	that.progressModel = true;
     });
  
     uploader.bind('UploadProgress',function(uploader,file){
+    	console.log("======上传中======");
 //    	that.percent = file.percent; 
     });
     
     uploader.bind('FileUploaded',function(up, file, info){
+    	console.log("======成功======",info);
     	$("#zyFormAttachTitle").html(file.name);
     	attachUrl = JSON.parse(info.response).object;
     });
     
     uploader.bind('Error',function(uploader,file){
+    	console.log("======失败======");
 //    	that.percent = file.percent; 
     });
     //最后给"开始上传"按钮注册事件

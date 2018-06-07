@@ -77,6 +77,7 @@
 	</script>
 
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
+	<script src="resources/js/lib/plupload.full.min.js"></script>
 	<script src="resources/backend/js/lib/bootstrap.min.js"></script>
 	<script src="resources/backend/js/lib/tinyMCE/tinymce.min.js"></script>
 	<script src="resources/backend/js/src/config.js"></script>

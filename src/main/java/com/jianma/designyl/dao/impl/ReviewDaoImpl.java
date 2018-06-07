@@ -332,7 +332,11 @@ public class ReviewDaoImpl implements ReviewDao {
 				        stmt.executeBatch();
 				        connection.commit();
 				    }
-				}    
+				}
+				
+				stmt.executeBatch();
+				connection.commit();
+				
 		      }    
 		    });
 		
@@ -349,5 +353,14 @@ public class ReviewDaoImpl implements ReviewDao {
 		query.setParameter(0, productionId);
 		query.setParameter(1, (byte)round);
 		return query.list();
+	}
+
+	@Override
+	public void deleteReviewByRoundId(int roundId) {
+		Session session = sessionFactory.getCurrentSession();
+		String hql = " delete from Review r  where r.round = ?";
+		Query query = session.createQuery(hql);
+		query.setParameter(0, (byte)roundId);
+		query.executeUpdate();
 	}
 }

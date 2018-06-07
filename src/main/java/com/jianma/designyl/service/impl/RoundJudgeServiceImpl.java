@@ -59,6 +59,7 @@ public class RoundJudgeServiceImpl implements RoundJudgeService {
 	@Override
 	public void deleteRoundJudge(int id) {
 		roundJudgeDaoImpl.deleteRoundJudge(id);
+		reviewDaoImpl.deleteReviewByRoundId(id);
 	}
 
 	@Override
@@ -135,9 +136,11 @@ public class RoundJudgeServiceImpl implements RoundJudgeService {
 			productIdsSet.add(review.getProductionId());
 			userIdsSet.add(review.getUserId());
 		}
+
 		if (reviewList.size() > 0 && !addJudges.equals("")){
 			
 			String[] addJudgesArray = addJudges.split(",");
+			System.out.println(addJudgesArray.length);
 			if (addJudgesArray.length > 0){
 				List<Review> insertList = new ArrayList<>(500);
 				
@@ -145,6 +148,7 @@ public class RoundJudgeServiceImpl implements RoundJudgeService {
 					int judgeId = Integer.parseInt(judge);
 
 					if (userIdsSet.contains(judgeId)){
+
 						List<Review> tempReviewList = reviewDaoImpl.getReviewByRoundIdAndUserId(roundId, judgeId);
 						Set<Integer> tempSet = new TreeSet<Integer>();
 						
@@ -167,6 +171,8 @@ public class RoundJudgeServiceImpl implements RoundJudgeService {
 						}
 					}
 					else{
+
+						
 						Review review = null;
 						for (Integer productId : productIdsSet){
 							review = new Review();
@@ -178,6 +184,7 @@ public class RoundJudgeServiceImpl implements RoundJudgeService {
 						}
 					}
 				}
+
 				if (insertList.size() > 0){
 					reviewDaoImpl.batchInsertReview(insertList);
 				}

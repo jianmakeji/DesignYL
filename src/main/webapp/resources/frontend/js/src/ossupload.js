@@ -168,7 +168,7 @@ function createUploader(uploadOSSObject){
 			FileUploaded: function(up, file, info) {
 				if(info.status == 200) {
 					uploadOSSObject.fileDescribe.innerHTML = '，上传成功！';
-					var thumbImgUrl = host + "/" + get_uploaded_object_name(file.name) + "?x-oss-process=style/thumb_210_300";
+					var thumbImgUrl = host + "/" + get_uploaded_object_name(file.name);
 					uploadOSSObject.uploadImg.attr('src', thumbImgUrl);
 
 				} else {
