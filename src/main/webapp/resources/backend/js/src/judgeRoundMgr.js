@@ -16,7 +16,7 @@ function initJudgeData(data1, data2){
 	data2.judge = "";
 }
 //拼接所有的评委id
-function setJudgeData(newJudgeData, judgeList, setJudgeData, setJudgeData1){
+function setJudgeDataX(newJudgeData, judgeList, setJudgeData, setJudgeData1){
 	for(var i=0;i<newJudgeData.length;i++){
 		for(var j=0;j<judgeList.length;j++){
 			if(newJudgeData[i] == judgeList[j].name){
@@ -240,10 +240,8 @@ var vm = new Vue({
 		ok:function(){
 			 	this.$Loading.start();
 				var that = this;
-				var judges = [];
 //				拼接setJudgeData.judge
-				setJudgeData(this.newJudgeData, this.judgeList, this.setJudgeData, this.setJudgeData1);
-//				去重
+				setJudgeDataX(this.newJudgeData, this.judgeList, this.setJudgeData, this.setJudgeData1);
 				var delData = [];
 				var deleteResult = [];
 				var addData = [];
@@ -255,8 +253,7 @@ var vm = new Vue({
 //				去重
 				addData = DuplicateRemoval(this.newJudgeData, this.oldJudgeData[this.index]);
 //				拼接添加的评委
-				this.setJudgeData.addJudges = spliceJudgeData(addData, this.setJudgeData.addJudges, this.judgeList);
-				
+				this.setJudgeData.addJudges = spliceJudgeData(addData, this.setJudgeData.addJudges, this.judgeList);				
 //		                判断url的值
 				var urlData = "";
 		        if(this.dataList[this.index].judge != ""){
@@ -287,8 +284,8 @@ var vm = new Vue({
 	                            		that.$Notice.error({title:response.message});
 	                                }else{
 	                                	that.dataList = response.aaData.rjList;
-	                                	initOtherData(response.aaData.rjList, that.checkAllGroup, that.dataL, that.oldJudgeData);
 	                	               	initJudgeData(that.setJudgeData, that.setJudgeData1);
+	                                	initOtherData(response.aaData.rjList, that.checkAllGroup, that.dataL, that.oldJudgeData);
 //	                	               	筛选出该轮次有哪些评委,并将id转为name 放在that.dataL中
 	                                	screenRoundJudge(response, that.checkAllGroup, that.oldJudgeData, that.dataL);
 //	                	               	所有评委数据
