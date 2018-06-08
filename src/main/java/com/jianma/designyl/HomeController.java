@@ -115,7 +115,6 @@ public class HomeController extends DcController {
 	@RequestMapping(value = "/index")
 	public ModelAndView index(HttpServletRequest request, Model model) {
 		try {
-			int language = 0;
 			int top = 0;
 			if(request.getParameter("top") != null){
 				top = Integer.parseInt(request.getParameter("top"));
