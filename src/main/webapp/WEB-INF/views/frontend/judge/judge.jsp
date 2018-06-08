@@ -62,8 +62,7 @@
 					<spring:message code="video_shareAddress"/>：<a :href="videoAddress" target="_blank"><spring:message code="check_details"/></a>
 				</div>
 				<div v-if="imgBox != '' ">
-					<spring:message code="picture_download"/>：<br />
-					<a class="downImg" :href="imgBox" download="imgBox">{{imgBox}}</a>
+					<a class="downImg" :href="imgBox" download="imgBox" target="_blank">原图片预览</a>
 				</div>
 				<div>
 					<ul class="cd-item-action">
@@ -88,7 +87,7 @@
 	
 		new Vue({
 			  el: '#productList',
-			  data () {
+			  data:function () {
 			    return {
 			      total:0,
 			      list:[],
@@ -232,22 +231,21 @@
 						});
 				  }, 
 				  closeQuickView:function(finalWidth, maxQuickWidth) {
+						var selectedImage = $('.empty-box').find('img')
 					  if(this.fileType == 3){
 						  	var close = $('.cd-close'),
-							activeSliderUrl = this.mediumImg,
-							selectedImage = $('.empty-box').find('img');
+							activeSliderUrl = this.mediumImg;
 					  }else if(this.fileType == 1){
 						  	var close = $('.cd-close'),
 							activeSliderUrl = close.siblings('.cd-slider-wrapper').find('.selected img').attr('src'),
 							selectedImage = $('.empty-box').find('img');
 						  	console.log("activeSliderUrl", activeSliderUrl);
 					  }
-							
-						//update the image in the gallery
 						if( !$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
 							//selectedImage.attr('src', activeSliderUrl +'?x-oss-process=style/thumb_210_300');
 							//还原点击之前的url
-							selectedImage.attr('src', this.imgBox +'?x-oss-process=style/thumb_210_300');
+							console.log("selectedImage",selectedImage,$('.empty-box').find('img'));
+							selectedImage.attr({src:this.imgBox +'?x-oss-process=style/thumb_210_300'});
 							this.animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');
 						} else {
 							this.closeNoAnimation(selectedImage, finalWidth, maxQuickWidth);

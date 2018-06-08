@@ -39,6 +39,7 @@
 			    </i-select>
 		    </div>
 		    <i-table :columns="columns" :data="dataList" style="margin-top:20px;" ></i-table>
+		    <i-table id="scoreTable" :columns="Scroecolumns" :data="RoundScroeList" style="width:200px;position:absolute;"></i-table>
 		    <page v-model="totalPage" :current="1" :total="totalPage" @on-change="pageChange" show-total style="margin-right:60px;margin-top:20px;text-align:right;"></page>
 		</div>
 	</div>

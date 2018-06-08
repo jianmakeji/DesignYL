@@ -1,3 +1,7 @@
+$(document).click(function(){  
+	$("#scoreTable").addClass("hidden");
+});
+
 function initData(url, aoData, dataList, totalPage){
 	var that = this;
 	$.ajax({
@@ -15,24 +19,6 @@ function initData(url, aoData, dataList, totalPage){
       }
   });	
 }
-//function initData_1(url, aoData, dataList, totalPage){
-//	var that = this;
-//	$.ajax({
-//	    "dataType":'json',
-//	    "type":"post",
-//	    "url":url,
-//	    "data":aoData,
-//	    "success": function (response) {
-//	        if(response.success===false){
-//	        	that.$Notice.error({title:response.message});
-//	        }else{
-////				dataList = [];
-//	        	dataList = response.aaData;
-//	        	totalPage = response.iTotalRecords;
-//	        }
-//	    }
-//	});	
-//};
 var vm = new Vue({
 	el:".worksMgr",
 	data:function(){
@@ -69,7 +55,24 @@ var vm = new Vue({
                       }
                	  },
                   { title: '名称',key: 'title', align: 'center'},
-                  { title: '分数',key: 'score', align: 'center'},
+                  { title: '分数',key: 'score', align: 'center',
+                	  render: (h, params) => {
+                          return h('a', {
+                                  props: {
+                                      type: 'primary',
+                                      size: 'small'
+                                  },
+                                  attrs :{
+                                      href:	"javascript:void(0)"
+                                  },
+                                  on:{
+                                	  'click':(value,event) => {  
+                  	                		this.getRoundScore(params.index, value, event); 
+                                	  }  
+                                  }
+                              },params.row.score)
+                      }
+                  },
                   { title: '状态',key: 'status', align: 'center',
                 	  render: (h, params) => {  
                 	        return h('i-select', {  
@@ -136,7 +139,13 @@ var vm = new Vue({
          	  aoData2:{offset: 0,limit: 1000},
            	  setstatusList:{id:"",status:""},
            	  setRoundList:{productId:"",round:""},
-         	  dataList:[],			
+         	  dataList:[],	
+         	  
+         	  Scroecolumns: [						//table列选项
+                  { title: '评审轮次',key: 'round', align: 'center'},
+                  { title: '得分',key: 'averageScore', align: 'center'}
+              ],	
+         	  RoundScroeList:[]		//分数显示数据（轮次）
 		}	
 	},
 	methods:{
@@ -188,7 +197,7 @@ var vm = new Vue({
 	            "success": function (response) {
 	                if(response.success===false){
 	                	that.$Loading.error();
-	                	that.$Notice.error({title:"修改出错",desc:"1.作品状态无法选择评审轮次,	2.可能该轮次未绑定评委"});
+	                	that.$Notice.error({title:"修改出错",desc:"1.作品状态无法选择评审轮次,	2.可能该轮次未绑定评委, 3.分数已更新为本轮次,无法修改"});
 	        			$.ajax({
 	        	            "dataType":'json',
 	        	            "type":"post",
@@ -291,10 +300,31 @@ var vm = new Vue({
 	                }
 	            }
 	        });
-		}
+		},
+		getRoundScore:function(index,event){
+			var that = this;
+			$.ajax({
+	            "dataType":'json',
+	            "type":"post",
+	            "url":config.ajaxUrls.getRoundScoreBean,
+	            "data":{productionId:this.dataList[index].id},
+	            "success": function (response) {
+	                if(response.success===false){
+	                	that.$Notice.error({title:response.message});
+	                }else{
+	                	that.$Loading.finish();
+	        			var poptipClientX = event.clientX  - 165, poptipClientY = (index+1)*160 ;
+	                	that.RoundScroeList = response.object;
+	                	$("#scoreTable").removeClass("hidden");
+	        			$("#scoreTable").css({"display":"inline-block","left": poptipClientX+"px","top": poptipClientY+"px"});
+	                }
+	            }
+	        });	
+		},
 	},
 	created:function(){
     	this.$Loading.start();
+    	$("#scoreTable").addClass("hidden");
 		var that = this;
 		this.statusModel = "0",
 		$.ajax({
