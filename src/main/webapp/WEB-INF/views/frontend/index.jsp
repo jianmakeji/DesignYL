@@ -107,7 +107,7 @@
 
 	         <c:forEach items="${newsList}" var="item">
 	             <li class="zyItem">
-	                 <a class="zyLink" href="news/newsDetail/${item.id}" target="_blank"> <img class="zyThumb" src="${item.thumb}">
+	                 <a class="zyLink" href="news/newsDetail/${item.id}" target="_blank"> 5<img class="zyThumb" src="${item.thumb}">
 	                     <h3 class="zyTitle">${item.title}</h3> <span class="zyDate">${fn:substring(item.publishTime, 0, 10)}</span>
 	                 </a>
 	             </li>
@@ -115,7 +115,7 @@
 	     </ul>
 	
 	     <div id="JMTCenter">
-			<a id="JMBtn" style="margin: 20px auto;" href="news/news/1"><spring:message code="JMmore"/> >></a>
+			<a id="JMBtn" style="margin: 0 auto;" href="news/news/1"><spring:message code="JMmore"/> >></a>
 		</div>
 
 
