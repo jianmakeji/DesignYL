@@ -65,7 +65,7 @@ img{
  	 margin: 5px;
 }
 .JMNewsList .JMNewsListUl .JMNews1 .JMNewsTextBox .JMNewsText_title{
-  color: #ECC95D;
+  color: #47a8a9;
   display: block;
   margin: 5px;
   font-size: 22px;
@@ -78,7 +78,7 @@ img{
 }
 .JMNewsList .JMNewsListUl .JMNews1 hr{
   width: 90%;
-  border: 3px solid #ECC95D;
+  border: 3px solid #47a8a9;
   margin-top: 30px;
 }/*********************************鐟曞棗鍟撻崚鍡涖�夐幒褌娆㈤弽宄扮础*******************************/
 #kkpager{
@@ -95,7 +95,7 @@ img{
 }
 #kkpager span.curr{
     border: none;
-    color: #ECC95D;
+    color: #47a8a9;
     background: none;
 }
 #kkpager a{
@@ -107,7 +107,7 @@ img{
 }
 #kkpager a:hover{
     background: none;
-    color: #ECC95D;
+    color: #47a8a9;
     border: none;
 }
 
@@ -115,7 +115,7 @@ img{
 .JMFooter {
 	height: 80px;
 	line-height: 80px;
-	background: #ECC95D;
+	background: #363636;
 	color: #fff;
 	text-align: center;
 }

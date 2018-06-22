@@ -39,7 +39,7 @@ img {
 
 
 /*=========================================================================================================*/
-/* 大图展示 */
+/* 澶у浘灞曠ず */
 .JMHome {
 	margin: 0 auto;
 	max-width: 1280px;
@@ -81,13 +81,13 @@ img {
 }
 
 .JMHome #JMItem .JMPhotosDiv {
- width:44%;height:225px;background:#ECC95D;
+ width:44%;height:225px;background:#47a8a9;
  position: relative;
  top: -110px;
  left: 100px;
 }
 
-/* 大赛目标 */
+/* 澶ц禌鐩爣 */
 
 .JMHome .JMdasaimubiao .JMDasaiBox1 .JMTitle {
 	color: #4A4A4A;
@@ -96,9 +96,31 @@ img {
 	text-align: left;
 }
 /*
- 	大赛目标的一个div
+ 	澶ц禌鐩爣鐨勪竴涓猟iv
  */
-
+.zyList{
+    font-size: 0px;
+    padding: 50px;
+}
+.zyList .zyItem{
+    width: 31%;
+    margin: 1.1%;
+}
+.zyList .zyItem .zyThumb{
+	
+}
+.zyList .zyItem .zyTitle{
+    margin: 20px 0px 10px 0px;
+    font-size: 18px;
+    color: #6d6d6d;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.zyList .zyItem .zyDate{
+    color: #6d6d6d;
+    font-size: 14px;
+}
 #JMList {
 	font-size: 0px;
 	padding: 50px;
@@ -109,7 +131,7 @@ img {
 	margin: 1.1%;
 }
 /*
-  长沙-媒体艺术之都
+  闀挎矙-濯掍綋鑹烘湳涔嬮兘
  */
  .JMHome #JMItem .ChangshaDiv{
   	width: 70%;
@@ -127,21 +149,21 @@ img {
   .JMHome #JMItem .JMYellowDiv{
   	width: 150px;
     height: 60px;
-    background: #ECC95D;
+    background: #47a8a9;
     position: absolute;
     bottom: -30px;
     left: 10%;
   }
- /* 大赛目标 */
+ /* 澶ц禌鐩爣 */
  .JMHome .JMdasaimubiao{
    margin-top:80px;
  }
- /*   灰色背景  */
+ /*   鐏拌壊鑳屾櫙  */
 .JMHome .JMdasaimubiao .JMgrayBG{
   width:100%; height:130px;background:#4A4A4A;
 }
 .JMHome .JMdasaimubiao .JMDasaiBox1{
-  width:85%; height:265px;background:#ECC95D;margin:-80px auto 10px;padding-top:15px;
+  width:85%; height:265px;background:#47a8a9;margin:-80px auto 10px;padding-top:15px;
 }
 .JMHome .JMdasaimubiao .JMDasaiBox1 .JMTitle{
   color: #4A4A4A;
@@ -164,9 +186,9 @@ img {
 	margin-top:-320px;
 
 }
-/* 大赛目标第二个盒子 */
+/* 澶ц禌鐩爣绗簩涓洅瀛� */
 .JMHome .JMdasaimubiao .JMDasaiBox2{
-  width:70%; height:290px;background:#ECC95D;margin-top:80px;margin-left:22.5%;
+  width:70%; height:290px;background:#47a8a9;margin-top:80px;margin-left:22.5%;
 }
 .JMHome .JMdasaimubiao .JMDasaiBox2 .JMDasaiBox2Div1{
 	
@@ -231,16 +253,16 @@ img {
     margin-top:60px;
 }
 
-/* 新闻动态 */
+/* 鏂伴椈鍔ㄦ�� */
 .JMNewsInformation{
   width: 100%;height:450px; background-color: #4A4A4A; margin: 40px auto;
 	display: inline-block;
 }
 .JMNewsInformation section{
-  color: #ECC95D; font-size: 24pt; padding-top: 30px; margin-left: 50px;
+  color: #47a8a9; font-size: 24pt; padding-top: 30px; margin-left: 50px;
 	display: inline-block;
 }
-/* 新闻动态 */
+/* 鏂伴椈鍔ㄦ�� */
 .JMNewsInformation #JMList{
   height:220px;text-align:center;padding-top:10px;
 	font-size: 0px;
@@ -260,7 +282,7 @@ img {
     margin: 0 0px 10px 0px;
     font-size: 20px;
     color: #6d6d6d;
-		background: #ECC95D;
+		background: #47a8a9;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
@@ -271,7 +293,7 @@ img {
     position: relative;
     top: -270px;
     left: -219px;
-    background: #ECC95D;
+    background: #47a8a9;
 }
  #JMTCenter{
     text-align: center!important;
@@ -281,7 +303,7 @@ img {
     height: 50px;
     line-height: 50px;
     display: inline-block;
-    background: #ECC95D;
+    background: #47a8a9;
     font-size: 20px;
     text-align: center;
     color: #fff;
@@ -289,7 +311,7 @@ img {
 }
 /*==========================================================================================================*/
 @media only screen and (max-width: 1024px) and (max-height: 768px) {
-	/* 大图展示 */
+	/* 澶у浘灞曠ず */
 	.JMHome {
 		margin: 0 auto;
 		max-width: 1280px;
@@ -337,13 +359,13 @@ img {
 	}
 	
 	.JMHome #JMItem .JMPhotosDiv {
-	 width:44%;height:225px;background:#ECC95D;
+	 width:44%;height:225px;background:#47a8a9;
 	 position: relative;
 	 top: -110px;
 	 left: 100px;
 	}
 	
-	/* 大赛目标 */
+	/* 澶ц禌鐩爣 */
 	
 	.JMHome .JMdasaimubiao .JMDasaiBox1 .JMTitle {
 		color: #4A4A4A;
@@ -352,7 +374,7 @@ img {
 		text-align: left;
 	}
 	/*
-	 	大赛目标的一个div
+	 	澶ц禌鐩爣鐨勪竴涓猟iv
 	 */
 	
 	#JMList {
@@ -365,7 +387,7 @@ img {
 		margin: 1.1%;
 	}
 	/*
-	  长沙-媒体艺术之都
+	  闀挎矙-濯掍綋鑹烘湳涔嬮兘
 	 */
 	 .JMHome #JMItem .ChangshaDiv{
 	  	width: 80%;
@@ -383,21 +405,21 @@ img {
 	  .JMHome #JMItem .JMYellowDiv{
 	  	width: 150px;
 	    height: 60px;
-	    background: #ECC95D;
+	    background: #47a8a9;
 	    position: absolute;
 	    bottom: -30px;
 	    left: 10%;
 	  }
-	 /* 大赛目标 */
+	 /* 澶ц禌鐩爣 */
 	 .JMHome .JMdasaimubiao{
 	   margin-top:80px;
 	 }
-	 /*   灰色背景  */
+	 /*   鐏拌壊鑳屾櫙  */
 	.JMHome .JMdasaimubiao .JMgrayBG{
 	  width:100%; height:130px;background:#4A4A4A;
 	}
 	.JMHome .JMdasaimubiao .JMDasaiBox1{
-	  width:85%; height:265px;background:#ECC95D;margin:-80px auto 10px;padding-top:15px;
+	  width:85%; height:265px;background:#47a8a9;margin:-80px auto 10px;padding-top:15px;
 	}
 	.JMHome .JMdasaimubiao .JMDasaiBox1 .JMTitle{
 	  color: #4A4A4A;
@@ -420,9 +442,9 @@ img {
 		margin-top:-320px;
 	
 	}
-	/* 大赛目标第二个盒子 */
+	/* 澶ц禌鐩爣绗簩涓洅瀛� */
 	.JMHome .JMdasaimubiao .JMDasaiBox2{
-	  width:70%; height:285px;background:#ECC95D;margin-top:80px;margin-left:22.5%;
+	  width:70%; height:285px;background:#47a8a9;margin-top:80px;margin-left:22.5%;
 	}
 	.JMHome .JMdasaimubiao .JMDasaiBox2 .JMDasaiBox2Div1{
 		
@@ -487,16 +509,16 @@ img {
 	    margin-top:60px;
 	}
 	
-	/* 新闻动态 */
+	/* 鏂伴椈鍔ㄦ�� */
 	.JMNewsInformation{
 	  width: 100%;height:450px; background-color: #4A4A4A; margin: 40px auto;
 		display: inline-block;
 	}
 	.JMNewsInformation section{
-	  color: #ECC95D; font-size: 24pt; padding-top: 30px; margin-left: 50px;
+	  color: #47a8a9; font-size: 24pt; padding-top: 30px; margin-left: 50px;
 		display: inline-block;
 	}
-	/* 新闻动态 */
+	/* 鏂伴椈鍔ㄦ�� */
 	.JMNewsInformation #JMList{
 	  height:220px;text-align:center;padding-top:10px;
 		font-size: 0px;
@@ -516,7 +538,7 @@ img {
 	    margin: 0 0px 10px 0px;
 	    font-size: 20px;
 	    color: #6d6d6d;
-			background: #ECC95D;
+			background: #47a8a9;
 	    text-overflow: ellipsis;
 	    overflow: hidden;
 	    white-space: nowrap;
@@ -527,7 +549,7 @@ img {
 	    position: relative;
 	    top: -270px;
 	    left: -162px;
-	    background: #ECC95D;
+	    background: #47a8a9;
 	}
 	 #JMTCenter{
 	    text-align: center!important;
@@ -537,16 +559,13 @@ img {
 	    height: 50px;
 	    line-height: 50px;
 	    display: inline-block;
-	    background: #ECC95D;
+	    background: #47a8a9;
 	    font-size: 20px;
 	    text-align: center;
 	    color: #fff;
 	    border: none;
 	}
 }
-
-
-
 
 /*
  * footer
@@ -555,7 +574,7 @@ img {
 .JMFooter {
 	height: 80px;
 	line-height: 80px;
-	background: #ECC95D;
+	background: #363636;
 	color: #fff;
 	text-align: center;
 }

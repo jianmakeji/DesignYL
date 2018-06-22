@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta content="webkit" name="renderer">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta name="keywords" content="长沙“媒体艺术之都”视觉形象设计大赛" />
-<meta name="description" content="长沙“媒体艺术之都”视觉形象设计大赛">
+<meta name="keywords" content="2018首届中国养老产品暨康复辅具设计大赛" />
+<meta name="description" content="2018首届中国养老产品暨康复辅具设计大赛">
 <base id="baseUrl" href="<%=request.getContextPath()%>/" />
-<title>长沙“媒体艺术之都”视觉形象设计大赛</title>
+<title>2018首届中国养老产品暨康复辅具设计大赛</title>

@@ -40,7 +40,7 @@
     </div> 
 	<div id="kkpager"></div>
 
-   	<div class="JMFooter">&copy;<spring:message code="JMFooter"/></div>
+   	<div class="JMFooter">&copy;养老产业集团</div>
 	<script>
 		var pageName = "news";
 	</script>

@@ -32,7 +32,7 @@
 		</div>
 	</form>
 
-	<div class="zyFooter">&copy;<spring:message code="JMFooter"/></div>
+	<div class="zyFooter">&copy;养老产业集团</div>
 	
 	<script>
 		var pageName = "setting";

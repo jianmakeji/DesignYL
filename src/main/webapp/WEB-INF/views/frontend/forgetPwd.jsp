@@ -35,7 +35,7 @@
 		</form>
 
 	</div>
-	<div class="zyFooter">&copy;</span><spring:message code="JMFooter"/></div>
+	<div class="zyFooter">&copy;</span>&copy;养老产业集团</div>
 	<%@ include file="loading.jsp"%>
 
 	<script>

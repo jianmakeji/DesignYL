@@ -17,7 +17,7 @@
 <body>
 
 	<%@ include file="header.jsp"%>
-	<div class="JMHome">
+	<%-- <div class="JMHome">
 		<div id="JMItem">
 			<img src="resources/frontend/images/JMImages/index1.jpeg">
 
@@ -29,9 +29,7 @@
 			<div class="JMYellowDiv"></div>
 		</div>
 
-		<!-- 大赛目标 -->
 		<div class="JMdasaimubiao">
-			<!-- 灰色背景 -->
 	        <div class="JMgrayBG"></div>
 			<div class="JMDasaiBox1">
 	            <h1 class="JMTitle"><spring:message code="contest_target"/></h1>
@@ -39,7 +37,6 @@
 	            <p class="JMDasaiBox1Content2"><spring:message code="contest_target_box1_Content2"/></p>
 	            <p class="JMDasaiBox1Content3"><spring:message code="contest_target_box1_Content3"/></p>
 	        </div>
-			<!-- 蓝色框 -->
 			<div class="JMDasaiPhoto1">
 				<img class="JMBlueImg" src="resources/frontend/images/JMImages/index2.jpeg" />
 			</div>
@@ -75,10 +72,55 @@
 		<div id="JMTCenter">
 			<a id="JMBtn" style="margin: 20px auto;" href="news/news/1"><spring:message code="JMmore"/> >></a>
 		</div>
-	</div>
-	<img src="resources/frontend/images/JMImages/index8.png" />
+	</div> 
+	<img src="resources/frontend/images/JMImages/index8.png" /> --%>
+	<div class="zyTopShow">
+         <div class="zyItem">
+             <img src="resources/frontend/images/app/topShow.jpg">
+         </div>
+     </div>
+     <img src="resources/frontend/images/app/schedule.jpg">
+      <%-- <div class="JMNewsInformation">
+			<section>NEWS | 新闻动态</section>
+			<div class="">
+				<ul id="JMList">
+					
+					<c:forEach items="${newsList}" var="item">
+						<li class="JMItem">
+							<a class="JMLink" href="news/newsDetail/${item.id}" target="_blank"> <img class="JMThumb" src="${item.thumb}">
+							<h3 class="JMTitle">${item.title}</h3> <span class="JMDate">${fn:substring(item.publishTime, 0, 10)}</span>
+						</a></li>
+					</c:forEach>
+				</ul>
+			</div>
+		</div> --%>
+		<div style="width: 100%; background-color: #f7f7f7">
+             <section style="color: #5c5c5c; font-size: 32pt; padding-top: 50px; margin-left: 50px">NEWS | 新闻动态</section>
+                 <ul class="zyList">
+                 	<!--<li class="zyItem">
+					          <a class="zyLink">
+					              <img class="zyThumb" src="data/images/news.png">
+					              <h3 class="zyTitle">湖南省老年服务产品设计大赛</h3>
+					              <span class="zyDate">2019-09-09</span>
+					          </a>
+					      </li>-->
 
-	<div class="JMFooter">&copy;<spring:message code="JMFooter"/></div>
+	         <c:forEach items="${newsList}" var="item">
+	             <li class="zyItem">
+	                 <a class="zyLink" href="news/newsDetail/${item.id}" target="_blank"> <img class="zyThumb" src="${item.thumb}">
+	                     <h3 class="zyTitle">${item.title}</h3> <span class="zyDate">${fn:substring(item.publishTime, 0, 10)}</span>
+	                 </a>
+	             </li>
+	         </c:forEach>
+	     </ul>
+	
+	     <div id="JMTCenter">
+			<a id="JMBtn" style="margin: 20px auto;" href="news/news/1"><spring:message code="JMmore"/> >></a>
+		</div>
+
+
+                    </div>
+	<div class="JMFooter">&copy;养老产业集团</div>
 
 	<script>
 		var pageName = "index";

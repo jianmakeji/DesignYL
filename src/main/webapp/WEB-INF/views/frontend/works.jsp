@@ -36,7 +36,7 @@
 	<div id="kkpager"></div>
 
 
-    <div class="zyFooter">&copy;<spring:message code="JMFooter"/></div>
+    <div class="zyFooter">&copy;养老产业集团</div>
     
 	<%@ include file="loading.jsp"%>
 

@@ -4,7 +4,7 @@
 <div class="JMHeader">
 
 	<div class="JMLogo">
-		<a href=""><img alt="" src="resources/frontend/images/JMImages/indexLogo.png"></a>
+		<a href=""><img alt="" src="resources/frontend/images/app/Logo.jpg"></a>
 	</div>
 	<div class="JMNoticeBoard">
 		<div class="JMNoticeBoardLeft">
@@ -19,10 +19,10 @@
 	</div>
 	<div class="JMTopNav">
 		<ul class="JMMenu">
+			<li class="JMItem"><a class="JMLink" href="judge/judge" data-page-name="judge"></a></li>
 			<li class="JMItem"><a class="JMLink" href="index" data-page-name="index"><spring:message code="home"/></a></li>
 			<li class="JMItem"><a class="JMLink" href="news/news/1" data-page-name="news"><spring:message code="news"/></a></li>
 			<li class="JMItem"><a class="JMLink" href="rule/rules" data-page-name="rule"><spring:message code="regulations"/></a></li>
-			<li class="JMItem"><a class="JMLink" href="judge/judge" data-page-name="judge"><spring:message code="jury"/></a></li>
 		</ul>
 
 		<ul class="JMUserMenu">

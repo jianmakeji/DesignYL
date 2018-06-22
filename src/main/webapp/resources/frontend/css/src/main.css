@@ -36,7 +36,7 @@ img{
     border: none;
 }
 /*
- * 头部
+ * 澶撮儴
  *
  */
 .JMHeader {
@@ -48,13 +48,13 @@ img{
 	z-index: 99;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 	/*
-      背景图片设置
+      鑳屾櫙鍥剧墖璁剧疆
  
 	background: url("../../../images/JMImages/indexLogo.png")no-repeat top left;
   background-size:68% 80%;    */
 }
 /*
-  logo图片设置
+  logo鍥剧墖璁剧疆
 
  */
 .JMHeader .JMLogo {
@@ -72,10 +72,10 @@ img{
 	max-height: 100%;
 	max-width: 100%;
 }
-/*报名时间*/
+/*鎶ュ悕鏃堕棿*/
 .JMHeader .JMNoticeBoard {
-	border: 1px solid #ECC95D;
-	background-color: #ECC95D;
+	border: 1px solid #47a8a9;
+	background-color: #47a8a9;
 	width: 240px;
 	height: 60px;
 	position: absolute;
@@ -83,7 +83,7 @@ img{
 	right: 20px;
 }
 .JMHeader .JMNoticeBoard .JMNoticeBoardLeft {
-	color: #ECC95D;
+	color: #47a8a9;
 	font-size: 12px;
 	margin: auto;
 	text-align: center;
@@ -124,12 +124,12 @@ img{
 	transform: translate(-50%, -50%);
 }
 .JMHeader .JMNoticeBoard .JMNoticeBoardRight .countDown {
-	color: #ECC95D;
+	color: #47a8a9;
 	font-size: 36px;
 	display: block;
 	line-height: 1em;
 }
-/*li选项*/
+/*li閫夐」*/
 .JMHeader .JMTopNav{
   width: 50%;
     height: 50px;
@@ -156,29 +156,29 @@ img{
 	text-align: center;
 	line-height: 50px;
 	cursor: pointer;
-	color: #ECC95D;
+	color: #47a8a9;
 	position: relative;
 }
 .JMMenu .JMItem .JMLink::before {
 	content: "";
 	width: 100%;
 	height: 0;
-	/* 选项下方颜色配置 */
-	background: #ECC95D;
+	/* 閫夐」涓嬫柟棰滆壊閰嶇疆 */
+	background: #47a8a9;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	transition: all 0.2s ease-out;
 }
-/*li下面的弹出效果*/
+/*li涓嬮潰鐨勫脊鍑烘晥鏋�*/
 .JMMenu .JMItem .JMLink:hover::before,
 .JMMenu .JMItem .JMLink.JMActive::before {
 	color: #fff;
-	/* 与上方配置一样 */
-	background: #ECC95D;
+	/* 涓庝笂鏂归厤缃竴鏍� */
+	background: #47a8a9;
 	height: 8px;
 }
-/*	登陆部分	*/
+/*	鐧婚檰閮ㄥ垎	*/
 .JMUserMenu {
 	display: inline-block;
 	height: 100%;
@@ -196,19 +196,19 @@ img{
 	color: #6d6d6d;
 	padding: 0px 0px 0px 10px;
 }
-/* [ gansiqu ] 样式*/
+/* [ gansiqu ] 鏍峰紡*/
 .JM20C7BE {
-	color: #ECC95D!important;
+	color: #47a8a9!important;
 }
-/*登陆按钮样式*/
+/*鐧婚檰鎸夐挳鏍峰紡*/
 .JMUserMenu .JMItem .JMLink.JMIconUser {
 	width: 50px;
 	height: 45px;
-	border-left: #ECC95D 1px solid;
+	border-left: #47a8a9 1px solid;
 	background-size: 60%;
 }
 .JMIconUser {
-	background-color:#ECC95D;
+	background-color:#47a8a9;
 	background-image:url(../../images/JMImages/iconUser.png);
 	background-position:center center;
 	background-repeat: no-repeat;
@@ -219,7 +219,7 @@ img{
     height: 30px;
     line-height: 30px;
     display: inline-block;
-    background: #ECC95D;
+    background: #47a8a9;
     font-size: 16px;
     text-align: center;
     color: #fff;
@@ -233,14 +233,14 @@ img{
     background: #f4f4f4!important;
 }
 .zyFF0000{
-    color: #ECC95D;
+    color: #47a8a9;
 }
 .zy20C7BE{
-    color: #ECC95D!important;
+    color: #47a8a9!important;
 }
 .zyFooter{
     height: 80px;
-    background: #ECC95D;
+    background: #47a8a9;
     color: #fff;
     text-align: center;
     line-height: 80px;
@@ -290,7 +290,7 @@ img{
 .zyPanel .zyPanelTitle{
     font-size: 18px;
     margin: 20px 0px;
-    color: #ECC95D;
+    color: #47a8a9;
 }
 /**
 *loading
@@ -379,7 +379,7 @@ img{
     float: right;
     height: 32px;
     line-height: 32px;
-    color: #ECC95D;
+    color: #47a8a9;
     font-size: 16px;
     position: absolute;
     top: 0px;
@@ -600,13 +600,13 @@ img{
     color: #6d6d6d;
 }
 .zyPageMenu .zyItem .zyLink:hover,.zyPageMenu .zyItem .zyLink.zyActive{
-    color: #ECC95D;
+    color: #47a8a9;
 }
 
 
 /**************************lists**************************/
 /**
-*妫ｆ牠銆夐弬浼存閿涳拷3娑撶導tem娑擄拷鐞涳拷
+*濡絾鐗犻妴澶愬棘娴煎瓨顦柨娑虫嫹3濞戞挾灏巘em濞戞搫鎷烽悶娑虫嫹
 */
 /**/
 #zyList{
@@ -636,7 +636,7 @@ img{
     font-size: 14px;
 }
 /**
-*閺備即妞堟い闈涘灙鐞涳拷
+*闁哄倷鍗冲鍫熴亜闂堟稑鐏欓悶娑虫嫹
 */
 .zyList1{
     margin: 60px 50px 60px 50px;
@@ -665,7 +665,7 @@ img{
     line-height:30px;
 }
 /**
-*鐠囧嫬顫�
+*閻犲洤瀚～锟�
 */
 .zyList2{
     font-size: 0px;
@@ -710,7 +710,7 @@ img{
     line-height:30px;
 }
 /**
-* 鐠囧嫬顓搁崚鐑斤拷锟�
+* 閻犲洤瀚鎼佸礆閻戞枻鎷烽敓锟�
 */
 .zyList3{
     margin: 30px 0px 10px 0px;
@@ -727,7 +727,7 @@ img{
 .zyList3 .zyItem:hover,.zyList3 .zyItem.zyActive{
     color: #e9608d;
 }
-/***************************妫ｆ牠銆夋い鍫曞劥婢堆冩禈**********************/
+/***************************濡絾鐗犻妴澶嬨亜閸洖鍔ュ鍫嗗啯绂�**********************/
 .zyTopShow{
     overflow: hidden;
     position: relative;
@@ -779,7 +779,7 @@ img{
     text-decoration: underline;
     color: #fff;
 }
-/********************************************鐠囧嫬顫欑拠锔藉剰******************************/
+/********************************************閻犲洤瀚～娆戞嫚閿旇棄鍓�******************************/
 .zyJudgeDetail{
 	max-width:1100px;
     margin: 60px auto;
@@ -806,12 +806,12 @@ img{
 .zyJudgeDetail .zyInfo .zyTitle{
     font-size: 24px;
     margin: 10px 0px;
-    color: #ECC95D;
+    color: #47a8a9;
     font-weight: normal;
 }
 .zyJudgeDetail .zyInfo .zySubTitle{
     font-size: 17px;
-    color: #ECC95D;
+    color: #47a8a9;
     font-weight: normal;
     margin: 0px;
 }
@@ -842,7 +842,7 @@ img{
 }
 
 
-/*********************************************缁旂姷鈻�*****************************/
+/*********************************************缂佹梻濮烽埢锟�*****************************/
 .zyRuleDetail{
     margin: 60px 0px;
 }
@@ -929,16 +929,16 @@ img{
     border:1px solid #e9608d;
 }
 
-/******************娑撳﹣绱舵い鐢告桨****************************************************/
+/******************濞戞挸锕ｇ槐鑸点亜閻㈠憡妗�****************************************************/
 .zyTipPanel{
 
 }
 .zyTipPanel .zyTitle {
     margin: 0px;
-    color: #ECC95D;
+    color: #47a8a9;
 }
 .zyTipPanel .zySubTitle{
-    color: #ECC95D;
+    color: #47a8a9;
     margin: 30px 0px 0px 0px;
 }
 .zyStep{
@@ -951,7 +951,7 @@ img{
     color:#656464;
 }
 .zyStep .zyStepItem.zyActive{
-    color: #ECC95D;
+    color: #47a8a9;
 }
 .zyStepPanel{
 	max-width:1280px;
@@ -964,12 +964,12 @@ img{
 .zyWorkDetail .zyTitle{
 	text-align: center;
     font-size: 24px;
-    color: #ECC95D;
+    color: #47a8a9;
 }
 .zyWorkDetail .zyAuthor{
 	text-align: center;
     font-size: 16px;
-    color: #ECC95D;
+    color: #47a8a9;
 }
 .zyWorkDetail .zyText{
     text-indent: 2em;
@@ -978,18 +978,18 @@ img{
 }
 .zyWorkDetail .slogan{
         font-size: 30px;
-        color:#ECC95D;
+        color:#47a8a9;
     font-weight: bold;
     line-height: 1.5em;
         text-align: center
 }
-/******************閺備即妞堢拠锔藉剰**********************************/
+/******************闁哄倷鍗冲鍫㈡嫚閿旇棄鍓�**********************************/
 .zyPostDetail{
 	max-width:1280px;
 	margin:40px auto;
 }
 .zyPostDetail .zyTitle{
-    color: #ECC95D;
+    color: #47a8a9;
     font-size: 20px;
     margin: 0px;
     text-align:center;
@@ -1009,7 +1009,7 @@ img{
     line-height: 1.5em;
 }
 
-/*********************************鐟曞棗鍟撻崚鍡涖�夐幒褌娆㈤弽宄扮础*******************************/
+/*********************************閻熸洖妫楅崯鎾诲礆閸℃稏锟藉骞掕濞嗐垽寮藉畡鎵*******************************/
 #kkpager{
 	marin:50px auto;
     font-size: 14px;
@@ -1024,7 +1024,7 @@ img{
 }
 #kkpager span.curr{
     border: none;
-    color: #ECC95D;
+    color: #47a8a9;
     background: none;
 }
 #kkpager a{
@@ -1036,11 +1036,11 @@ img{
 }
 #kkpager a:hover{
     background: none;
-    color: #ECC95D;
+    color: #47a8a9;
     border: none;
 }
 
-/************************************************鐠囧嫬顫欐い鐢告桨******************************/
+/************************************************閻犲洤瀚～娆愩亜閻㈠憡妗�******************************/
 .zyScoreContainer{
     position: absolute;
     right:20px;
@@ -1066,7 +1066,7 @@ img{
 }
 
 .zyStepTip .zyText span{
-	color:#ECC95D;
+	color:#47a8a9;
 }
 
 .zyFormRow label{
