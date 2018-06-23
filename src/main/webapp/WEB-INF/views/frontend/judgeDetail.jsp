@@ -23,7 +23,7 @@
 		</div>
 	</div>
 
-	<div class="zyFooter">&copy;&copy;养老产业集团</div>
+	<div class="zyFooter">&copy;&copy;湖南省康复辅具技术指导中心</div>
 
 
 	<script>

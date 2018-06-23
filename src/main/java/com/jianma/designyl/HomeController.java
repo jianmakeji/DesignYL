@@ -78,15 +78,11 @@ public class HomeController extends DcController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(Locale locale, Model model,HttpServletRequest request) {
 		try {
-			int language = 0;
 			int top = 0;
 			if(request.getParameter("top") != null){
 				top = Integer.parseInt(request.getParameter("top"));
 			}
 			
-		    if (!request.getHeader("ACCEPT-LANGUAGE").contains("zh-CN")){
-		    	language = 1;
-		    }
 			List<News> newsList = newsServiceImpl.getTopNews(top);
 			ModelAndView modelView = new ModelAndView();
 			modelView.setViewName("/frontend/index");
