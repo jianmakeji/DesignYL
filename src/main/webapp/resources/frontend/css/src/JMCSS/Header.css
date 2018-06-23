@@ -44,6 +44,7 @@
 	position: absolute;
 	top: 20px;
 	right: 20px;
+	    display: none;
 }
 .JMHeader .JMNoticeBoard .JMNoticeBoardLeft {
 	color: #47a8a9;
@@ -94,7 +95,7 @@
 }
 /*li閫夐」*/
 .JMHeader .JMTopNav{
-  width: 50%;
+  width: 40%;
     height: 50px;
     position: absolute;
     right:0;
@@ -104,23 +105,24 @@
 .JMMenu{
     height: 100%;
     font-size: 14px;
-    margin-right:20px;
+    /* margin-right:20px; */
     flex: 1;
 }
 .JMMenu .JMItem{
-  width: 24%;
+  width: 15%;
 	list-style: none;
 	display: inline-block;
 }
 .JMMenu .JMItem .JMLink {
-	font-size: 18px;
+	font-size: 14px;
 	display: block;
 	width: 100%;
 	text-align: center;
 	line-height: 50px;
 	cursor: pointer;
-	color: #e9608d;
+	color: #6d6d6d;
 	position: relative;
+	    left: 160px;
 }
 .JMMenu .JMItem .JMLink::before {
 	content: "";
@@ -138,8 +140,8 @@
 .JMMenu .JMItem .JMLink.JMActive::before {
 	color: #fff;
 	/* 涓庝笂鏂归厤缃竴鏍� */
-	background: #e9608d;
-	height: 8px;
+	background: #6d6d6d;
+	height: 5px;
 }
 /*	鐧婚檰閮ㄥ垎	*/
 .JMUserMenu {
@@ -161,17 +163,17 @@
 }
 /* [ gansiqu ] 鏍峰紡*/
 .JM20C7BE {
-	color: #e9608d!important;
+	color: #6d6d6d!important;
 }
 /*鐧婚檰鎸夐挳鏍峰紡*/
 .JMUserMenu .JMItem .JMLink.JMIconUser {
-	width: 50px;
-	height: 45px;
-	border-left: #e9608d 1px solid;
+	width: 35px;
+	height: 40px;
+	border-left: #6d6d6d 1px solid;
 	background-size: 60%;
 }
 .JMIconUser {
-	background-color:#e9608d;
+	background-color:#6d6d6d;
 	background-image:url(../../../images/JMImages/iconUser.png);
 	background-position:center center;
 	background-repeat: no-repeat;
