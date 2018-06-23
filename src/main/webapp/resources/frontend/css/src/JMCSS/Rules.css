@@ -35,22 +35,21 @@ img{
  */
 /*右侧锚点*/
 /*右侧锚点*/
-.JMRuleTip{
+/* .JMRuleTip{
     position: fixed;
     right: 10%;
     top:150px;
-    /* border-left:1px solid #6d6d6d; 
-    padding: 30px 0px;*/
+    border-left:1px solid #6d6d6d; 
+    padding: 30px 0px;
 }
 
 .JMRuleTip .JMItem{
     display: block;
     list-style: square;
-    margin: 25px 0px;
+    margin: 20px 0px;
     padding-left: 30px;
     position: relative;
     cursor: pointer;
-    bottom: 10px;
 }
 .JMRuleTip .JMItem .JMLink{
     color: #6d6d6d;
@@ -63,6 +62,43 @@ img{
 }
 .JMRuleTip .JMItem .JMLink.JMActive:before{
     border:1px solid #e9608d;
+}
+ */
+.JMRuleTip{
+    position: fixed;
+    right: 10%;
+    top:180px;
+    border-left:1px solid #6d6d6d;
+    padding: 30px 0px;
+}
+.JMRuleTip .JMItem{
+    display: block;
+    list-style: square;
+    margin: 20px 0px;
+    padding-left: 30px;
+    position: relative;
+    cursor: pointer;
+}
+.JMRuleTip .JMItem:before{
+    content: "";
+    border:1px solid #6d6d6d;
+    background: #fff;
+    border-radius: 20px;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left:-6.5px;
+    top:5px;
+}
+.JMRuleTip .JMItem .JMLink{
+    color: #6d6d6d;
+}
+.JMRuleTip .JMItem.JMActive .JMLink{
+    color: #47a8a9;
+}
+
+.JMRuleTip .JMItem.JMActive:before{
+    border:1px solid #47a8a9;
 }
 
 /*正文文本*/

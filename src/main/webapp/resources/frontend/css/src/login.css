@@ -17,7 +17,7 @@ a{
 }
 .pCenter{
     position: absolute;
-    height: 450px;
+    height: 350px;
     width: 400px;
     background:#fff;
     left:50%;
@@ -28,7 +28,7 @@ a{
 .tCenter{
     text-align: center;
 }
-.logo{
+/* .logo{
     display: block;
     font-size: 0px;
     width: 100%;
@@ -39,7 +39,7 @@ a{
     transform: translateX(-100%);
     background-image: url(../../images/JMImages/indexLogo.png);
     background-size: cover;
-}
+} */
 .logo .glyphicon{
     font-size: 40px;
     position: absolute;
@@ -48,7 +48,7 @@ a{
     transform: translate(-50%,-50%);
     color: #fff;
 }
-.logoBottom{
+/* .logoBottom{
     display: block;
     font-size: 0px;
     width: 100%;
@@ -59,7 +59,7 @@ a{
     transform: translateX(-100%);
     background-image: url(../../images/JMImages/index8.png);
     background-size: cover;
-}
+} */
 .logoBottom .glyphicon{
     font-size: 40px;
     position: absolute;
@@ -70,7 +70,7 @@ a{
 }
 .appTitle{
     text-align: center;
-    margin: 50px 0px 50px 0px;
+    /* margin: 50px 0px 50px 0px; */
     font-size: 30px;
     color: #6d6d6d;
     transform: translateX(0px) translateY(30px);

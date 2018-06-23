@@ -44,7 +44,7 @@ img{
 	top: 0;
 	left: 0;
 	right: 0;
-	height: 160px;
+	height: 140px;
 	z-index: 99;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 	/*
@@ -156,7 +156,7 @@ img{
 	text-align: center;
 	line-height: 50px;
 	cursor: pointer;
-	color: #47a8a9;
+	color: #EC66A1;
 	position: relative;
 }
 .JMMenu .JMItem .JMLink::before {
