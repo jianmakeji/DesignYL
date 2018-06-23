@@ -13,15 +13,22 @@
 	<%@ include file="header.jsp"%>
 	<div class="JMRule">
 		<ul class="JMRuleTip" id="JMRuleTip">
-
-			<li class="JMItem"><a class="JMLink JMActive" data-href="#JMSection1"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">大赛介绍</a></li>
+			<li class="JMItem JMActive"><a class="JMLink" data-href="#JMSection1">大赛介绍</a></li>
+			<li class="JMItem"><a class="JMLink" data-href="#JMSection2">大赛目的</a></li>
+			<li class="JMItem"><a class="JMLink" data-href="#JMSection3">组织机构</a></li>
+			<li class="JMItem"><a class="JMLink" data-href="#JMSection4">大赛流程</a></li>
+			<li class="JMItem"><a class="JMLink" data-href="#JMSection5">作品征集</a></li>
+			<li class="JMItem"><a class="JMLink" data-href="#JMSection6">评选评审</a></li>
+			<li class="JMItem"><a class="JMLink" data-href="#JMSection7">奖项设置</a></li>
+			<li class="JMItem"><a class="JMLink" data-href="#JMSection8">承诺、保证与权利约定</a></li>
+			<!-- <li class="JMItem"><a class="JMLink JMActive" data-href="#JMSection1"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">大赛介绍</a></li>
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection2"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">大赛目的</a></li>
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection3"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">组织机构</a></li>
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection4"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">大赛流程</a></li>
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection5"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">作品征集</a></li>
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection6"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">评选评审</a></li>
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection7"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">奖项设置</a></li>
-			<li class="JMItem"><a class="JMLink" data-href="#JMSection8"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">承诺、保证与权利约定</a></li>
+			<li class="JMItem"><a class="JMLink" data-href="#JMSection8"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">承诺、保证与权利约定</a></li> -->
 		</ul>
 
 		<div class="JMRuleDetail">
@@ -52,7 +59,7 @@
 					<div class="JMSubTitle">指导单位</div>
 					<p class="JMText">国家康复辅具研究中心、中国社会福利与养老服务协会、中国社会福利基金会</p>
 					<div class="JMSubTitle">主办单位</div>
-					<p class="JMText">南省民政厅</p>
+					<p class="JMText">湖南省民政厅</p>
 					<div class="JMSubTitle">承办单位</div>
 					<p class="JMText">湖南省康复辅具技术指导中心、湖南康乃馨养老产业集团、湖南大学设计艺术学院、湖南省工业设计协会</p>
 					<div class="JMSubTitle">支持单位</div>
@@ -200,17 +207,14 @@
 
 						return flag;
 					}
-					$("#JMRuleTip .JMItem").click(
-							function() {
-								var targetId = $(this).find(".JMLink").data(
-										"href");
-								$(".JMRuleTip .JMItem .JMActive").removeClass(
-										"JMActive");
-								$(this).find(".JMLink").addClass("JMActive");
-								$('html,body').animate({
-									scrollTop : $(targetId).offset().top + 10
-								}, 500);
-							});
+					$("#JMRuleTip .JMItem").click(function() {
+						var targetId = $(this).find(".JMLink").data("href");
+						$("#JMRuleTip .JMActive").removeClass("JMActive");
+						$(this).addClass("JMActive");
+						$('html,body').animate({
+							scrollTop : $(targetId).offset().top + 10
+						}, 500);
+					});
 
 					$(".JMSection").each(function(index, el) {
 						scrollTops.push($(this).offset().top);
@@ -227,7 +231,7 @@
 
 									$("#JMRuleTip .JMActive").removeClass(
 											"JMActive");
-									$("#JMRuleTip .JMLink:eq(" + index + ")")
+									$("#JMRuleTip .JMItem:eq(" + index + ")")
 											.addClass("JMActive");
 								}, 100);
 							});
