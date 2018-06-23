@@ -44,7 +44,7 @@
 	     </ul>
 	
 	     <div id="JMTCenter">
-			<a id="JMBtn" style="margin-top: -15px;margin-bottom:30px;border-radius: 10px;" href="news/news/1"><spring:message code="JMmore"/> >></a>
+			<a id="JMBtn" style="margin-top: -15px;margin-bottom:45px;" href="news/news/1">查看更多</a>
 		</div>
 
 

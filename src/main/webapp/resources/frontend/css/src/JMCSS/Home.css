@@ -100,7 +100,8 @@ img {
  */
 .zyList{
     font-size: 0px;
-    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 .zyList .zyItem{
     width: 31%;
