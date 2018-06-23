@@ -36,7 +36,7 @@
 
 	         <c:forEach items="${newsList}" var="item">
 	             <li class="zyItem">
-	                 <a class="zyLink" href="news/newsDetail/${item.id}" target="_blank"> <img class="zyThumb" src="resources/frontend/images/app/1.jpg">
+	                 <a class="zyLink" href="news/newsDetail/${item.id}" target="_blank"> <img class="zyThumb" src="${item.thumb}">
 	                     <h3 class="zyTitle">${item.title}</h3> <span class="zyDate">${fn:substring(item.publishTime, 0, 10)}</span>
 	                 </a>
 	             </li>
