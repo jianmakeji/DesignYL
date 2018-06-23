@@ -23,7 +23,7 @@
 	</div>
 
 
-	<div class="zyFooter">&copy;湖南省康复辅具技术指导中心</div>
+	<div class="zyFooter">&copy;</div>
 
 	<script>
 		var pageName = "news";

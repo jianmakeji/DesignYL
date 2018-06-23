@@ -40,7 +40,7 @@
     </div> 
 	<div id="kkpager"></div>
 
-   	<div class="JMFooter">&copy;湖南省康复辅具技术指导中心</div>
+   	<div class="JMFooter">&copy;</div>
 	<script>
 		var pageName = "news";
 	</script>
