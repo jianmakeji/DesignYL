@@ -115,7 +115,7 @@
 	     </ul>
 	
 	     <div id="JMTCenter">
-			<a id="JMBtn" style="margin: 0 auto;" href="news/news/1"><spring:message code="JMmore"/> >></a>
+			<a id="JMBtn" style="margin: 15px auto;" href="news/news/1"><spring:message code="JMmore"/> >></a>
 		</div>
 
 
