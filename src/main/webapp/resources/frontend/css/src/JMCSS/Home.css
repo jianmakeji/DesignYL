@@ -100,17 +100,18 @@ img {
  */
 .zyList{
     font-size: 0px;
-    padding: 50px;
+    padding: 20px;
 }
 .zyList .zyItem{
     width: 31%;
     margin: 1.1%;
 }
 .zyList .zyItem .zyThumb{
-	
+	    width: 90%;
+    margin: 0 auto;
 }
 .zyList .zyItem .zyTitle{
-    margin: 20px 0px 10px 0px;
+    margin: 10px 20px;
     font-size: 18px;
     color: #6d6d6d;
     text-overflow: ellipsis;
@@ -118,6 +119,7 @@ img {
     white-space: nowrap;
 }
 .zyList .zyItem .zyDate{
+	    margin-left: 20px;
     color: #6d6d6d;
     font-size: 14px;
 }
@@ -299,12 +301,12 @@ img {
     text-align: center!important;
 }
 #JMBtn{
-	   width: 150px;
-    height: 50px;
-    line-height: 50px;
+	     width: 130px;
+    height: 40px;
+    line-height: 40px;
     display: inline-block;
     background: #47a8a9;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
     color: #fff;
     border: none;
