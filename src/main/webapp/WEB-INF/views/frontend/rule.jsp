@@ -21,14 +21,6 @@
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection6">评选评审</a></li>
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection7">奖项设置</a></li>
 			<li class="JMItem"><a class="JMLink" data-href="#JMSection8">承诺、保证与权利约定</a></li>
-			<!-- <li class="JMItem"><a class="JMLink JMActive" data-href="#JMSection1"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">大赛介绍</a></li>
-			<li class="JMItem"><a class="JMLink" data-href="#JMSection2"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">大赛目的</a></li>
-			<li class="JMItem"><a class="JMLink" data-href="#JMSection3"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">组织机构</a></li>
-			<li class="JMItem"><a class="JMLink" data-href="#JMSection4"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">大赛流程</a></li>
-			<li class="JMItem"><a class="JMLink" data-href="#JMSection5"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">作品征集</a></li>
-			<li class="JMItem"><a class="JMLink" data-href="#JMSection6"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">评选评审</a></li>
-			<li class="JMItem"><a class="JMLink" data-href="#JMSection7"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">奖项设置</a></li>
-			<li class="JMItem"><a class="JMLink" data-href="#JMSection8"><img src="resources/frontend/images/JMImages/sloganSmallImg.png">承诺、保证与权利约定</a></li> -->
 		</ul>
 
 		<div class="JMRuleDetail">
@@ -77,6 +69,10 @@
 					<span class="JMNum">04</span> <span class="JMText">大赛流程</span>
 				</div>
 				<div class="JMContent">
+					<div class="JMSubTitle">前期筹备</div>
+					<p class="JMText">2018年4月—6月上旬</p>
+					<div class="JMSubTitle">启动仪式</div>
+					<p class="JMText">2018年6月24日</p>
 					<div class="JMSubTitle">作品征集</div>
 					<p class="JMText">2018年6月24日—9月3日</p>
 					<div class="JMSubTitle">初评评审</div>
@@ -185,7 +181,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="JMFooter">&copy;</div>
+	<%@ include file="footer.jsp"%>
 	<script>
 		var pageName = "rule";
 	</script>

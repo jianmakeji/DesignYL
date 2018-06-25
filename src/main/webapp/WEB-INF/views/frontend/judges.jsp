@@ -29,7 +29,7 @@
 		</ul>
 	</div>
 
-	<div class="JMFooter">&copy;</div>
+	<%@ include file="footer.jsp"%>
 	<script>
 		var pageName = "judge";
 	</script>

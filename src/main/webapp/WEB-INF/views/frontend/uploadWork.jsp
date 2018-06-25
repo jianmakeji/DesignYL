@@ -9,6 +9,7 @@
 
 <link href="resources/css/lib/jquery.toastmessage.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/src/main.css" type="text/css" rel="stylesheet">
+<link href="resources/frontend/css/src/JMCSS/Header.css" type="text/css" rel="stylesheet">
 <style type="text/css">
 
 </style>
@@ -281,7 +282,7 @@
 		</div>
 	</div><br><br><br><br>
 
-    <div class="zyFooter">&copy;</div>
+    <%@ include file="footer.jsp"%>
 	<%@ include file="loading.jsp"%>
 	
 	<script>

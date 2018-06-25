@@ -6,6 +6,7 @@
     url('../../font/metabookce-caps.ttf'); /* IE9 */
 }
 body{
+	max-width:1280px;
     margin: 0px auto;
     padding: 0px;
     font-size: 14px;
@@ -39,7 +40,7 @@ img{
  * 澶撮儴
  *
  */
-.JMHeader {
+./* JMHeader {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -47,12 +48,12 @@ img{
 	height: 140px;
 	z-index: 99;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-	/*
+	
       鑳屾櫙鍥剧墖璁剧疆
  
 	background: url("../../../images/JMImages/indexLogo.png")no-repeat top left;
-  background-size:68% 80%;    */
-}
+  background-size:68% 80%;   
+} */
 /*
   logo鍥剧墖璁剧疆
 
@@ -131,11 +132,11 @@ img{
 }
 /*li閫夐」*/
 .JMHeader .JMTopNav{
-  width: 50%;
+  width: 40%;
     height: 50px;
     position: absolute;
-    right:0;
-    bottom:0;
+    right: 0;
+    bottom: 0;
     display: flex;
 }
 .JMMenu{
@@ -145,19 +146,20 @@ img{
     flex: 1;
 }
 .JMMenu .JMItem{
-  width: 24%;
-	list-style: none;
-	display: inline-block;
+  width: 15%;
+    list-style: none;
+    display: inline-block;
 }
 .JMMenu .JMItem .JMLink {
-	font-size: 18px;
-	display: block;
-	width: 100%;
-	text-align: center;
-	line-height: 50px;
-	cursor: pointer;
-	color: #EC66A1;
-	position: relative;
+	font-size: 14px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    color: #6d6d6d;
+    position: relative;
+    left: 160px;
 }
 .JMMenu .JMItem .JMLink::before {
 	content: "";
@@ -202,16 +204,16 @@ img{
 }
 /*鐧婚檰鎸夐挳鏍峰紡*/
 .JMUserMenu .JMItem .JMLink.JMIconUser {
-	width: 50px;
-	height: 45px;
-	border-left: #47a8a9 1px solid;
-	background-size: 60%;
+	width: 35px;
+    height: 40px;
+    border-left: #6d6d6d 1px solid;
+    background-size: 60%;
 }
 .JMIconUser {
-	background-color:#47a8a9;
-	background-image:url(../../images/JMImages/iconUser.png);
-	background-position:center center;
-	background-repeat: no-repeat;
+	    background-color: #6d6d6d;
+    background-image: url(../../images/JMImages/iconUser.png);
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 .zyBtn{
@@ -238,7 +240,7 @@ img{
 .zy20C7BE{
     color: #47a8a9!important;
 }
-.zyFooter{
+.JMFooter{
     height: 80px;
     background: #363636;
     color: #fff;

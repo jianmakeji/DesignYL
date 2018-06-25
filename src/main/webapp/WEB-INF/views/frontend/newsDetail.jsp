@@ -23,7 +23,7 @@
 	</div>
 
 
-	<div class="zyFooter">&copy;</div>
+	<%@ include file="footer.jsp"%>
 
 	<script>
 		var pageName = "news";
