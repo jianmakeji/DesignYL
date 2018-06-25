@@ -212,13 +212,13 @@ public class ProductionController  extends DcController{
 	@ResponseBody
 	@RequestMapping(value="/getListProductionByPage", method = RequestMethod.POST)
 	public ResultModel getListProductionByPage(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam int offset, @RequestParam int limit, @RequestParam(required=false) Integer groupId){
+			@RequestParam int offset, @RequestParam int limit, @RequestParam(required=false) Integer group){
 		
 		resultModel = new ResultModel();
 		try{
 			Subject subject = SecurityUtils.getSubject();
 			int userId = Integer.parseInt(subject.getSession().getAttribute("userId").toString());
-			PagingModel pagingModel = productionServiceImpl.getListOnlyProductionInfoByPage(offset, limit, groupId,userId);
+			PagingModel pagingModel = productionServiceImpl.getListOnlyProductionInfoByPage(offset, limit, group,userId);
 			resultModel.setResultCode(200);
 			resultModel.setObject(pagingModel);
 			resultModel.setSuccess(true);
