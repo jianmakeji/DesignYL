@@ -31,7 +31,7 @@ public interface ProductionService {
 	 * @param groupId 0:查看所有，>0 根据组别查询
 	 * @return
 	 */
-	public PagingModel getListOnlyProductionInfoByPage(int offset, int limit, int groupId,int userId);
+	public PagingModel getListOnlyProductionInfoByPage(int offset, int limit, int group,int userId);
 	
 	/**
 	 * 根据作品ID查看其详情
