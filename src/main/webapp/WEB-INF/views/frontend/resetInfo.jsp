@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="zyFormRow">
-				<label class="zyFormLabel"><spring:message code=""/>*</label>
+				<label class="zyFormLabel"><spring:message code="tel"/>*</label>
 				<div class="zyFormControl">
 					<input type="text" class="zyInput" name="mobile" value="${user.mobile}">
 				</div>

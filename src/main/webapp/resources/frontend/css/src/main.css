@@ -594,7 +594,7 @@ img{
 }
 .zyPageMenu .zyItem{
     width: 140px;
-    text-align: left;
+    text-align: center;
 }
 .zyPageMenu .zyItem .zyLink{
     height: 48px;

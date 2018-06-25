@@ -142,6 +142,12 @@ $(document).ready(function () {
             target.addClass("JMActive");
         }
     }
+    if (pageName) {
+        var target = $(".zyLink[data-page-name='" + pageName + "']");
+        if (target) {
+            target.addClass("zyActive");
+        }
+    }
 
 
     //zySelect控件
