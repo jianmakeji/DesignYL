@@ -31,9 +31,7 @@ public class Production implements java.io.Serializable {
 	private int userId;
 	private String content;
 	private String attachFile;
-	private byte fileType;
-	private String videoAddress;
-	private String h5Address;
+	private byte group;
 	private Date createTime;
 	private Float score;
 	private Byte status; //1.已提交、2.审核未通过、3.审核已通过、4.初选入围、5.初选未入围、6.复选入围、7复选未入围
@@ -63,17 +61,15 @@ public class Production implements java.io.Serializable {
 		this.attachFile = attachFile;
 	}
 
-	public Production(String title, int userId, byte fileType, String pimage, String content,String attachFile,
-			String videoAddress, String h5Address,Byte status,byte participantType, String participantName,
+	public Production(String title, int userId, byte group, String pimage, String content,String attachFile,
+			Byte status,byte participantType, String participantName,
 			String participantIdNumber, String participantBrief, String teamMember, Float score,
 			Date createTime) {
 		this.title = title;
 		this.userId = userId;
-		this.fileType = fileType;
+		this.group = group;
 		this.pimage = pimage;
 		this.content = content;
-		this.videoAddress = videoAddress;
-		this.h5Address = h5Address;
 		this.status = status;
 		this.participantType = participantType;
 		this.participantName = participantName;
@@ -135,31 +131,13 @@ public class Production implements java.io.Serializable {
 		this.attachFile = attachFile;
 	}
 
-	@Column(name = "fileType")
-	public byte getFileType() {
-		return fileType;
+	@Column(name = "group")
+	public byte getGroup() {
+		return group;
 	}
 
-	public void setFileType(byte fileType) {
-		this.fileType = fileType;
-	}
-
-	@Column(name = "videoAddress")
-	public String getVideoAddress() {
-		return videoAddress;
-	}
-
-	public void setVideoAddress(String videoAddress) {
-		this.videoAddress = videoAddress;
-	}
-
-	@Column(name = "h5Address")
-	public String getH5Address() {
-		return h5Address;
-	}
-
-	public void setH5Address(String h5Address) {
-		this.h5Address = h5Address;
+	public void setGroup(byte group) {
+		this.group = group;
 	}
 
 	@Column(name = "status")

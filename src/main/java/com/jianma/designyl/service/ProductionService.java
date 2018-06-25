@@ -21,7 +21,7 @@ public interface ProductionService {
 	 * @param groupId 0:查看所有，>0 根据组别查询
 	 * @return
 	 */
-	public PagingModel getListProductionByPage(int offset, int limit, int groupId,int round,int status,int fileType);
+	public PagingModel getListProductionByPage(int offset, int limit, int group,int round,int status);
 	
 	/**
 	 * 根据用户ID查看其投稿的所有作品,可以根据组别查询
@@ -42,7 +42,7 @@ public interface ProductionService {
 	
 	public void updateProductionScore(int round);
 	
-	public PagingModel getProductionPageByCondition(int groupId, int category, int status, int fileType, int userId, int round,int limit,
+	public PagingModel getProductionPageByCondition(int group, int status, int userId, int round,int limit,
 			int offset);
 	
 	public void updateProductionStatus(int id, int status);

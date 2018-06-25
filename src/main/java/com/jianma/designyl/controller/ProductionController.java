@@ -244,13 +244,13 @@ public class ProductionController  extends DcController{
 	@RequestMapping(value="/getDataTableProductionByPage", method = RequestMethod.POST)
 	public ListResultModel getDataTableProductionByPage(HttpServletRequest request, HttpServletResponse response,
 			 @RequestParam int offset, @RequestParam int limit,
-			 @RequestParam(required=false) Integer groupId,@RequestParam(required=false) Integer round,
-			 @RequestParam(required=false) Integer status,@RequestParam(required=false) int fileType){
+			 @RequestParam(required=false) Integer group,@RequestParam(required=false) Integer round,
+			 @RequestParam(required=false) Integer status){
 		
 		ListResultModel listResultModel = new ListResultModel();
 		try {
 			
-			PagingModel pagingModel = productionServiceImpl.getListProductionByPage(offset, limit, groupId, round, status,fileType);
+			PagingModel pagingModel = productionServiceImpl.getListProductionByPage(offset, limit, group, round, status);
 			
 			listResultModel.setAaData(pagingModel.getList());
 			
@@ -317,7 +317,7 @@ public class ProductionController  extends DcController{
 	@ResponseBody
 	@RequestMapping(value="/getProductionPageByCondition", method = RequestMethod.GET)
 	public ListResultModel getProductionPageByCondition(HttpServletRequest request, HttpServletResponse response, 
-			@RequestParam int groupId, @RequestParam int category, @RequestParam int status, int fileType,
+			@RequestParam int group, @RequestParam int status, 
 			@RequestParam int userId, @RequestParam int round, @RequestParam int iDisplayStart,
 			@RequestParam int iDisplayLength,@RequestParam String sEcho){
 		
@@ -334,7 +334,7 @@ public class ProductionController  extends DcController{
 			}
 
 			
-			PagingModel pagingModel = productionServiceImpl.getProductionPageByCondition(groupId, category, status, fileType, userId, round, iDisplayLength, iDisplayStart);
+			PagingModel pagingModel = productionServiceImpl.getProductionPageByCondition(group, status, userId, round, iDisplayLength, iDisplayStart);
 			
 			listResultModel.setAaData(pagingModel.getList());
 			
