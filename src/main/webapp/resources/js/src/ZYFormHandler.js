@@ -55,7 +55,6 @@ ZYFormHandler.prototype.submitFormWithJSON=function(form,data){
         $.extend(formObj,data);
     }
     functions.showLoading();
-    console.log('me.submitUrl',me.submitUrl);
     $.ajax({
         url:me.submitUrl,
         type:"post",
@@ -63,7 +62,6 @@ ZYFormHandler.prototype.submitFormWithJSON=function(form,data){
         contentType :"application/json; charset=UTF-8",
         data:JSON.stringify(formObj),
         success:function(response){
-        	console.log("res", response);
             if(response.success){
                 if(me.redirectUrl){
                     $().toastmessage("showSuccessToast",me.successMessage?

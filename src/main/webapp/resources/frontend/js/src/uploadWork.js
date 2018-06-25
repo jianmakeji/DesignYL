@@ -23,7 +23,7 @@ var uploadWork = (function (config, functions) {
                     workInfoPanel.find("textarea[name='videoAddress']").val(data.videoAddress);
                     workInfoPanel.find("textarea[name='content']").val(data.content);
                     workInfoPanel.find(".zyActionOtherImage").attr("src", data.pimage);
-                }else if(data.fileType == 3){
+                }else if(data.fileType == 2){
                     workInfoPanel.find("input[name='title']").val(data.title);
                     workInfoPanel.find("textarea[name='content']").val(data.content);
 //                  口号：slogan
@@ -145,26 +145,21 @@ $(document).ready(function () {
     uploader.init();
 
     uploader.bind('FilesAdded',function(uploader,files){
-    	console.log("======文件======",files);
-//    	uploader.settings.multipart_params.file = files;
-//    	that.vedioTitle = files[0].name;
-//    	that.progressModel = true;
+    	$().toastmessage("showSuccessToast","已添加文件，确认无误请上传");
     });
  
     uploader.bind('UploadProgress',function(uploader,file){
-    	console.log("======上传中======");
 //    	that.percent = file.percent; 
     });
     
     uploader.bind('FileUploaded',function(up, file, info){
-    	console.log("======成功======",info);
+    	$().toastmessage("showSuccessToast",config.messages.uploaded);
     	$("#zyFormAttachTitle").html(file.name);
     	attachUrl = JSON.parse(info.response).object;
     });
     
     uploader.bind('Error',function(uploader,file){
-    	console.log("======失败======");
-//    	that.percent = file.percent; 
+    	$().toastmessage("showErrorToast", config.messages.uploadIOError);
     });
     //最后给"开始上传"按钮注册事件
     document.getElementById('upload-btn').onclick = function(){

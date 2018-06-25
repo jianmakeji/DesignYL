@@ -30,9 +30,18 @@
 			</div>
 			<div id="zyStep2Tip" class="zyStepTip zyHidden">
 				<h5 class="zySubTitle"><spring:message code="upload_requirements"/></h5>
+				<h5 class="zySubTitle">概念设计组作品提交要求</h5>
 				<p class="zyText">
-					<spring:message code="upload_requirements_content1"/><font class="zyFF0000">A1</font>（841mm×1189mm）<spring:message code="upload_requirements_content2"/><font class="zyFF0000"><spring:message code="upload_requirements_content3"/></font><spring:message code="upload_requirements_content4"/><font class="zyFF0000"><spring:message code="upload_requirements_content5"/>5M</font>,<spring:message code="upload_requirements_content6"/><br> <br><spring:message code="upload_requirements_content7"/><br>
-					<br><spring:message code="upload_requirements_content8"/>
+					（1）作品版面大小为<font class="zyFF0000">A1</font>（840mm×594mm）图幅，<font class="zyFF0000">竖构图</font>，jpg格式，精度350dpi；单张图片大小<font class="zyFF0000">不得超过5M</font>。<br>
+					（2）每件参赛作品不超过3个版面，版面内容包含主题阐释、效果图、必要的结构图、基本外观尺寸图及设计说明（必须是中英双语）等。
+				</p>
+				<h5 class="zySubTitle">产品创新组作品提交要求</h5>
+				<p class="zyText">
+					（1）提交3张高精度（350dpi以上）产品实物照片，单张图片大小<font class="zyFF0000">不得超过5M</font>。<br>
+					（2）填写产品/服务设计说明（300字以内），并提交相应的辅助资料（如说明书扫描文档，产品/服务网页链接等信息）。
+				</p>
+				<p class="zyText">
+					为保证本次大赛评选的公正性，参赛作品及版面上不得出现作者所在单位、姓名（包括英文或拼音缩写）或与作者身份有关的任何图标、图形等个人信息资料。
 				</p>
 			</div>
 		</div>
@@ -179,31 +188,16 @@
 						
 						
 						<!-- 口号作品	或者		图幅作品	-->
-						<div class="zyFormRow zyHidden" id="zySelectProductType">
-							<input type="radio" class="zyProductImgInfoRadio" name="SelectProductType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>图幅作品<spring:message code="confirm_password"/></label> 
-							<input type="radio" class="zyProductsloganInfoRadio"	name="SelectProductType" value="3" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>口号作品<spring:message code="confirm_password"/></label> 
+						<div class="zyFormRow" id="zySelectProductType">
+							<input type="radio" class="zyProductImgInfoRadio" name="SelectProductType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>概念设计组作品</label> 
+							<input type="radio" class="zyProductsloganInfoRadio" name="SelectProductType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>产品创新组作品</label> 
 						</div>
 						<!-- 口号作品	或者		图幅作品 -->
-						
 						<div id="zyProductImgInfo" class="zyProductInfoPanel">
 							<div class="zyFormRow">
-								<label class="zyFormLabel">H5<spring:message code="Website"/></label>
-								<div class="zyFormControl">
-									<input type="text" name="h5Address" class="zyInput">
-								</div>
-							</div>
-							
-							<div class="zyFormRow">
-								<label class="zyFormLabel"><spring:message code="video_shareAddress "/></label>
-								<div class="zyFormControl">
-									<textarea id="videoAddress" name="videoAddress" class="zyInput zyTextarea"></textarea>
-								</div>
-							</div>
-							
-							<div class="zyFormRow">
-								<label class="zyFormLabel">图幅</label>
+								<label class="zyFormLabel">概念作品</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg" class="zyActionOtherImage" style="width: 300px;height:430px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg" class="zyActionOtherImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo" style="width:300px">
 										<div id="ossBgfile">
 											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
@@ -216,25 +210,71 @@
 										<p>&nbsp;</p>
 									</div>
 								</div>
-								<span class="zyRequired">*</span>
-							</div>
-							<div class="zyFormRow">
-								<label class="zyFormLabel">附件</label>
-								<button type="default" id="browse">选择文件</button>
-			           			<button type="default" id="upload-btn">开始上传</button><br/>
-			           			<label id="zyFormAttachTitle"></label>
 							</div>
 						</div>
 						<div id="zyProductSloganInfo" class="zyProductInfoPanel zyHidden">
+							<div class="zyFormRow">
+								<label class="zyFormLabel">创新作品1</label>
+								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
+									<img id="uploadBg" class="zyActionOtherImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<div id="uploadBgInfo" style="width:300px">
+										<div id="ossBgfile">
+											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
+												<div  id="ossBgProgress"  class="progress">
+													<div class="determinate" style="width: 1%"></div>
+												</div>
+											</div>
+										</div>
+										<pre id="bgConsole"></pre>
+										<p>&nbsp;</p>
+									</div>
+								</div>
+							</div>
+							<div class="zyFormRow">
+								<label class="zyFormLabel">创新作品2</label>
+								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
+									<img id="uploadBg" class="zyActionOtherImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<div id="uploadBgInfo" style="width:300px">
+										<div id="ossBgfile">
+											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
+												<div  id="ossBgProgress"  class="progress">
+													<div class="determinate" style="width: 1%"></div>
+												</div>
+											</div>
+										</div>
+										<pre id="bgConsole"></pre>
+										<p>&nbsp;</p>
+									</div>
+								</div>
+							</div>
 							<div class="zyFormRow">
 								<label class="zyFormLabel">口号</label>
 								<div class="zyFormControl">
 									<input id="slogan" type="text" name="slogan" placeholder="仅限16个字符" class="zyInput">
 								</div>
-								<span class="zyRequired">*</span>
+								<label class="zyFormLabel">创新作品3</label>
+								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
+									<img id="uploadBg" class="zyActionOtherImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<div id="uploadBgInfo" style="width:300px">
+										<div id="ossBgfile">
+											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
+												<div  id="ossBgProgress"  class="progress">
+													<div class="determinate" style="width: 1%"></div>
+												</div>
+											</div>
+										</div>
+										<pre id="bgConsole"></pre>
+										<p>&nbsp;</p>
+									</div>
+								</div>
 							</div>
 						</div>
-						
+						<div class="zyFormRow">
+							<label class="zyFormLabel">附件</label>
+							<button type="default" id="browse">选择文件</button>
+		           			<button type="default" id="upload-btn">开始上传</button><br/>
+		           			<label id="zyFormAttachTitle"></label>
+						</div>
 					</div>
 
 					<button class="zyBtn zyActionNavBtn" data-target="#zyStep1"><spring:message code="previous_step"/></button>
