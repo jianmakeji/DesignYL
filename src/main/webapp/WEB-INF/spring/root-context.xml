@@ -7,6 +7,7 @@
 		<!-- 基于校验规则的邮件发送方式 -->
 		<!-- SMTP协议介绍 -->
 		<!--
+
 		<property name="host" value="smtp.exmail.qq.com" />
 		<property name="username" value="cidic@cidic.cn" />
 		<property name="password" value="zyhndesign12345" />
@@ -20,7 +21,7 @@
              	<prop key="mail.smtp.socketFactory.fallback">false</prop>
 			</props>
 		</property>-->
-		
+
 		<!-- 基于校验规则的邮件发送方式 -->
 		<!-- SMTP协议介绍 -->
 		 

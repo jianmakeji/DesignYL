@@ -181,22 +181,22 @@ $(document).ready(function () {
         redirectUrl: config.viewUrls.works
     });
 
-    var productOSSUploaderObject = new uploadOSSObject("uploadBg","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'10mb',
+    var productOSSUploaderObject = new uploadOSSObject("uploadBg","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole"),$("#ossBgProgress"),$("#bgFileDescribe"),$("#ossBgfile .determinate"),$("#bgFileCompletePersent"),$("#uploadBg"));
 	var productUploader = createUploader(productOSSUploaderObject);
 	productUploader.init();
 	
-	var productOSSUploaderObject1 = new uploadOSSObject("uploadBg1","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'10mb',
+	var productOSSUploaderObject1 = new uploadOSSObject("uploadBg1","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole1"),$("#ossBgProgress1"),$("#bgFileDescribe1"),$("#ossBgfile .determinate1"),$("#bgFileCompletePersent1"),$("#uploadBg1"));
 	var productUploader1 = createUploader(productOSSUploaderObject1);
 	productUploader1.init();
 	
-	var productOSSUploaderObject2 = new uploadOSSObject("uploadBg2","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'10mb',
+	var productOSSUploaderObject2 = new uploadOSSObject("uploadBg2","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole2"),$("#ossBgProgress2"),$("#bgFileDescribe2"),$("#ossBgfile .determinate2"),$("#bgFileCompletePersent2"),$("#uploadBg2"));
 	var productUploader2 = createUploader(productOSSUploaderObject2);
 	productUploader2.init();
 	
-	var productOSSUploaderObject3 = new uploadOSSObject("uploadBg3","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'10mb',
+	var productOSSUploaderObject3 = new uploadOSSObject("uploadBg3","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole3"),$("#ossBgProgress3"),$("#bgFileDescribe3"),$("#ossBgfile .determinate3"),$("#bgFileCompletePersent3"),$("#uploadBg3"));
 	var productUploader3 = createUploader(productOSSUploaderObject3);
 	productUploader3.init();
