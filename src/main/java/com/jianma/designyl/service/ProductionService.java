@@ -18,20 +18,20 @@ public interface ProductionService {
 	 * 管理员权限下查看所有的投稿作品,可以根据组别查询
 	 * @param offset
 	 * @param limit
-	 * @param groupId 0:查看所有，>0 根据组别查询
+	 * @param groupNumId 0:查看所有，>0 根据组别查询
 	 * @return
 	 */
-	public PagingModel getListProductionByPage(int offset, int limit, int group,int round,int status);
+	public PagingModel getListProductionByPage(int offset, int limit, int groupNum,int round,int status);
 	
 	/**
 	 * 根据用户ID查看其投稿的所有作品,可以根据组别查询
 	 * @param userId
 	 * @param offset
 	 * @param limit
-	 * @param groupId 0:查看所有，>0 根据组别查询
+	 * @param groupNumId 0:查看所有，>0 根据组别查询
 	 * @return
 	 */
-	public PagingModel getListOnlyProductionInfoByPage(int offset, int limit, int group,int userId);
+	public PagingModel getListOnlyProductionInfoByPage(int offset, int limit, int groupNum,int userId);
 	
 	/**
 	 * 根据作品ID查看其详情
@@ -42,7 +42,7 @@ public interface ProductionService {
 	
 	public void updateProductionScore(int round);
 	
-	public PagingModel getProductionPageByCondition(int group, int status, int userId, int round,int limit,
+	public PagingModel getProductionPageByCondition(int groupNum, int status, int userId, int round,int limit,
 			int offset);
 	
 	public void updateProductionStatus(int id, int status);

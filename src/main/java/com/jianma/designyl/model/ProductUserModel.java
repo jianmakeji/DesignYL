@@ -8,7 +8,7 @@ public class ProductUserModel {
 	private String realname;
 	private String mobile;
 	private String address;
-	private byte group;
+	private byte groupNum;
 	
 	public String getTitle() {
 		return title;
@@ -40,17 +40,18 @@ public class ProductUserModel {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public byte getGroup() {
-		return group;
-	}
-	public void setGroup(byte group) {
-		this.group = group;
-	}
+
 	public int getpId() {
 		return pId;
 	}
 	public void setpId(int pId) {
 		this.pId = pId;
+	}
+	public byte getGroupNum() {
+		return groupNum;
+	}
+	public void setGroupNum(byte groupNum) {
+		this.groupNum = groupNum;
 	}
 	
 	

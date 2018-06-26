@@ -31,7 +31,7 @@ public class Production implements java.io.Serializable {
 	private int userId;
 	private String content;
 	private String attachFile;
-	private byte group;
+	private byte groupNum;
 	private Date createTime;
 	private Float score;
 	private Byte status; //1.已提交、2.审核未通过、3.审核已通过、4.初选入围、5.初选未入围、6.复选入围、7复选未入围
@@ -61,13 +61,13 @@ public class Production implements java.io.Serializable {
 		this.attachFile = attachFile;
 	}
 
-	public Production(String title, int userId, byte group, String pimage, String content,String attachFile,
+	public Production(String title, int userId, byte groupNum, String pimage, String content,String attachFile,
 			Byte status,byte participantType, String participantName,
 			String participantIdNumber, String participantBrief, String teamMember, Float score,
 			Date createTime) {
 		this.title = title;
 		this.userId = userId;
-		this.group = group;
+		this.groupNum = groupNum;
 		this.pimage = pimage;
 		this.content = content;
 		this.status = status;
@@ -131,13 +131,13 @@ public class Production implements java.io.Serializable {
 		this.attachFile = attachFile;
 	}
 
-	@Column(name = "group")
-	public byte getGroup() {
-		return group;
+	@Column(name = "groupNum")
+	public byte getGroupNum() {
+		return groupNum;
 	}
 
-	public void setGroup(byte group) {
-		this.group = group;
+	public void setGroupNum(byte groupNum) {
+		this.groupNum = groupNum;
 	}
 
 	@Column(name = "status")

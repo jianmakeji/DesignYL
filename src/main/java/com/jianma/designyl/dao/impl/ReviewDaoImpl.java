@@ -65,15 +65,15 @@ public class ReviewDaoImpl implements ReviewDao {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		if (scoreSign == 0){ //所有评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.group "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? order by createtime desc";
 		}
 		else if (scoreSign == 1){ //已评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.group "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score > 0 order by createtime desc";
 		}
 		else if (scoreSign == 2){//未评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.group  "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum  "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score = 0 order by createtime desc";
 		}
 		
@@ -97,7 +97,7 @@ public class ReviewDaoImpl implements ReviewDao {
             Date createTime = (Date)o[4];
             String pimage = (String)o[5];
             float score = ((Number)o[6]).floatValue();
-            byte group = (Byte)o[7];
+            byte groupNum = (Byte)o[7];
             
             production.setId(pId);
             production.setTitle(title);
@@ -106,7 +106,7 @@ public class ReviewDaoImpl implements ReviewDao {
             production.setCreateTime(createTime);
             production.setPimage(pimage);
             production.setScore(score);
-            production.setGroup(group);
+            production.setGroupNum(groupNum);
             pList.add(production);
         }
 		return pList;
@@ -135,7 +135,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public ScoreBean getScoreByProductionId(int productionId) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = " select productionId, sum(score), count(*) from Review where productionId = ? group by productionId ";
+		String hql = " select productionId, sum(score), count(*) from Review where productionId = ? groupNum by productionId ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, productionId);
 		
@@ -164,7 +164,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public List<ScoreBean> getAllReviewResult(int round) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = " select productionId, sum(score), count(*) from Review where round = ? group by productionId ";
+		String hql = " select productionId, sum(score), count(*) from Review where round = ? groupNum by productionId ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, (byte)round);
         @SuppressWarnings("unchecked")
@@ -249,7 +249,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public List<RoundScoreBean> getRoundScoreBean(int productionId) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = " select j.roundName, sum(v.score), count(*) from Review v, RoundJudge j where v.productionId = ? and j.id=v.round group by j.roundName ";
+		String hql = " select j.roundName, sum(v.score), count(*) from Review v, RoundJudge j where v.productionId = ? and j.id=v.round groupNum by j.roundName ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, productionId);
 		

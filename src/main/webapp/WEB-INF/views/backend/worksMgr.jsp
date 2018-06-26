@@ -27,6 +27,12 @@
 		<div class="worksMgr" v-cloak>
 			<i-col span="24">作品管理</i-col>
 			<div style="display:inline-block;margin-left:60px;">
+				<label>作品类型：</label>
+				<i-select v-model="groupModel" style="width:200px" @on-change="groupCheck">
+			        <i-option v-for="Groupitem in GroupList" :value="Groupitem.value" :key="Groupitem.value" >{{ Groupitem.label }}</i-option>
+			    </i-select>
+			</div>
+			<div style="display:inline-block;margin-left:60px;">
 				<label>评分轮次：</label>
 				<i-select v-model="roundModel" style="width:200px" @on-change="roundCheck">
 			        <i-option v-for="Rounditem in JudgeRoundList" :value="Rounditem.value" :key="Rounditem.value" >{{ Rounditem.label }}</i-option>

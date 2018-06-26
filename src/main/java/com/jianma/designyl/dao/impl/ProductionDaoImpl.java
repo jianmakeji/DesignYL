@@ -48,11 +48,11 @@ public class ProductionDaoImpl implements ProductionDao {
 	}
 
 	@Override
-	public List<Production> getListProductionByPage(int offset, int limit, int group, int round, int status) {
+	public List<Production> getListProductionByPage(int offset, int limit, int groupNum, int round, int status) {
 		Session session = sessionFactory.getCurrentSession();
 		StringBuilder sBuilder = new StringBuilder(" from Production p where 1=1 ");
-		if (group > 0){
-			sBuilder.append(" and p.group =:group ");
+		if (groupNum > 0){
+			sBuilder.append(" and p.groupNum =:groupNum ");
 		}
 		if (round > 0){
 			sBuilder.append(" and p.round =:round ");
@@ -66,8 +66,8 @@ public class ProductionDaoImpl implements ProductionDao {
 		
 		Query query = session.createQuery(sBuilder.toString());
 		
-		if (group > 0){
-			query.setParameter("group", (byte)group);
+		if (groupNum > 0){
+			query.setParameter("groupNum", (byte)groupNum);
 		}
 		
 		if (round > 0){
@@ -84,19 +84,19 @@ public class ProductionDaoImpl implements ProductionDao {
 	}
 
 	@Override
-	public List<Production> getListProductionByPageAndUserId(int offset, int limit, int group, int userId) {
+	public List<Production> getListProductionByPageAndUserId(int offset, int limit, int groupNum, int userId) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		Query query = null;
-		if (group == 0){
+		if (groupNum == 0){
 			hql = " from Production  where userId = ? order by id asc";
 			query = session.createQuery(hql);
 			query.setParameter(0, userId);
 		}
 		else{
-			hql = " from Production where  group = ? and userId = ? order by id asc";
+			hql = " from Production where  groupNum = ? and userId = ? order by id asc";
 			query = session.createQuery(hql);
-			query.setParameter(0, (byte)group);
+			query.setParameter(0, (byte)groupNum);
 			query.setParameter(1, userId);
 		}
 		
@@ -153,11 +153,11 @@ public class ProductionDaoImpl implements ProductionDao {
 	}
 
 	@Override
-	public int getCountProduction(int group, int round, int status) {
+	public int getCountProduction(int groupNum, int round, int status) {
 		Session session = sessionFactory.getCurrentSession();
 		StringBuilder sBuilder = new StringBuilder(" select count(p) from Production p where 1=1 ");
-		if (group > 0){
-			sBuilder.append(" and p.group =:group ");
+		if (groupNum > 0){
+			sBuilder.append(" and p.groupNum =:groupNum ");
 		}
 		if (round > 0){
 			sBuilder.append(" and p.round =:round ");
@@ -168,8 +168,8 @@ public class ProductionDaoImpl implements ProductionDao {
 		
 		Query query = session.createQuery(sBuilder.toString());
 		
-		if (group > 0){
-			query.setParameter("group", (byte)group);
+		if (groupNum > 0){
+			query.setParameter("groupNum", (byte)groupNum);
 		}
 		
 		if (round > 0){
@@ -184,39 +184,39 @@ public class ProductionDaoImpl implements ProductionDao {
 	}
 
 	@Override
-	public int getCountProductionByUserId(int group, int userId) {
+	public int getCountProductionByUserId(int groupNum, int userId) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		Query query = null;
-		if (group == 0){
+		if (groupNum == 0){
 			hql = " select count(p) from Production p where userId = ? ";
 			query = session.createQuery(hql);
 			query.setParameter(0, userId);
 		}
 		else{
-			hql = " select count(p) from Production p where group = ? and userId = ?";
+			hql = " select count(p) from Production p where groupNum = ? and userId = ?";
 			query = session.createQuery(hql);
-			query.setParameter(0, (byte)group);
+			query.setParameter(0, (byte)groupNum);
 			query.setParameter(1, userId);
 		} 
         return (int)((Long)query.uniqueResult()).longValue();
 	}
 
 	@Override
-	public List<ProductUserModel> getListProductionByPageRelationRegisterUser(int offset, int limit, int group) {
+	public List<ProductUserModel> getListProductionByPageRelationRegisterUser(int offset, int limit, int groupNum) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
-		if (group == 0){
-			hql = " select p.id, p.title, p.thumb, p.group, u.realname,u.mobile,u.address  from Production p, User u where p.userId = u.id order by p.id asc";
+		if (groupNum == 0){
+			hql = " select p.id, p.title, p.thumb, p.groupNum, u.realname,u.mobile,u.address  from Production p, User u where p.userId = u.id order by p.id asc";
 		}
 		else{
 			hql = " select p.title, p.thumb, u.realname , u.mobile, u.address  from Production p, "
-					+ "User u Production where p.group = ? and p.userId = u.id order by p.id asc";
+					+ "User u Production where p.groupNum = ? and p.userId = u.id order by p.id asc";
 		}
 		Query query = session.createQuery(hql);
 		
-		if (group != 0){
-			query.setParameter(0, group);
+		if (groupNum != 0){
+			query.setParameter(0, groupNum);
 		}
 		
 		query.setFirstResult(offset);
@@ -238,7 +238,7 @@ public class ProductionDaoImpl implements ProductionDao {
             String address = ((String)o[6]);
             
             productUserModel.setpId(pId);
-            productUserModel.setGroup(gId);
+            productUserModel.setGroupNum(gId);
             productUserModel.setThumb(thumb);
             productUserModel.setTitle(title);
             productUserModel.setRealname(realname);
@@ -250,31 +250,31 @@ public class ProductionDaoImpl implements ProductionDao {
 	}
 
 	@Override
-	public int getCountProductionRelationRegisterUser(int group) {
+	public int getCountProductionRelationRegisterUser(int groupNum) {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		Query query = null;
-		if (group == 0){
+		if (groupNum == 0){
 			hql = " select count(p) from Production p";
 			query = session.createQuery(hql);
 		}
 		else{
-			hql = " select count(p) from Production p where group = ? ";
+			hql = " select count(p) from Production p where groupNum = ? ";
 			query = session.createQuery(hql);
-			query.setParameter(0, (byte)group);
+			query.setParameter(0, (byte)groupNum);
 		} 
 		
         return (int)((Long)query.uniqueResult()).longValue();
 	}
 
 	@Override
-	public List<Production> getProductionByCondition(int group, int status, int userId, int round, int limit,
+	public List<Production> getProductionByCondition(int groupNum, int status, int userId, int round, int limit,
 			int offset) {
 		Session session = sessionFactory.getCurrentSession();
 		StringBuilder hqlBuilder = new StringBuilder(" from Production  where 1 = 1  ");
 		
-		if (group > 0){
-			hqlBuilder.append(" and group =:group ");
+		if (groupNum > 0){
+			hqlBuilder.append(" and groupNum =:groupNum ");
 		}
 			
 		if (status > 0){
@@ -294,8 +294,8 @@ public class ProductionDaoImpl implements ProductionDao {
 
 		Query query = session.createQuery(hqlBuilder.toString());
 		
-		if (group > 0){
-			query.setParameter("group", (byte)group);
+		if (groupNum > 0){
+			query.setParameter("groupNum", (byte)groupNum);
 		}
 		
 		if (status > 0){
@@ -316,12 +316,12 @@ public class ProductionDaoImpl implements ProductionDao {
 	}
 
 	@Override
-	public int getProductionCountByCondition(int group, int status, int userId,int round) {
+	public int getProductionCountByCondition(int groupNum, int status, int userId,int round) {
 		Session session = sessionFactory.getCurrentSession();
 		StringBuilder hqlBuilder = new StringBuilder("select count(p) from Production p  where 1=1  ");
 		
-		if (group > 0){
-			hqlBuilder.append(" and group =:group ");
+		if (groupNum > 0){
+			hqlBuilder.append(" and groupNum =:groupNum ");
 		}
 		
 		if (status > 0){
@@ -338,8 +338,8 @@ public class ProductionDaoImpl implements ProductionDao {
 		
 		
 		Query query = session.createQuery(hqlBuilder.toString());
-		if (group > 0){
-			query.setParameter("group", (byte)group);
+		if (groupNum > 0){
+			query.setParameter("groupNum", (byte)groupNum);
 		}
 		
 		if (status > 0){

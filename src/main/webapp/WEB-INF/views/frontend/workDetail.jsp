@@ -22,22 +22,12 @@
 		
 		<p class="zyText"><spring:message code="introduction"/>：${production.content}</p>
 		
-		<c:if test="${!empty production.h5Address}">
-			<div class="zy20C7BE">H5<spring:message code="web_link"/>:&nbsp;&nbsp;<a class="zy20C7BE" href="${production.h5Address}" target="_blank">H5<spring:message code="demourl"/></a></div>
-		</c:if>
-
-		<c:if test="${!empty production.videoAddress}">
-			<div style="text-align:center">
-				${production.videoAddress}
-			</div>
-		</c:if>
-		
-		<c:if test="${!empty production.pimage}">
+		<%-- <c:if test="${!empty production.pimage}">
 			<div class="zy20C7BE">
 				<img src="${production.pimage}" style="margin:10px auto;">
 			</div>
 			<br>
-		</c:if>
+		</c:if> --%>
 
 		
 	</div>

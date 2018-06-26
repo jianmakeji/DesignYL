@@ -27,14 +27,12 @@ var works = (function (config, functions) {
                 url: config.ajaxUrls.worksGetByPage,
                 type: "get",
                 data: {
-                    groupId: 0,
-                    category: 0,
+                    groupNum: 0,
                     status: 0,
                     userId: 0,
                     round:0,
                     iDisplayStart: start,
                     iDisplayLength: 10,
-                    fileType:0,
                     sEcho: "zy"
                 },
                 success: function (response) {

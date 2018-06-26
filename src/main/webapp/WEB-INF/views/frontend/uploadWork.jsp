@@ -23,13 +23,13 @@
 
 	<div class="zyTwoSide zyMargin60" id="zyInfoPanel">
 		<div class="zyCLeft zyTipPanel">
-			<h2 class="zyTitle"><spring:message code="uploading"/></h2>
+			<h2 class="zyTitle"><spring:message code="uploading"/></h2>			<!-- 上传作品 -->
 			<div id="zyStep1Tip" class="zyStepTip">
 				<p class="zyText"><spring:message code="write_contestant_info"/></p>
 				<p class="zyText"><spring:message code="personnel_restrictions"/><span>2-5</span>人</p>
 			</div>
 			<div id="zyStep2Tip" class="zyStepTip zyHidden">
-				<h5 class="zySubTitle"><spring:message code="upload_requirements"/></h5>
+				<h5 class="zySubTitle"><spring:message code="upload_requirements"/></h5>	
 				<h5 class="zySubTitle">概念设计组作品提交要求</h5>
 				<p class="zyText">
 					（1）作品版面大小为<font class="zyFF0000">A1</font>（840mm×594mm）图幅，<font class="zyFF0000">竖构图</font>，jpg格式，精度350dpi；单张图片大小<font class="zyFF0000">不得超过5M</font>。<br>
@@ -63,7 +63,7 @@
 					</div>
 					<div id="zyPersonalInfo" class="zyPersonInfoPanel">
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="name"/></label>
+							<label class="zyFormLabel"><spring:message code="name"/></label>	<!-- 姓名 -->
 							<div class="zyFormControl">
 								<input type="text" name="participantName" class="zyInput zyActionRequired">
 							</div>
@@ -71,7 +71,7 @@
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="ID_number"/></label>
+							<label class="zyFormLabel"><spring:message code="ID_number"/></label>	<!-- 身份证号 -->
 							<div class="zyFormControl">
 								<input id="identityPersonal" type="text" name="participantIdNumber" class="zyInput zyActionRequired">
 							</div>
@@ -79,14 +79,14 @@
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="subordinate_units"/></label>
+							<label class="zyFormLabel"><spring:message code="subordinate_units"/></label>	<!-- 所属单位 -->
 							<div class="zyFormControl">
 								<input type="text" name="affiliatedUnit" class="zyInput">
 							</div>
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="introduction"/></label>
+							<label class="zyFormLabel"><spring:message code="introduction"/></label>	<!-- 简介 -->
 							<div class="zyFormControl">
 								<textarea name="participantBrief" class="zyInput zyTextarea zyActionRequired"></textarea>
 							</div>
@@ -95,7 +95,7 @@
 					</div>
 					<div id="zyTeamInfo" class="zyPersonInfoPanel zyHidden">
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="captain_name"/></label>
+							<label class="zyFormLabel"><spring:message code="captain_name"/></label>	<!-- 队长姓名 -->
 							<div class="zyFormControl">
 								<input type="text" name="participantName" class="zyInput zyActionRequired">
 							</div>
@@ -103,7 +103,7 @@
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="captain_ID_number"/></label>
+							<label class="zyFormLabel"><spring:message code="captain_ID_number"/></label>	<!-- 队长身份证号 -->
 							<div class="zyFormControl">
 								<input id="identityCaptain" type="text" name="participantIdNumber" class="zyInput zyActionRequired">
 							</div>
@@ -111,14 +111,14 @@
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="captain_subordinate_units"/></label>
+							<label class="zyFormLabel"><spring:message code="captain_subordinate_units"/></label>	<!-- 队长所属单位 -->
 							<div class="zyFormControl">
 								<input type="text" name="affiliatedUnit" class="zyInput">
 							</div>
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="member"/></label>
+							<label class="zyFormLabel"><spring:message code="member"/></label>		<!-- 队员 -->
 							<div class="zyFormControl">
 								<textarea name="teamMember" class="zyInput zyTextarea zyActionRequired" placeholder="中文逗号隔开"></textarea>
 							</div>
@@ -171,7 +171,7 @@
 					<div id="zyProductInfo" class="zyWorkInfoPanel">
 						
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="title"/></label>
+							<label class="zyFormLabel">标题</label>	<!-- 标题 -->
 							<div class="zyFormControl">
 								<input type="text" name="title" class="zyInput zyActionRequired">
 							</div>
@@ -179,7 +179,7 @@
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="introduction"/></label>
+							<label class="zyFormLabel">简介</label>	<!-- 简介 -->
 							<div class="zyFormControl">
 								<textarea name="content" class="zyInput zyTextarea zyActionRequired"></textarea>
 							</div>
@@ -187,17 +187,17 @@
 						</div>
 						
 						
-						<!-- 口号作品	或者		图幅作品	-->
+						<!-- 概念作品	或者		创新作品	-->
 						<div class="zyFormRow" id="zySelectProductType">
 							<input type="radio" class="zyProductImgInfoRadio" name="SelectProductType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>概念设计组作品</label> 
 							<input type="radio" class="zyProductsloganInfoRadio" name="SelectProductType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>产品创新组作品</label> 
 						</div>
-						<!-- 口号作品	或者		图幅作品 -->
+						<!-- 概念作品	-->
 						<div id="zyProductImgInfo" class="zyProductInfoPanel">
 							<div class="zyFormRow">
 								<label class="zyFormLabel">概念作品</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg" class="zyActionOtherImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg" class="conceptProductImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo" style="width:300px">
 										<div id="ossBgfile">
 											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
@@ -212,20 +212,21 @@
 								</div>
 							</div>
 						</div>
+						<!-- 创新作品	-->
 						<div id="zyProductSloganInfo" class="zyProductInfoPanel zyHidden">
 							<div class="zyFormRow">
 								<label class="zyFormLabel">创新作品1</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg" class="zyActionOtherImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg1" class="innovatProductImage1" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo" style="width:300px">
 										<div id="ossBgfile">
-											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
-												<div  id="ossBgProgress"  class="progress">
-													<div class="determinate" style="width: 1%"></div>
+											<div><b id="bgFileDescribe1"><span id="bgFileCompletePersent1"></span></b>
+												<div  id="ossBgProgress1"  class="progress">
+													<div class="determinate1" style="width: 1%"></div>
 												</div>
 											</div>
 										</div>
-										<pre id="bgConsole"></pre>
+										<pre id="bgConsole1"></pre>
 										<p>&nbsp;</p>
 									</div>
 								</div>
@@ -233,37 +234,33 @@
 							<div class="zyFormRow">
 								<label class="zyFormLabel">创新作品2</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg" class="zyActionOtherImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
-									<div id="uploadBgInfo" style="width:300px">
+									<img id="uploadBg2" class="innovatProductImage2" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<div id="uploadBgInfo2" style="width:300px">
 										<div id="ossBgfile">
-											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
-												<div  id="ossBgProgress"  class="progress">
-													<div class="determinate" style="width: 1%"></div>
+											<div><b id="bgFileDescribe2"><span id="bgFileCompletePersent2"></span></b>
+												<div  id="ossBgProgress2"  class="progress">
+													<div class="determinate2" style="width: 1%"></div>
 												</div>
 											</div>
 										</div>
-										<pre id="bgConsole"></pre>
+										<pre id="bgConsole2"></pre>
 										<p>&nbsp;</p>
 									</div>
 								</div>
 							</div>
 							<div class="zyFormRow">
-								<label class="zyFormLabel">口号</label>
-								<div class="zyFormControl">
-									<input id="slogan" type="text" name="slogan" placeholder="仅限16个字符" class="zyInput">
-								</div>
 								<label class="zyFormLabel">创新作品3</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg" class="zyActionOtherImage" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
-									<div id="uploadBgInfo" style="width:300px">
+									<img id="uploadBg3" class="innovatProductImage3" style="width: 420px;height:297px" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<div id="uploadBgInfo3" style="width:300px">
 										<div id="ossBgfile">
-											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
-												<div  id="ossBgProgress"  class="progress">
-													<div class="determinate" style="width: 1%"></div>
+											<div><b id="bgFileDescribe3"><span id="bgFileCompletePersent3"></span></b>
+												<div  id="ossBgProgress3"  class="progress">
+													<div class="determinate3" style="width: 1%"></div>
 												</div>
 											</div>
 										</div>
-										<pre id="bgConsole"></pre>
+										<pre id="bgConsole3"></pre>
 										<p>&nbsp;</p>
 									</div>
 								</div>
@@ -277,8 +274,8 @@
 						</div>
 					</div>
 
-					<button class="zyBtn zyActionNavBtn" data-target="#zyStep1"><spring:message code="previous_step"/></button>
-					<button class="zyBtn zyActionNavBtn" data-target="#zyPreview"><spring:message code="next_step"/></button>
+					<button class="zyBtn zyActionNavBtn" data-target="#zyStep1">上一步</button>
+					<button class="zyBtn zyActionNavBtn" data-target="#zyPreview">下一步</button>
 				</div>
 			</div>
 		</div>
@@ -302,20 +299,14 @@
 			{@if slogan}
                <div class="slogan">口号:&nbsp;&nbsp;$ZY{slogan}</div>
             {@/if}
-
-            {@if h5Address}
-               <div class="zy20C7BE">H5网页链接:&nbsp;&nbsp;<a class="zy20C7BE" href="$ZY{h5Address}" target="_blank">H5演示地址<spring:message code="confirm_password"/></a></div>
-            {@/if}
-
-            {@if videoAddress}
-               <div id="videoContainer" style="text-align:center"></div>
-            {@/if}
-
-            {@if pimage}
-                <img id="imgProduct" src="$ZY{pimage}" style="margin:10px auto;">
-            {@/if}
+			
+			{@each pimageArr as item}
+				<img id="imgProduct" src="$ZY{item}" style="margin:10px auto;">
+			{@/each}
         </script>
-
+		<!-- {@if pimage}
+                <img id="imgProduct" src="$ZY{pimage}" style="margin:10px auto;">
+            {@/if} -->
 		<div class="zyTCenter" style="margin-top: 50px;">
 			<button class="zyBtn zyActionNavBtn" data-target="#zyStep2"><spring:message code="previous_step"/></button>
 			<button class="zyBtn" id="zySubmitData"><spring:message code="submit"/></button>
