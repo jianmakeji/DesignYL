@@ -100,8 +100,7 @@ img {
  */
 .zyList{
     font-size: 0px;
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding: 50px 20px 20px 20px;
 }
 .zyList .zyItem{
     width: 31%;
@@ -568,16 +567,4 @@ img {
 	    color: #fff;
 	    border: none;
 	}
-}
-
-/*
- * footer
- *
- * */
-.JMFooter {
-	height: 80px;
-	line-height: 80px;
-	background: #363636;
-	color: #fff;
-	text-align: center;
 }

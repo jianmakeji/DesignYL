@@ -17,13 +17,29 @@ var uploadWork = (function (config, functions) {
                 personInfoPanel.find('textarea[name="teamMember"]').val(data.teamMember);				//队长成员
                 personInfoPanel.find("input[name='affiliatedUnit']").val(data.affiliatedUnit);			//队长所属单位
                 workInfoPanel = $(".zyWorkInfoPanel");
+                console.log("data",data);
+                if(data.subGroupNum == 1){
+                	$("input[class ='zyProductSubGroupRadio1']").attr("checked", true);
+                }else if(data.subGroupNum == 2){
+                	$("input[class ='zyProductSubGroupRadio2']").attr("checked", true);
+                }else if(data.subGroupNum == 3){
+                	$("input[class ='zyProductSubGroupRadio3']").attr("checked", true);
+                }else if(data.subGroupNum == 4){
+                	$("input[class ='zyProductSubGroupRadio4']").attr("checked", true);
+                }
                 if(data.groupNum == 1){
                     workInfoPanel.find("input[name='title']").val(data.title);
+                    workInfoPanel.find("input[name='title_en']").val(data.title_en);
                     workInfoPanel.find("textarea[name='content']").val(data.content);	//简介
+                    workInfoPanel.find("textarea[name='content_en']").val(data.content_en);
+                    workInfoPanel.find("input[name='adviser']").val(data.adviser);
                     workInfoPanel.find(".conceptProductImage").attr("src", data.pimage);	//概念作品
                 }else if(data.groupNum == 2){
                     workInfoPanel.find("input[name='title']").val(data.title);
+                    workInfoPanel.find("input[name='title_en']").val(data.title_en);
                     workInfoPanel.find("textarea[name='content']").val(data.content);
+                    workInfoPanel.find("textarea[name='content_en']").val(data.content_en);
+                    workInfoPanel.find("input[name='adviser']").val(data.adviser);
 //                  口号：slogan
                     $("#zyProductImgInfo").addClass("zyHidden");
                     $("#zyProductSloganInfo").removeClass("zyHidden");
@@ -46,11 +62,23 @@ var uploadWork = (function (config, functions) {
             obj.teamMember = personInfoPanel.find('textarea[name="teamMember"]').val();
             obj.affiliatedUnit = personInfoPanel.find("input[name='affiliatedUnit']").val();
             workInfoPanel = $(".zyWorkInfoPanel").not(".zyHidden");
-            
             productType = $("#zySelectProductType input:checked").val();
+            subGroupNum = $("#zySelectProductSubGroupType input:checked").val();
+            if(subGroupNum == "1"){
+            	obj.subGroupNum = 1;
+            }else if(subGroupNum == "2"){
+            	obj.subGroupNum = 2;
+            }else if(subGroupNum == "3"){
+            	obj.subGroupNum = 3;
+            }else if(subGroupNum == "4"){
+            	obj.subGroupNum = 4;
+            }
             if(productType == "1"){
                 obj.title = workInfoPanel.find("input[name='title']").val();
+                obj.title_en = workInfoPanel.find("input[name='title_en']").val();
                 obj.content = workInfoPanel.find("textarea[name='content']").val();
+                obj.content_en = workInfoPanel.find("textarea[name='content_en']").val();
+                obj.adviser = workInfoPanel.find("input[name='adviser']").val();
                 obj.attachFile = attachUrl;
                 obj.status = 1;
                 obj.pimageArr = [$("#uploadBg").attr('src')];
@@ -58,7 +86,10 @@ var uploadWork = (function (config, functions) {
                 obj.groupNum = 1;
             }else if(productType == "2"){
                 obj.title = workInfoPanel.find("input[name='title']").val();
+                obj.title_en = workInfoPanel.find("input[name='title_en']").val();
                 obj.content = workInfoPanel.find("textarea[name='content']").val();
+                obj.content_en = workInfoPanel.find("textarea[name='content_en']").val();
+                obj.adviser = workInfoPanel.find("input[name='adviser']").val();
                 obj.attachFile = attachUrl;
                 obj.status = 1;
                 obj.pimageArr = [$("#uploadBg1").attr('src'),$("#uploadBg2").attr('src'),$("#uploadBg3").attr('src')];

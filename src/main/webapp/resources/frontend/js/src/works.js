@@ -28,6 +28,7 @@ var works = (function (config, functions) {
                 type: "get",
                 data: {
                     groupNum: 0,
+                    subGroupNum: 0,
                     status: 0,
                     userId: 0,
                     round:0,

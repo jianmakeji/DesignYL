@@ -8,7 +8,9 @@
 <link href="resources/frontend/css/src/style.css" type="text/css" rel="stylesheet">
 <link href="resources/css/lib/iview.css" type="text/css" rel="stylesheet">
 <link href="resources/css/lib/jquery.toastmessage.css" type="text/css" rel="stylesheet">
+<link href="resources/backend/css/lib/swiper.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/src/main.css" type="text/css" rel="stylesheet">
+<link href="resources/frontend/css/src/JMCSS/Header.css" type="text/css" rel="stylesheet">
 <script>
 	var judgeId = "${param.judgeId}";
 	var round = "${param.round}";
@@ -30,7 +32,7 @@
 		<ul class="cd-items cd-container">
 			<li v-for="item in list" class="cd-item">
 				<p class="cd-score">{{item.score}}<spring:message code="fraction"/></p>
-				<p class="cd-slogan" v-show="item.slogan" :id="item.id" v-on:click="openDetail" style="cursor: pointer;">{{item.slogan}}</p> <img :src="item.pimage" :id="item.id"
+				<img :src="item.pimage" :id="item.id"
 				v-on:click="openDetail" style="cursor: pointer;">
 				<p class="cd-trigger">{{item.title}}</p>
 			</li>
@@ -39,28 +41,26 @@
 			<page :total="total" @on-change="loadData"></page>
 		</div>
 
-		<div class="zyFooter">&copy;<spring:message code="JMFooter"/></div>
+		<%@ include file="../footer.jsp"%>
 
 		<div class="cd-quick-view">
 			<div class="cd-slider-wrapper">
 				<ul class="cd-slider">
-					<li class="selected"><img id="productImage" src=""></li>
+					<li class="selected">
+						<div class="swiper-container" >
+						    <div class="swiper-wrapper">
+						        <!-- <div class="swiper-slide"><img id="productImage" src=""></div>
+						        <div class="swiper-slide"><img id="productImage" src=""></div>
+						        <div class="swiper-slide"><img id="productImage" src=""></div> -->
+						    </div>
+						</div>
+					</li>
 				</ul>
 			</div>
 
 			<div class="cd-item-info">
 				<h3><spring:message code="title"/>：{{title}}</h3>
 				<p><spring:message code="introduction"/>：{{content}}</p>
-				<div v-if="slogan != '' ">
-					<p>口号：{{slogan}}</p>
-				</div>
-				<div v-if="h5Address != '' ">
-					H5<spring:message code="demourl"/>：<a :href="h5Address" target="_blank"><spring:message code="check_details"/></a>
-				</div>
-
-				<div v-if="videoAddress != '' ">
-					<spring:message code="video_shareAddress"/>：<a :href="videoAddress" target="_blank"><spring:message code="check_details"/></a>
-				</div>
 				<div v-if="imgBox != '' ">
 					<a class="downImg" :href="imgBox" download="imgBox" target="_blank">原图片预览</a>
 				</div>
@@ -79,12 +79,13 @@
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
 	<script src="resources/js/lib/vue.min.js"></script>
 	<script src="resources/js/lib/velocity.min.js"></script>
+	<script src="resources/backend/js/lib/swiper.js"></script>
 	<script src="resources/frontend/js/src/header.js"></script>
 	<script src="resources/js/lib/iview.min.js"></script>
-	<!--<script src="resources/frontend/js/src/judge/judge.js"></script>  -->
 	<script src="resources/frontend/js/src/config.js"></script>
 	<script type="text/javascript">
-	
+
+
 		new Vue({
 			  el: '#productList',
 			  data:function () {
@@ -95,15 +96,12 @@
 			      score:0,
 			      title:'',
 				  content:'',
-				  h5Address:'',
-				  videoAddress:'',
 				  imgUrl:"",
 				  productionId:'',
 				  scoreSign:0,
-				  slogan:"",
-				  fileType:"",
-				  bigImg:"resources/frontend/images/JMImages/sloganBigImg.png",
-				  mediumImg:"resources/frontend/images/JMImages/sloganMediumImg.png",
+				  groupNum:"",
+				  bigImgData:[],
+				  mediumImg:"",
 				  imgBox:"",
 			    }
 			  },
@@ -137,18 +135,22 @@
 			                },
 			                success: function (response) {
 			                    if (response.success) {
+			                    	console.log("response",response);
 			                        var results = response.object.list;
 			                        that.total = response.object.count;
 									for (var i = 0; i < results.length; i++){
-										if(results[i].fileType == 3){
-											results[i].pimage = that.mediumImg;
-											that.fileType = 3;
-										}else if(results[i].fileType == 1){
-											results[i].pimage = results[i].pimage + '?x-oss-process=style/thumb_210_300';
-											that.fileType = 1;
+										if(results[i].groupNum == 2){
+											results[i].pimageArr = results[i].pimage.split(",");
+											results[i].pimage = results[i].pimageArr[0];
+											that.groupNum = 2;
+										}else if(results[i].groupNum == 1){
+											results[i].pimage = results[i].pimage;
+											/* results[i].pimage = results[i].pimage + '?x-oss-process=style/thumb_210_300'; */
+											that.groupNum = 1;
 										}
 									}
 									that.list = results;
+									console.log("list",that.list);
 			                    } else {
 			                        
 			                    }
@@ -159,41 +161,40 @@
 			            })
 				  },
 				  openDetail:function(event){
-
 					  var slectedImageUrl = '';
 					  var title = '';
 					  var content = '';
 					  var score = '';
-					  var slogan = "";
 					  for (var i = 0; i < this.list.length; i++){
 						  //判断是否为口号作品
-						  if(this.list[i].fileType == 3){
+						  if(this.list[i].groupNum == 2){
 							  if (this.list[i].id == event.target.id){
-								  slectedImageUrl = this.bigImg;
+								  slectedImageUrl = this.list[i].pimageArr[0];
+								  $(".swiper-wrapper").empty();
+								  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
+									  console.log("pimageArr[imgItem]",imgItem,this.list[i].pimageArr[imgItem]);
+									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ this.list[i].pimageArr[imgItem] +"></div>");
+								  }
+								  var mySwiper = new Swiper ('.swiper-container', {
+								    	loop: false,
+								 });
 								  this.content = this.list[i].content;
 								  this.score = this.list[i].score;
 								  this.title = this.list[i].title;
 								  this.productionId = this.list[i].id;
-								  this.slogan = this.list[i].slogan;
 								  break; 
 							  } 
 						  }else{
 							  if (this.list[i].id == event.target.id){
 								  slectedImageUrl = this.list[i].pimage;
+								  $(".swiper-wrapper").empty();
+								  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ this.list[i].pimage +"></div>");
+								  var mySwiper = new Swiper ('.swiper-container', {
+								    	loop: false,
+								  });
 								  this.content = this.list[i].content;
 								  this.score = this.list[i].score;
 								  this.title = this.list[i].title;
-								  this.h5Address = this.list[i].h5Address;
-								  var tempVideoAddress = this.list[i].videoAddress;
-								  if (tempVideoAddress.indexOf('width="480" height="400"') >= 0){
-									  tempVideoAddress = tempVideoAddress.replace('width="480" height="400"','width="720" height="600"');
-								  }
-								 
-								  if (tempVideoAddress.indexOf('width="640" height="498"') >= 0){
-									  tempVideoAddress = tempVideoAddress.replace('width="640" height="498"','width="720" height="600"');
-								  }
-								  
-								  this.videoAddress = "review/videoPreview?videoAddress="+tempVideoAddress.replace(/&/g,'%26');
 								  this.productionId = this.list[i].id;
 								  break;  
 							  }
@@ -207,7 +208,7 @@
 					  this.updateQuickView(slectedImageUrl.replace('?x-oss-process=style/thumb_210_300',''));
 					
 				  },
-				  updateSlider:function(navigation) {
+				  /* updateSlider:function(navigation) {
 						var sliderConatiner = navigation.parents('.cd-slider-wrapper').find('.cd-slider'),
 							activeSlider = sliderConatiner.children('.selected').removeClass('selected');
 						if ( navigation.hasClass('cd-next') ) {
@@ -215,11 +216,12 @@
 						} else {
 							( !activeSlider.is(':first-child') ) ? activeSlider.prev().addClass('selected') : sliderConatiner.children('li').last().addClass('selected');
 						} 
-				  },
+				  }, */
 				  updateQuickView:function(url) {
 						$('.cd-quick-view .cd-slider li').removeClass('selected')
 						this.imgBox = url;
-						$('#productImage').attr('src',url+'?x-oss-process=style/thumb_420_600');//添加新后缀
+						$('#productImage').attr('src',url);//添加新后缀
+						//$('#productImage').attr('src',url+'?x-oss-process=style/thumb_420_600');//添加新后缀
 						$('.cd-quick-view .cd-slider li').addClass('selected');
 				  },
 				  resizeQuickView:function() {
@@ -232,10 +234,10 @@
 				  }, 
 				  closeQuickView:function(finalWidth, maxQuickWidth) {
 						var selectedImage = $('.empty-box').find('img')
-					  if(this.fileType == 3){
-						  	var close = $('.cd-close'),
-							activeSliderUrl = this.mediumImg;
-					  }else if(this.fileType == 1){
+					  if(this.groupNum == 2){
+						  	var close = $('.cd-close');
+							/* activeSliderUrl = this.mediumImg; */
+					  }else if(this.groupNum == 1){
 						  	var close = $('.cd-close'),
 							activeSliderUrl = close.siblings('.cd-slider-wrapper').find('.selected img').attr('src'),
 							selectedImage = $('.empty-box').find('img');
@@ -244,8 +246,8 @@
 						if( !$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
 							//selectedImage.attr('src', activeSliderUrl +'?x-oss-process=style/thumb_210_300');
 							//还原点击之前的url
-							console.log("selectedImage",selectedImage,$('.empty-box').find('img'));
-							selectedImage.attr({src:this.imgBox +'?x-oss-process=style/thumb_210_300'});
+							selectedImage.attr({src:this.imgBox});
+							//selectedImage.attr({src:this.imgBox +'?x-oss-process=style/thumb_210_300'});
 							this.animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');
 						} else {
 							this.closeNoAnimation(selectedImage, finalWidth, maxQuickWidth);
@@ -357,8 +359,7 @@
 					        }
 					}
 			  },
-			})
-
-	</script>
+			})          
+  </script>
 </body>
 </html>
