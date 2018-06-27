@@ -225,10 +225,12 @@
 						
 						<!-- 概念作品	或者		创新作品	-->
 						<div class="zyFormRow" id="zySelectProductType">
+							<label class="zyFormLabel">产品组</label>
 							<input type="radio" class="zyProductImgInfoRadio" name="SelectProductType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>概念设计组作品</label> 
 							<input type="radio" class="zyProductsloganInfoRadio" name="SelectProductType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>产品创新组作品</label> 
 						</div>
 						<div class="zyFormRow" id="zySelectProductSubGroupType">
+							<label class="zyFormLabel">产品子项</label>
 							<input type="radio" class="zyProductSubGroupRadio1" name="SelectProductSubType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>康复辅具类</label> 
 							<input type="radio" class="zyProductSubGroupRadio2" name="SelectProductSubType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>生活益智类</label> 
 							<input type="radio" class="zyProductSubGroupRadio3" name="SelectProductSubType" value="3" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>设施环境类</label> 
