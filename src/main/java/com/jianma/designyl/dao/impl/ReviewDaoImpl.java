@@ -135,7 +135,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public ScoreBean getScoreByProductionId(int productionId) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = " select productionId, sum(score), count(*) from Review where productionId = ? groupNum by productionId ";
+		String hql = " select productionId, sum(score), count(*) from Review where productionId = ? group by productionId ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, productionId);
 		
@@ -164,7 +164,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public List<ScoreBean> getAllReviewResult(int round) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = " select productionId, sum(score), count(*) from Review where round = ? groupNum by productionId ";
+		String hql = " select productionId, sum(score), count(*) from Review where round = ? group by productionId ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, (byte)round);
         @SuppressWarnings("unchecked")
@@ -249,7 +249,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public List<RoundScoreBean> getRoundScoreBean(int productionId) {
 		Session session = sessionFactory.getCurrentSession();
-		String hql = " select j.roundName, sum(v.score), count(*) from Review v, RoundJudge j where v.productionId = ? and j.id=v.round groupNum by j.roundName ";
+		String hql = " select j.roundName, sum(v.score), count(*) from Review v, RoundJudge j where v.productionId = ? and j.id=v.round group by j.roundName ";
 		Query query = session.createQuery(hql);
 		query.setParameter(0, productionId);
 		

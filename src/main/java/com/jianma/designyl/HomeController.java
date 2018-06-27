@@ -202,6 +202,7 @@ public class HomeController extends DcController {
 			if (subject.isAuthenticated()) {
 
 				try {
+					
 					subject.checkRole("评委");
 					System.out.println("评审页面");
 					return "redirect:/review/judgeIndex/" + round;
@@ -237,7 +238,8 @@ public class HomeController extends DcController {
 			msg = "认证失败！";
 			model.addAttribute("error", msg);
 		}catch(AuthenticationException e){
-			msg = "认证失败！或者评审轮次已过！";
+			e.printStackTrace();
+			msg = "认证失败！或者该轮次未绑定评委！";
 			model.addAttribute("error", msg);
 		}
 		return "/frontend/login";
