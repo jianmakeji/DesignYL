@@ -76,7 +76,7 @@ public class NewsDaoImpl implements NewsDao {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = " from News order by publishTime desc";
 		Query query = session.createQuery(hql);
-		query.setMaxResults(2);
+		query.setMaxResults(3);
 		return query.list();
 	}
 
