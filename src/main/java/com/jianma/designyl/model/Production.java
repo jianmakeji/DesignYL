@@ -47,6 +47,7 @@ public class Production implements java.io.Serializable {
 	private String affiliatedUnit;
 	private byte round;
 	private String weblink;
+	private String adviser;
 	
 	public Production() {
 	}
@@ -281,6 +282,15 @@ public class Production implements java.io.Serializable {
 
 	public void setSubGroupNum(byte subGroupNum) {
 		this.subGroupNum = subGroupNum;
+	}
+
+	@Column(name = "adviser")
+	public String getAdviser() {
+		return adviser;
+	}
+
+	public void setAdviser(String adviser) {
+		this.adviser = adviser;
 	}
 	
 	

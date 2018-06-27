@@ -249,18 +249,18 @@ public class ProductionDaoImpl implements ProductionDao {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		if (groupNum == 0 && subGroupNum == 0){
-			hql = " select p.id, p.title, p.thumb, p.groupNum, u.realname,u.mobile,u.address,p.title_en, p.content_en,p.subGroupNum from Production p, User u where p.userId = u.id order by p.id asc";
+			hql = " select p.id, p.title, p.thumb, p.groupNum, u.realname,u.mobile,u.address,p.title_en, p.content_en,p.subGroupNum,p.adviser from Production p, User u where p.userId = u.id order by p.id asc";
 		}
 		else if(groupNum != 0 && subGroupNum == 0){
-			hql = " select p.title, p.thumb, u.realname , u.mobile, u.address,p.title_en, p.content_en,p.subGroupNum  from Production p, "
+			hql = " select p.title, p.thumb, u.realname , u.mobile, u.address,p.title_en, p.content_en,p.subGroupNum,p.adviser  from Production p, "
 					+ "User u Production where p.groupNum = ? and p.userId = u.id order by p.id asc";
 		}
 		else if (groupNum == 0 && subGroupNum != 0){
-			hql = " select p.title, p.thumb, u.realname , u.mobile, u.address,p.title_en, p.content_en,p.subGroupNum  from Production p, "
+			hql = " select p.title, p.thumb, u.realname , u.mobile, u.address,p.title_en, p.content_en,p.subGroupNum,p.adviser  from Production p, "
 					+ "User u Production where p.subGroupNum = ? and p.userId = u.id order by p.id asc";
 		}
 		else{
-			hql = " select p.title, p.thumb, u.realname , u.mobile, u.address,p.title_en, p.content_en,p.subGroupNum  from Production p, "
+			hql = " select p.title, p.thumb, u.realname , u.mobile, u.address,p.title_en, p.content_en,p.subGroupNum,p.adviser  from Production p, "
 					+ "User u Production where p.groupNum = ? and  p.subGroupNum = ? and p.userId = u.id order by p.id asc";
 		}
 		Query query = session.createQuery(hql);
@@ -295,6 +295,7 @@ public class ProductionDaoImpl implements ProductionDao {
             String title_en = ((String)o[7]);
             String content_en = ((String)o[8]);
             byte subgNum = (Byte)o[9];
+            String adviser = (String)o[10];
             
             productUserModel.setpId(pId);
             productUserModel.setGroupNum(gId);
@@ -306,6 +307,7 @@ public class ProductionDaoImpl implements ProductionDao {
             productUserModel.setSubGroupNum(subgNum);
             productUserModel.setTitle_en(title_en);
             productUserModel.setContent_en(content_en);
+            productUserModel.setAdviser(adviser);
             puList.add(productUserModel);
         }
         return puList;

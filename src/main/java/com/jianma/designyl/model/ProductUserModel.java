@@ -12,6 +12,7 @@ public class ProductUserModel {
 	private byte subGroupNum;
 	private String title_en;
 	private String content_en;
+	private String adviser;
 	
 	public String getTitle() {
 		return title;
@@ -73,6 +74,12 @@ public class ProductUserModel {
 	}
 	public void setContent_en(String content_en) {
 		this.content_en = content_en;
+	}
+	public String getAdviser() {
+		return adviser;
+	}
+	public void setAdviser(String adviser) {
+		this.adviser = adviser;
 	}
 	
 	
