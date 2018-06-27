@@ -212,13 +212,13 @@ public class ProductionController  extends DcController{
 	@ResponseBody
 	@RequestMapping(value="/getListProductionByPage", method = RequestMethod.POST)
 	public ResultModel getListProductionByPage(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam int offset, @RequestParam int limit, @RequestParam(required=false) Integer groupNum){
+			@RequestParam int offset, @RequestParam int limit, @RequestParam(required=false) Integer groupNum, @RequestParam(required=false) Integer subGroupNum){
 		
 		resultModel = new ResultModel();
 		try{
 			Subject subject = SecurityUtils.getSubject();
 			int userId = Integer.parseInt(subject.getSession().getAttribute("userId").toString());
-			PagingModel pagingModel = productionServiceImpl.getListOnlyProductionInfoByPage(offset, limit, groupNum,userId);
+			PagingModel pagingModel = productionServiceImpl.getListOnlyProductionInfoByPage(offset, limit, groupNum,subGroupNum,userId);
 			resultModel.setResultCode(200);
 			resultModel.setObject(pagingModel);
 			resultModel.setSuccess(true);
@@ -245,12 +245,12 @@ public class ProductionController  extends DcController{
 	public ListResultModel getDataTableProductionByPage(HttpServletRequest request, HttpServletResponse response,
 			 @RequestParam int offset, @RequestParam int limit,
 			 @RequestParam(required=false) Integer groupNum,@RequestParam(required=false) Integer round,
-			 @RequestParam(required=false) Integer status){
+			 @RequestParam(required=false) Integer status, @RequestParam(required=false) Integer subGroupNum){
 		
 		ListResultModel listResultModel = new ListResultModel();
 		try {
 			
-			PagingModel pagingModel = productionServiceImpl.getListProductionByPage(offset, limit, groupNum, round, status);
+			PagingModel pagingModel = productionServiceImpl.getListProductionByPage(offset, limit, groupNum, subGroupNum,round, status);
 			
 			listResultModel.setAaData(pagingModel.getList());
 			
@@ -317,7 +317,7 @@ public class ProductionController  extends DcController{
 	@ResponseBody
 	@RequestMapping(value="/getProductionPageByCondition", method = RequestMethod.GET)
 	public ListResultModel getProductionPageByCondition(HttpServletRequest request, HttpServletResponse response, 
-			@RequestParam int groupNum, @RequestParam int status, 
+			@RequestParam int groupNum, @RequestParam int status, @RequestParam(required=false) Integer subGroupNum,
 			@RequestParam int userId, @RequestParam int round, @RequestParam int iDisplayStart,
 			@RequestParam int iDisplayLength,@RequestParam String sEcho){
 		
@@ -334,7 +334,7 @@ public class ProductionController  extends DcController{
 			}
 
 			
-			PagingModel pagingModel = productionServiceImpl.getProductionPageByCondition(groupNum, status, userId, round, iDisplayLength, iDisplayStart);
+			PagingModel pagingModel = productionServiceImpl.getProductionPageByCondition(groupNum, subGroupNum,status, userId, round, iDisplayLength, iDisplayStart);
 			
 			listResultModel.setAaData(pagingModel.getList());
 			

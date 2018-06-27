@@ -22,9 +22,9 @@ public interface ProductionDao {
 	 * @param groupNumId 0:查看所有，>0 根据组别查询
 	 * @return
 	 */
-	public List<Production> getListProductionByPage(int offset, int limit, int groupNumNum,int round, int status);
+	public List<Production> getListProductionByPage(int offset, int limit, int groupNum,int subGroupNum, int round, int status);
 	
-	public int getCountProduction(int groupNum,int round,int status);
+	public int getCountProduction(int groupNum,int subGroupNum,int round,int status);
 	
 	/**
 	 * 管理员权限下查看所有的投稿作品,可以根据组别查询，与注册用户表关联
@@ -33,9 +33,9 @@ public interface ProductionDao {
 	 * @param groupNumId 0:查看所有，>0 根据组别查询
 	 * @return
 	 */
-	public List<ProductUserModel> getListProductionByPageRelationRegisterUser(int offset, int limit, int groupNum);
+	public List<ProductUserModel> getListProductionByPageRelationRegisterUser(int offset, int limit, int groupNum,int subGroupNum);
 	
-	public int getCountProductionRelationRegisterUser(int groupNum);
+	public int getCountProductionRelationRegisterUser(int groupNum,int subGroupNum);
 	/**
 	 * 根据用户ID查看其投稿的所有作品,可以根据组别查询
 	 * @param userId
@@ -44,9 +44,9 @@ public interface ProductionDao {
 	 * @param groupNumId 0:查看所有，>0 根据组别查询
 	 * @return
 	 */
-	public List<Production> getListProductionByPageAndUserId(int offset, int limit, int groupNum, int userId);
+	public List<Production> getListProductionByPageAndUserId(int offset, int limit, int groupNum,int subGroupNum, int userId);
 	
-	public int getCountProductionByUserId(int groupNum, int userId);
+	public int getCountProductionByUserId(int groupNum,int subGroupNum, int userId);
 	
 	/**
 	 * 根据作品ID查看其详情
@@ -78,7 +78,7 @@ public interface ProductionDao {
 	 * @param userId
 	 * @return
 	 */
-	public List<Production> getProductionByCondition(int groupNum, int status, int userId, int round, int limit, int offset);
+	public List<Production> getProductionByCondition(int groupNum,int subGroupNum, int status, int userId, int round, int limit, int offset);
 	
 	/**
 	 * 根据条件获取投稿产品总数
@@ -88,7 +88,7 @@ public interface ProductionDao {
 	 * @param userId
 	 * @return
 	 */
-	public int getProductionCountByCondition(int groupNum, int status, int userId, int round );
+	public int getProductionCountByCondition(int groupNum,int subGroupNum, int status, int userId, int round );
 	
 	
 	/**

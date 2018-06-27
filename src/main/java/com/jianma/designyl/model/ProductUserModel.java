@@ -9,6 +9,9 @@ public class ProductUserModel {
 	private String mobile;
 	private String address;
 	private byte groupNum;
+	private byte subGroupNum;
+	private String title_en;
+	private String content_en;
 	
 	public String getTitle() {
 		return title;
@@ -52,6 +55,24 @@ public class ProductUserModel {
 	}
 	public void setGroupNum(byte groupNum) {
 		this.groupNum = groupNum;
+	}
+	public byte getSubGroupNum() {
+		return subGroupNum;
+	}
+	public void setSubGroupNum(byte subGroupNum) {
+		this.subGroupNum = subGroupNum;
+	}
+	public String getTitle_en() {
+		return title_en;
+	}
+	public void setTitle_en(String title_en) {
+		this.title_en = title_en;
+	}
+	public String getContent_en() {
+		return content_en;
+	}
+	public void setContent_en(String content_en) {
+		this.content_en = content_en;
 	}
 	
 	

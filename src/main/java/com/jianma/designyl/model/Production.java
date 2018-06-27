@@ -28,10 +28,13 @@ public class Production implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String title;
+	private String title_en;
 	private int userId;
 	private String content;
+	private String content_en;
 	private String attachFile;
 	private byte groupNum;
+	private byte subGroupNum;
 	private Date createTime;
 	private Float score;
 	private Byte status; //1.已提交、2.审核未通过、3.审核已通过、4.初选入围、5.初选未入围、6.复选入围、7复选未入围
@@ -61,7 +64,7 @@ public class Production implements java.io.Serializable {
 		this.attachFile = attachFile;
 	}
 
-	public Production(String title, int userId, byte groupNum, String pimage, String content,String attachFile,
+	public Production(String title, String title_en,int userId, byte groupNum, byte subGroupNum,String pimage, String content, String content_en,String attachFile,
 			Byte status,byte participantType, String participantName,
 			String participantIdNumber, String participantBrief, String teamMember, Float score,
 			Date createTime) {
@@ -79,6 +82,9 @@ public class Production implements java.io.Serializable {
 		this.score = score;
 		this.createTime = createTime;
 		this.attachFile = attachFile;
+		this.title_en = title_en;
+		this.content_en = content_en;
+		this.subGroupNum = subGroupNum;
 	}
 
 	@Id
@@ -249,5 +255,33 @@ public class Production implements java.io.Serializable {
 	public void setWeblink(String weblink) {
 		this.weblink = weblink;
 	}
+
+	@Column(name = "title_en", length = 255)
+	public String getTitle_en() {
+		return title_en;
+	}
+
+	public void setTitle_en(String title_en) {
+		this.title_en = title_en;
+	}
+
+	@Column(name = "content_en")
+	public String getContent_en() {
+		return content_en;
+	}
+
+	public void setContent_en(String content_en) {
+		this.content_en = content_en;
+	}
+
+	@Column(name = "subGroupNum")
+	public byte getSubGroupNum() {
+		return subGroupNum;
+	}
+
+	public void setSubGroupNum(byte subGroupNum) {
+		this.subGroupNum = subGroupNum;
+	}
+	
 	
 }
