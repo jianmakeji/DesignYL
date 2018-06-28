@@ -19,7 +19,7 @@
 	<%@ include file="header.jsp"%>
 	<div class="zyTopShow">
          <div class="zyItem">
-             <img src="resources/frontend/images/app/topShow.jpg">
+             <img src="resources/frontend/images/app/topShow.png">
          </div>
      </div>
      <img src="resources/frontend/images/app/schedule.jpg">
@@ -44,7 +44,7 @@
      	</ul>
 
 	     <div id="JMTCenter">
-			<a id="JMBtn" style="margin-top: -15px;margin-bottom:45px;" href="news/news/1">查看更多</a>
+			<a id="JMBtn" style="margin-top: 86px;margin-bottom:48px;" href="news/news/1">查看更多</a>
 		</div>
    	</div>
 	<%@ include file="footer.jsp"%>

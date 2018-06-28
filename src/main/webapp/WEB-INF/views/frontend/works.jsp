@@ -21,14 +21,14 @@
 	<div class="zyMargin60">
 		<table class="zyTable" id="myTable">
 			<thead>
-				<tr>
+				<tr style="background: #47a8a9;color: white;">
 					<th><spring:message code="title"/></th>
 					<th><spring:message code="introduction"/></th>
 					<th><spring:message code="state"/></th>
 					<th><spring:message code="operation"/></th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="color: #212121;">
 				
 			</tbody>
 		</table>

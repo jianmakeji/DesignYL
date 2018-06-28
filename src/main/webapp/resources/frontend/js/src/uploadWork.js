@@ -34,7 +34,11 @@ var uploadWork = (function (config, functions) {
                     workInfoPanel.find("textarea[name='content']").val(data.content);	//简介
                     workInfoPanel.find("textarea[name='content_en']").val(data.content_en);
                     workInfoPanel.find("input[name='adviser']").val(data.adviser);
-                    workInfoPanel.find(".conceptProductImage").attr("src", data.pimage);	//概念作品
+//                    workInfoPanel.find(".conceptProductImage").attr("src", data.pimage);	//概念作品
+                    var arr1 = data.pimage.split(',');
+                    workInfoPanel.find(".conceptProductImage1").attr("src", arr1[0]);	//创新作品1
+                    workInfoPanel.find(".conceptProductImage2").attr("src", arr1[1]);	//创新作品2
+                    workInfoPanel.find(".conceptProductImage3").attr("src", arr1[2]);	//创新作品3
                 }else if(data.groupNum == 2){
                     workInfoPanel.find("input[name='title']").val(data.title);
                     workInfoPanel.find("input[name='title_en']").val(data.title_en);
@@ -82,8 +86,8 @@ var uploadWork = (function (config, functions) {
                 obj.adviser = workInfoPanel.find("input[name='adviser']").val();
                 obj.attachFile = attachUrl;
                 obj.status = 1;
-                obj.pimageArr = [$("#uploadBg").attr('src')];
-                obj.pimage = $("#uploadBg").attr('src');
+                obj.pimageArr = [$("#uploadBg").attr('src'),$("#uploadBg4").attr('src'),$("#uploadBg5").attr('src')];
+                obj.pimage = $("#uploadBg").attr('src')+","+$("#uploadBg4").attr('src')+","+$("#uploadBg5").attr('src');
                 obj.groupNum = 1;
             }else if(productType == "2"){
                 obj.title = workInfoPanel.find("input[name='title']").val();
@@ -211,6 +215,16 @@ $(document).ready(function () {
 
     var productOSSUploaderObject = new uploadOSSObject("uploadBg","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole"),$("#ossBgProgress"),$("#bgFileDescribe"),$("#ossBgfile .determinate"),$("#bgFileCompletePersent"),$("#uploadBg"));
+	var productUploader = createUploader(productOSSUploaderObject);
+	productUploader.init();
+	
+	var productOSSUploaderObject = new uploadOSSObject("uploadBg4","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+			$("#bgConsole4"),$("#ossBgProgress4"),$("#bgFileDescribe4"),$("#ossBgfile .determinate4"),$("#bgFileCompletePersent4"),$("#uploadBg4"));
+	var productUploader = createUploader(productOSSUploaderObject);
+	productUploader.init();
+	
+	var productOSSUploaderObject = new uploadOSSObject("uploadBg5","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+			$("#bgConsole5"),$("#ossBgProgress5"),$("#bgFileDescribe5"),$("#ossBgfile .determinate5"),$("#bgFileCompletePersent5"),$("#uploadBg5"));
 	var productUploader = createUploader(productOSSUploaderObject);
 	productUploader.init();
 	

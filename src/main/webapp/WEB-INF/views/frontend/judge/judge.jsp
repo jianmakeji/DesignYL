@@ -49,9 +49,7 @@
 					<li class="selected">
 						<div class="swiper-container" >
 						    <div class="swiper-wrapper">
-						        <!-- <div class="swiper-slide"><img id="productImage" src=""></div>
-						        <div class="swiper-slide"><img id="productImage" src=""></div>
-						        <div class="swiper-slide"><img id="productImage" src=""></div> -->
+						        <!-- <div class="swiper-slide"><img id="productImage" src=""></div> -->
 						    </div>
 						</div>
 					</li>
@@ -208,15 +206,6 @@
 					  this.updateQuickView(slectedImageUrl.replace('?x-oss-process=style/thumb_210_300',''));
 					
 				  },
-				  /* updateSlider:function(navigation) {
-						var sliderConatiner = navigation.parents('.cd-slider-wrapper').find('.cd-slider'),
-							activeSlider = sliderConatiner.children('.selected').removeClass('selected');
-						if ( navigation.hasClass('cd-next') ) {
-							( !activeSlider.is(':last-child') ) ? activeSlider.next().addClass('selected') : sliderConatiner.children('li').eq(0).addClass('selected'); 
-						} else {
-							( !activeSlider.is(':first-child') ) ? activeSlider.prev().addClass('selected') : sliderConatiner.children('li').last().addClass('selected');
-						} 
-				  }, */
 				  updateQuickView:function(url) {
 						$('.cd-quick-view .cd-slider li').removeClass('selected')
 						this.imgBox = url;
@@ -269,10 +258,10 @@
 							quickViewWidth = ( windowWidth * .8 < maxQuickWidth ) ? windowWidth * .8 : maxQuickWidth ,
 							quickViewLeft = (windowWidth - quickViewWidth)/2;
 						
-						if (windowHeight < 800){
+						if (windowHeight < 900){
 							finalTop = 20;
 						}
-						if (windowHeight > 800){
+						if (windowHeight > 900){
 							finalTop = 60;
 						}
 						

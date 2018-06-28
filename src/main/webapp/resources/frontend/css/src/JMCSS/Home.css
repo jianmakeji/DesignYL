@@ -556,7 +556,7 @@ img {
 	 #JMTCenter{
 	    text-align: center!important;
 	}
-	#JMBtn{
+	/* #JMBtn{
 		   width: 150px;
 	    height: 50px;
 	    line-height: 50px;
@@ -566,5 +566,5 @@ img {
 	    text-align: center;
 	    color: #fff;
 	    border: none;
-	}
+	} */
 }

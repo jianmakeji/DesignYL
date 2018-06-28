@@ -40,13 +40,13 @@
 			</div>
 			<div class="zyFormRow">
 				<div class="zyTCenter">
-					<button type="submit" class="zyBtn"><spring:message code="preservation"/></button>
+					<button type="submit" class="zyBtn" style="margin-top: 33px;"><spring:message code="preservation"/></button>
 				</div>
 			</div>
 		</form>
 
 		<br>
-		<hr>
+		<hr style="color: #6d6d6d;">
 		<br>
 		<h3 class="zyPanelTitle"><spring:message code="password"/></h3>
 		<form id="myForm1" class="zyForm" method="post" action="#">
@@ -64,7 +64,7 @@
 			</div>
 			<div class="zyFormRow">
 				<div class="zyTCenter">
-					<button type="submit" class="zyBtn"><spring:message code="preservation"/></button>
+					<button type="submit" class="zyBtn" style="margin-top: 33px;"><spring:message code="preservation"/></button>
 				</div>
 			</div>
 		</form>

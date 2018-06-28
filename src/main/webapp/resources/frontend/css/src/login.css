@@ -8,7 +8,7 @@ body{
     height: 100%;
     position: relative;
     font-family: "Arail","Microsoft YaHei","Heiti";
-    background: #E5E5E5;
+    background: #ffffff;
     box-sizing: border-box;
 }
 a{
@@ -19,7 +19,7 @@ a{
     position: absolute;
     height: 350px;
     width: 400px;
-    background:#fff;
+    background:#f7f7f7;
     left:50%;
     top:50%;
     transform: translate(-50%,-50%);
@@ -69,15 +69,16 @@ a{
     color: #fff;
 }
 .appTitle{
+	    letter-spacing: 2px;
     text-align: center;
     /* margin: 50px 0px 50px 0px; */
-    font-size: 30px;
-    color: #6d6d6d;
+    font-size: 24px;
+    color: #7f7f7f;
     transform: translateX(0px) translateY(30px);
 }
 .row{
     width: 70%;
-    margin: 30px auto;
+    margin: 15px auto;
     font-size: 14px;
     position: relative;
 }
@@ -116,7 +117,7 @@ a{
     border-radius: 2px;
 }
 .ctrlBtn:hover{
-    background: #bb8229;
+    background: #3a8785;
     cursor: pointer;
 }
 label.error{

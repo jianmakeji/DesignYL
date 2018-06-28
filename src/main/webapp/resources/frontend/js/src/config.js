@@ -150,6 +150,14 @@ $(document).ready(function () {
         }
     }
 
+	$(".JMIconUser").hover(function(){
+		$(".JMIconUser").parent().css("background","#47a8a9");
+    	$(".JMIconUser").css("background-image","url(resources/frontend/images/JMImages/iconUser.png)");
+    })
+    $(".JMIconUser").mouseleave(function(){
+		$(".JMIconUser").parent().css("background","white");
+    	$(".JMIconUser").css("background-image","url(resources/frontend/images/app/iconUser.png)");
+    })
 
     //zySelect控件
     $(document).click(function (e) {

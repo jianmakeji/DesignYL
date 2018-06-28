@@ -163,7 +163,7 @@ var Component = new Vue({
     		var that = this;
     		var img = new Image();
     		img.src = this.dataSourse.thumb;
-    		if(img.width * 0.5 == img.height){
+    		if(img.width == img.height){
     			this.dataSourse.content = tinyMCE.activeEditor.getContent();
         		var that = this;
         		$.ajax({

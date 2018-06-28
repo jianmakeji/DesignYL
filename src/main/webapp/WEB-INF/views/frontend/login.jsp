@@ -17,17 +17,17 @@
 		</div>
 		<h1 class="appTitle"><spring:message code="system_login"/></h1>
 		<div class="row">
-			<input class="ctrlInput icon1" type="text" name="username" placeholder="邮箱">
+			<input class="ctrlInput icon1" type="text" name="username" placeholder="邮箱" style="margin-top: 36px;">
 		</div>
 		<div class="row">
-			<input id="password" class="ctrlInput icon2" type="password" name="password" placeholder="密码">
+			<input id="password" class="ctrlInput icon2" type="password" name="password" placeholder="密码"  style="margin-bottom: 20px;margin-top:-10px; ">
 		</div>
 
 		<div class="row submit">
-			<input type="submit" class="ctrlBtn" value="登录"> <label class="error tCenter">${error}</label>
+			<input type="submit" class="ctrlBtn" value="登录" style="margin-top: -10px;"> <label class="error tCenter">${error}</label>
 		</div>
 		<div class="row">
-			<a href="user/register" style="float: left"><spring:message code="register"/></a> <a href="user/forgetPwd" style="float: right"><spring:message code="forgetPwd"/></a>
+			<a href="user/register" style="float: left;margin-top: -8px;">注册</a> <a href="user/forgetPwd" style="float: right;margin-top: -8px;">忘记密码</a>
 		</div>
 		<div class="logoBottom">
 			<span class="glyphicon glyphicon-user"></span>

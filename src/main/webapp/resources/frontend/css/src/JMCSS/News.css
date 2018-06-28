@@ -42,14 +42,14 @@ img{
 .JMNewsList .JMNewsListUl .JMNews1{
   width: 100%;
   height: 250px;
-  margin: 20px auto;
+  margin: 0px auto;
 }
 .JMNewsList .JMNewsListUl .JMNews1 img{
-      display: inline-block;
-    width: 380px;
-    height: 190px;
-    margin-top: 60px;
-    margin-left: 15px;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin-top: 44px;
+    margin-left: 100px;
 }
 .JMNewsList .JMNewsListUl .JMNews1 .JMNewsTextBox{
   width: 740px;
@@ -77,9 +77,9 @@ img{
   font-size: 14px;
 }
 .JMNewsList .JMNewsListUl .JMNews1 hr{
-  width: 90%;
+  width: 87%;
   border: 1px solid #47a8a9;
-  margin-top: 30px;
+  margin-top: 51px;
 }/*********************************鐟曞棗鍟撻崚鍡涖�夐幒褌娆㈤弽宄扮础*******************************/
 #kkpager{
 	marin:50px auto;

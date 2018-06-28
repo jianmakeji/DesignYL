@@ -145,7 +145,6 @@ var config={
     }
 };
 $(document).ready(function(){
-
     $("input[type='text'],input[type='email']").blur(function(){
         $(this).val($(this).val().trim());
     });
@@ -162,6 +161,7 @@ $(document).ready(function(){
         if(target){
             target.addClass("active");
         }
-
     }
+    
+    
 });

@@ -71,7 +71,7 @@
 			
 			<div class="zyFormRow">
 				<div class="zyTCenter">
-					<button type="submit" class="zyBtn"><spring:message code="determine"/></button>
+					<button type="submit" class="zyBtn" style="margin-top: 86px;"><spring:message code="determine"/></button>
 				</div>
 			</div>
 		</form>
