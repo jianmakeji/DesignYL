@@ -48,9 +48,9 @@
      	<beans:property name="useCodeAsDefaultMessage" value="true" />
    </beans:bean>   
     
-   <!-- 获取本地 -->  
-   <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/>  
+   <!-- 获取本地  <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver"/> -->  
     
+   <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver"></beans:bean>
     
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
