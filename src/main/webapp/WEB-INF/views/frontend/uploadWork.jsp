@@ -186,14 +186,14 @@
 					<div id="zyProductInfo" class="zyWorkInfoPanel">
 						
 						<div class="zyFormRow">
-							<label class="zyFormLabel">中文标题(Chinese Title)</label>	<!-- 标题 -->
+							<label class="zyFormLabel" style="line-height: normal;">中文标题(Chinese Title)</label>	<!-- 标题 -->
 							<div class="zyFormControl">
 								<input type="text" name="title" class="zyInput zyActionRequired">
 							</div>
 							<span class="zyRequired">*</span>
 						</div>
 						<div class="zyFormRow">
-							<label class="zyFormLabel">英文标题(English Title)</label>	<!-- 标题 -->
+							<label class="zyFormLabel" style="line-height: normal;">英文标题(English Title)</label>	<!-- 标题 -->
 							<div class="zyFormControl">
 								<input type="text" name="title_en" class="zyInput zyActionRequired">
 							</div>
@@ -201,7 +201,7 @@
 						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel">中文简介(Chinese Abstract)</label>	<!-- 简介 -->
+							<label class="zyFormLabel" style="line-height: normal;">中文简介(Chinese Abstract)</label>	<!-- 简介 -->
 							<div class="zyFormControl">
 								<textarea name="content" class="zyInput zyTextarea zyActionRequired"></textarea>
 							</div>
@@ -209,7 +209,7 @@
 						</div>
 						
 						<div class="zyFormRow">
-							<label class="zyFormLabel">英文简介(English Abstract)</label>	<!-- 简介 -->
+							<label class="zyFormLabel" style="line-height: normal;">英文简介(English Abstract)</label>	<!-- 简介 -->
 							<div class="zyFormControl">
 								<textarea name="content_en" class="zyInput zyTextarea zyActionRequired"></textarea>
 							</div>
@@ -229,12 +229,12 @@
 							<input type="radio" class="zyProductImgInfoRadio" name="SelectProductType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>概念设计组作品</label> 
 							<input type="radio" class="zyProductsloganInfoRadio" name="SelectProductType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>产品创新组作品</label> 
 						</div>
-						<div class="zyFormRow" id="zySelectProductSubGroupType">
+						<div class="zyFormRow" id="zySelectProductSubGroupType" style="margin: 12px 0px;">
 							<label class="zyFormLabel">产品子项</label>
 							<input type="radio" class="zyProductSubGroupRadio1" name="SelectProductSubType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>康复辅具类</label> 
-							<input type="radio" class="zyProductSubGroupRadio2" name="SelectProductSubType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>生活益智类</label> 
-							<input type="radio" class="zyProductSubGroupRadio3" name="SelectProductSubType" value="3" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>设施环境类</label> 
-							<input type="radio" class="zyProductSubGroupRadio4" name="SelectProductSubType" value="4" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>综合服务类</label> 
+							<input type="radio" class="zyProductSubGroupRadio2" name="SelectProductSubType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 20px"><label>生活益智类</label> 
+							<input type="radio" class="zyProductSubGroupRadio3" name="SelectProductSubType" value="3" data-target="#zyProductSloganInfo" style="margin-left: 20px"><label>设施环境类</label> 
+							<input type="radio" class="zyProductSubGroupRadio4" name="SelectProductSubType" value="4" data-target="#zyProductSloganInfo" style="margin-left: 20px"><label>综合服务类</label> 
 						</div>
 						<!-- 概念作品	-->
 						<div id="zyProductImgInfo" class="zyProductInfoPanel">

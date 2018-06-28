@@ -16,8 +16,9 @@ var uploadWork = (function (config, functions) {
                 personInfoPanel.find('textarea[name="participantBrief"]').val(data.participantBrief);	//队长简介
                 personInfoPanel.find('textarea[name="teamMember"]').val(data.teamMember);				//队长成员
                 personInfoPanel.find("input[name='affiliatedUnit']").val(data.affiliatedUnit);			//队长所属单位
+                
                 workInfoPanel = $(".zyWorkInfoPanel");
-                console.log("data",data);
+                attachUrl = data.attachFile;
                 if(data.subGroupNum == 1){
                 	$("input[class ='zyProductSubGroupRadio1']").attr("checked", true);
                 }else if(data.subGroupNum == 2){
@@ -178,10 +179,6 @@ $(document).ready(function () {
 
     uploader.bind('FilesAdded',function(uploader,files){
     	$().toastmessage("showSuccessToast","已添加文件，确认无误请上传");
-    });
- 
-    uploader.bind('UploadProgress',function(uploader,file){
-//    	that.percent = file.percent; 
     });
     
     uploader.bind('FileUploaded',function(up, file, info){

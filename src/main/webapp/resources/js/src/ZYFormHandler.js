@@ -78,7 +78,6 @@ ZYFormHandler.prototype.submitFormWithJSON=function(form,data){
                     }
                 }
             }else{
-            	console.log("response",response);
                 functions.ajaxReturnErrorHandler(response.message);
             }
         },
