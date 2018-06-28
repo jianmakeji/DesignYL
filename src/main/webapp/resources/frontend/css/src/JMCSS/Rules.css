@@ -167,14 +167,3 @@ img{
     margin-left: 10%;
     border: 0px;
 }
-/*
- * footer
- *
- * */
-.JMFooter {
-	height: 80px;
-	line-height: 80px;
-	background: #363636;
-	color: #fff;
-	text-align: center;
-}

@@ -239,14 +239,6 @@ img{
 .zy20C7BE{
     color: #47a8a9!important;
 }
-.JMFooter{
-    height: 80px;
-    background: #363636;
-    color: #fff;
-    text-align: center;
-    line-height: 80px;
-   
-}
 .zyHidden{
     display: none!important;
 }
@@ -1086,7 +1078,30 @@ img{
 
 
 /************************************************loader******************************/
-
+.swiper-container {
+    width: 297px;
+    height: 420px;
+    margin: 20px auto;
+}
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
 
 
 

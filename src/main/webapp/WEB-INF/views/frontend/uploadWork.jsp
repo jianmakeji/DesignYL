@@ -29,7 +29,11 @@
 				<p class="zyText"><spring:message code="personnel_restrictions"/><span>2-5</span>人</p>
 			</div>
 			<div id="zyStep2Tip" class="zyStepTip zyHidden">
-				<h5 class="zySubTitle"><spring:message code="upload_requirements"/></h5>	
+				<h5 class="zySubTitle"><spring:message code="upload_requirements"/></h5>
+				<p class="zyText">
+					（1）作品要求:所有参赛作品内容需要符合本次大赛的主题和征集方向，参赛者须保证对其参赛作品具有原创性，具有完整的知识产权，不存在知识产权侵权或任何其他侵权行为。产品创新组限销售或投入使用5年以内（2013年1月1日以后销售或投入使用）的服务或者产品设计报名参赛。<br>
+					（2）作品提交要求:所有未销售或投入使用的服务或者产品设计提交“概念设计组”参赛。已销售或投入使用的服务或者产品设计（含已取得专利的产品和服务）提交“产品创新组”参赛。
+				</p>	
 				<h5 class="zySubTitle">概念设计组作品提交要求</h5>
 				<p class="zyText">
 					（1）作品版面大小为<font class="zyFF0000">A1</font>（840mm×594mm）图幅，<font class="zyFF0000">竖构图</font>，jpg格式，精度350dpi；单张图片大小<font class="zyFF0000">不得超过5M</font>。<br>
@@ -40,7 +44,10 @@
 					（1）提交3张高精度（350dpi以上）产品实物照片，单张图片大小<font class="zyFF0000">不得超过5M</font>。<br>
 					（2）填写产品/服务设计说明（300字以内），并提交相应的辅助资料（如说明书扫描文档，产品/服务网页链接等信息）。
 				</p>
+				<h5 class="zySubTitle">作品标准</h5>
 				<p class="zyText">
+					（1）概念设计组。主要评选出相关研究机构、高校、设计机构、自由设计师和创新发明爱好者的概念设计作品或服务方案。<br>
+					（2）产品创新组。主要评选出相关企事业单位、研究机构、设计机构、自由设计师等制造生产的已完成功能开发的设计产品或综合服务系统。<br>
 					为保证本次大赛评选的公正性，参赛作品及版面上不得出现作者所在单位、姓名（包括英文或拼音缩写）或与作者身份有关的任何图标、图形等个人信息资料。
 				</p>
 			</div>
@@ -63,12 +70,20 @@
 					</div>
 					<div id="zyPersonalInfo" class="zyPersonInfoPanel">
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="name"/></label>	<!-- 姓名 -->
+							<label class="zyFormLabel">中文姓名</label>	<!-- 姓名 -->
 							<div class="zyFormControl">
-								<input type="text" name="participantName" class="zyInput zyActionRequired">
+								<input type="text" name="participantName" class="zyInput zyActionRequired" placeholder = "请输入中文姓名">
 							</div>
 							<span class="zyRequired">*</span>
 						</div>
+						
+						<!-- div class="zyFormRow">
+							<label class="zyFormLabel">中文姓名</label>	姓名
+							<div class="zyFormControl">
+								<input type="text" name="participantName_en" class="zyInput zyActionRequired" placeholder = "请输入英文姓名">
+							</div>
+							<span class="zyRequired">*</span>
+						</div> -->
 
 						<div class="zyFormRow">
 							<label class="zyFormLabel"><spring:message code="ID_number"/></label>	<!-- 身份证号 -->
@@ -171,26 +186,55 @@
 					<div id="zyProductInfo" class="zyWorkInfoPanel">
 						
 						<div class="zyFormRow">
-							<label class="zyFormLabel">标题</label>	<!-- 标题 -->
+							<label class="zyFormLabel" style="line-height: normal;">中文标题(Chinese Title)</label>	<!-- 标题 -->
 							<div class="zyFormControl">
 								<input type="text" name="title" class="zyInput zyActionRequired">
 							</div>
 							<span class="zyRequired">*</span>
 						</div>
+						<div class="zyFormRow">
+							<label class="zyFormLabel" style="line-height: normal;">英文标题(English Title)</label>	<!-- 标题 -->
+							<div class="zyFormControl">
+								<input type="text" name="title_en" class="zyInput zyActionRequired">
+							</div>
+							<span class="zyRequired">*</span>
+						</div>
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel">简介</label>	<!-- 简介 -->
+							<label class="zyFormLabel" style="line-height: normal;">中文简介(Chinese Abstract)</label>	<!-- 简介 -->
 							<div class="zyFormControl">
 								<textarea name="content" class="zyInput zyTextarea zyActionRequired"></textarea>
 							</div>
 							<span class="zyRequired">*</span>
 						</div>
 						
+						<div class="zyFormRow">
+							<label class="zyFormLabel" style="line-height: normal;">英文简介(English Abstract)</label>	<!-- 简介 -->
+							<div class="zyFormControl">
+								<textarea name="content_en" class="zyInput zyTextarea zyActionRequired"></textarea>
+							</div>
+							<span class="zyRequired">*</span>
+						</div>
+						
+						<div class="zyFormRow">
+							<label class="zyFormLabel">项目导师</label>	<!-- 简介 -->
+							<div class="zyFormControl">
+								<input type="text" name="adviser" class="zyInput zyActionRequired">
+							</div>
+						</div>
 						
 						<!-- 概念作品	或者		创新作品	-->
 						<div class="zyFormRow" id="zySelectProductType">
+							<label class="zyFormLabel">产品组</label>
 							<input type="radio" class="zyProductImgInfoRadio" name="SelectProductType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>概念设计组作品</label> 
 							<input type="radio" class="zyProductsloganInfoRadio" name="SelectProductType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 60px"><label>产品创新组作品</label> 
+						</div>
+						<div class="zyFormRow" id="zySelectProductSubGroupType" style="margin: 12px 0px;">
+							<label class="zyFormLabel">产品子项</label>
+							<input type="radio" class="zyProductSubGroupRadio1" name="SelectProductSubType" value="1" checked="checked" data-target="#zyProductImgInfo"><label>康复辅具类</label> 
+							<input type="radio" class="zyProductSubGroupRadio2" name="SelectProductSubType" value="2" data-target="#zyProductSloganInfo" style="margin-left: 20px"><label>生活益智类</label> 
+							<input type="radio" class="zyProductSubGroupRadio3" name="SelectProductSubType" value="3" data-target="#zyProductSloganInfo" style="margin-left: 20px"><label>设施环境类</label> 
+							<input type="radio" class="zyProductSubGroupRadio4" name="SelectProductSubType" value="4" data-target="#zyProductSloganInfo" style="margin-left: 20px"><label>综合服务类</label> 
 						</div>
 						<!-- 概念作品	-->
 						<div id="zyProductImgInfo" class="zyProductInfoPanel">
