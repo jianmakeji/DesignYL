@@ -19,7 +19,7 @@
 	<%@ include file="header.jsp"%>
 	<div class="zyTopShow">
          <div class="zyItem">
-             <img src="resources/frontend/images/app/topShow.png">
+             <img src="resources/frontend/images/app/topShow.jpg">
          </div>
      </div>
      <img src="resources/frontend/images/app/schedule.jpg">

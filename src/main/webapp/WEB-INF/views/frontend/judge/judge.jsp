@@ -49,7 +49,6 @@
 					<li class="selected">
 						<div class="swiper-container" >
 						    <div class="swiper-wrapper">
-						        <!-- <div class="swiper-slide"><img id="productImage" src=""></div> -->
 						    </div>
 						</div>
 					</li>
@@ -59,9 +58,6 @@
 			<div class="cd-item-info">
 				<h3><spring:message code="title"/>：{{title}}</h3>
 				<p><spring:message code="introduction"/>：{{content}}</p>
-				<div v-if="imgBox != '' ">
-					<a class="downImg" :href="imgBox" download="imgBox" target="_blank">原图片预览</a>
-				</div>
 				<div>
 					<ul class="cd-item-action">
 						<li><input type="text" v-model="score" placeholder="请输入分数  0-100 之间数字"
@@ -73,6 +69,9 @@
 
 			<a href="#0" class="cd-close" v-on:click="closeQuickView">Close</a>
 		</div>
+		 <modal v-model="previewModal" title="图片预览" width="auto" cancel-text="" ok-text="">
+	        <img style="width:100%;heigth:auto;" :src="modelImg" />
+	    </modal>
 	</div>
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
 	<script src="resources/js/lib/vue.min.js"></script>
@@ -101,6 +100,8 @@
 				  bigImgData:[],
 				  mediumImg:"",
 				  imgBox:"",
+				  previewModal:false,
+				  modelImg:""
 			    }
 			  },
 			  created:function(){
@@ -133,7 +134,6 @@
 			                },
 			                success: function (response) {
 			                    if (response.success) {
-			                    	console.log("response",response);
 			                        var results = response.object.list;
 			                        that.total = response.object.count;
 									for (var i = 0; i < results.length; i++){
@@ -142,8 +142,6 @@
 											results[i].pimage = results[i].pimageArr[0] + "?x-oss-process=style/thumb-198-280";
 											that.groupNum = 2;
 										}else if(results[i].groupNum == 1){
-											/* results[i].pimage = results[i].pimage; */
-											/* results[i].pimage = results[i].pimage + '?x-oss-process=style/thumb_210_300'; */
 											results[i].pimageArr = results[i].pimage.split(",");
 											results[i].pimage = results[i].pimageArr[0] + "?x-oss-process=style/thumb-198-280";
 											that.groupNum = 1;
@@ -168,6 +166,7 @@
 						  //判断是否为口号作品
 						  if(this.list[i].groupNum == 2){
 							  if (this.list[i].id == event.target.id){
+								  var that = this;
 								  slectedImageUrl = this.list[i].pimageArr[0] + "?x-oss-process=style/thumb-594-840";
 								  $(".swiper-wrapper").empty();
 								  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
@@ -176,12 +175,19 @@
 								  }
 								  var mySwiper = new Swiper ('.swiper-container', {
 								    	loop: false,
-								 });
+								  });
+								  $("img[id='productImage']").each(function(index){
+									  $(this).click(function(){
+										  that.previewModal = true;
+										  that.modelImg = that.list[i].pimageArr[index];
+									  })
+								  })
 								  this.content = this.list[i].content;
 								  this.score = this.list[i].score;
 								  this.title = this.list[i].title;
 								  this.productionId = this.list[i].id;
-								  break; 
+								  break;
+								 
 							  } 
 						  }else{
 							  if (this.list[i].id == event.target.id){
@@ -194,6 +200,12 @@
 								  var mySwiper = new Swiper ('.swiper-container', {
 								    	loop: false,
 								  });
+								  $("img[id='productImage']").each(function(index){
+									  $(this).click(function(){
+										  that.previewModal = true;
+										  that.modelImg = that.list[i].pimageArr[index];
+									  })
+								  })
 								  this.content = this.list[i].content;
 								  this.score = this.list[i].score;
 								  this.title = this.list[i].title;
@@ -213,8 +225,7 @@
 				  updateQuickView:function(url) {
 						$('.cd-quick-view .cd-slider li').removeClass('selected')
 						this.imgBox = url;
-						$('#productImage').attr('src',url);//添加新后缀
-						//$('#productImage').attr('src',url+'?x-oss-process=style/thumb_420_600');//添加新后缀
+						$('#productImage').attr('src',url);
 						$('.cd-quick-view .cd-slider li').addClass('selected');
 				  },
 				  resizeQuickView:function() {
@@ -229,28 +240,21 @@
 						var selectedImage = $('.empty-box').find('img')
 					  if(this.groupNum == 2){
 						  	var close = $('.cd-close');
-							/* activeSliderUrl = this.mediumImg; */
 					  }else if(this.groupNum == 1){
 						  	var close = $('.cd-close'),
 							activeSliderUrl = close.siblings('.cd-slider-wrapper').find('.selected img').attr('src'),
 							selectedImage = $('.empty-box').find('img');
-						  	console.log("activeSliderUrl", activeSliderUrl);
 					  }
 						if( !$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
-							//selectedImage.attr('src', activeSliderUrl +'?x-oss-process=style/thumb_210_300');
 							//还原点击之前的url
 							this.imgBox = this.imgBox.replace("?x-oss-process=style/thumb-594-840","?x-oss-process=style/thumb-198-280");
-							console.log(this.imgBox);
 							selectedImage.attr({src:this.imgBox});
-							//selectedImage.attr({src:this.imgBox +'?x-oss-process=style/thumb_210_300'});
 							this.animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');
 						} else {
 							this.closeNoAnimation(selectedImage, finalWidth, maxQuickWidth);
 						}
 				  },
 				  animateQuickView:function(image, finalWidth, maxQuickWidth, animationType) {
-						//store some image data (width, top position, ...)
-						//store window data to calculate quick view panel position
 						var parentListItem = image.parent('.cd-item'),
 							topSelected = image.offset().top - $(window).scrollTop(),
 							leftSelected = image.offset().left,
@@ -272,31 +276,24 @@
 						}
 						
 						if( animationType == 'open') {
-							//hide the image in the gallery
 							parentListItem.addClass('empty-box');
-							//place the quick view over the image gallery and give it the dimension of the gallery image
 							$('.cd-quick-view').css({
 							    "top": topSelected,
 							    "left": leftSelected,
 							    "width": widthSelected,
 							}).velocity({
-								//animate the quick view: animate its width and center it in the viewport
-								//during this animation, only the slider image is visible
 							    'top': finalTop + 'px',
 							    'left': finalLeft +'px',
 							    'width': finalWidth +'px',
 							}, 1000, [ 400, 20 ], function(){
-								//animate the quick view: animate its width to the final value
 								$('.cd-quick-view').addClass('animate-width').velocity({
 									'left': quickViewLeft+'px',
 							    	'width': quickViewWidth+'px',
 								}, 300, 'ease' ,function(){
-									//show quick view content
 									$('.cd-quick-view').addClass('add-content');
 								});
 							}).addClass('is-visible');
 						} else {
-							//close the quick view reverting the animation
 							$('.cd-quick-view').removeClass('add-content');
 							$('body').removeClass('overlay-layer');
 							$('.cd-quick-view').removeClass('animate-width');
@@ -310,7 +307,6 @@
 							leftSelected = image.offset().left,
 							widthSelected = image.width();
 
-						//close the quick view reverting the animation
 						$('body').removeClass('overlay-layer');
 						parentListItem.removeClass('empty-box');
 						$('.cd-quick-view').velocity("stop").removeClass('add-content animate-width is-visible').css({

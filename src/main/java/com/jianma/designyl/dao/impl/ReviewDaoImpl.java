@@ -65,15 +65,15 @@ public class ReviewDaoImpl implements ReviewDao {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		if (scoreSign == 0){ //所有评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum,p.subGroupNum,p.attachFile "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? order by createtime desc";
 		}
 		else if (scoreSign == 1){ //已评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum,p.subGroupNum,p.attachFile "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score > 0 order by createtime desc";
 		}
 		else if (scoreSign == 2){//未评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum  "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum,p.subGroupNum,p.attachFile  "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score = 0 order by createtime desc";
 		}
 		
@@ -98,6 +98,8 @@ public class ReviewDaoImpl implements ReviewDao {
             String pimage = (String)o[5];
             float score = ((Number)o[6]).floatValue();
             byte groupNum = (Byte)o[7];
+            byte subGroupNum = (Byte)o[8];
+            String attachFile = (String)o[9];
             
             production.setId(pId);
             production.setTitle(title);
@@ -107,6 +109,8 @@ public class ReviewDaoImpl implements ReviewDao {
             production.setPimage(pimage);
             production.setScore(score);
             production.setGroupNum(groupNum);
+            production.setSubGroupNum(subGroupNum);
+            production.setAttachFile(attachFile);
             pList.add(production);
         }
 		return pList;
