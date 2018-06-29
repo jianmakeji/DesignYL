@@ -139,18 +139,17 @@
 									for (var i = 0; i < results.length; i++){
 										if(results[i].groupNum == 2){
 											results[i].pimageArr = results[i].pimage.split(",");
-											results[i].pimage = results[i].pimageArr[0];
+											results[i].pimage = results[i].pimageArr[0] + "?x-oss-process=style/thumb-198-280";
 											that.groupNum = 2;
 										}else if(results[i].groupNum == 1){
 											/* results[i].pimage = results[i].pimage; */
 											/* results[i].pimage = results[i].pimage + '?x-oss-process=style/thumb_210_300'; */
 											results[i].pimageArr = results[i].pimage.split(",");
-											results[i].pimage = results[i].pimageArr[0];
+											results[i].pimage = results[i].pimageArr[0] + "?x-oss-process=style/thumb-198-280";
 											that.groupNum = 1;
 										}
 									}
 									that.list = results;
-									console.log("list",that.list);
 			                    } else {
 			                        
 			                    }
@@ -169,11 +168,11 @@
 						  //判断是否为口号作品
 						  if(this.list[i].groupNum == 2){
 							  if (this.list[i].id == event.target.id){
-								  slectedImageUrl = this.list[i].pimageArr[0];
+								  slectedImageUrl = this.list[i].pimageArr[0] + "?x-oss-process=style/thumb-594-840";
 								  $(".swiper-wrapper").empty();
 								  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
-									  console.log("pimageArr[imgItem]",imgItem,this.list[i].pimageArr[imgItem]);
-									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ this.list[i].pimageArr[imgItem] +"></div>");
+									  var imgSrc =  this.list[i].pimageArr[imgItem] + "?x-oss-process=style/thumb-594-840";
+									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ imgSrc + "></div>");
 								  }
 								  var mySwiper = new Swiper ('.swiper-container', {
 								    	loop: false,
@@ -186,11 +185,11 @@
 							  } 
 						  }else{
 							  if (this.list[i].id == event.target.id){
-								  slectedImageUrl = this.list[i].pimage;
+								  slectedImageUrl = this.list[i].pimageArr[0] + "?x-oss-process=style/thumb-594-840";
 								  $(".swiper-wrapper").empty();
 								  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
-									  console.log("pimageArr[imgItem]",imgItem,this.list[i].pimageArr[imgItem]);
-									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ this.list[i].pimageArr[imgItem] +"></div>");
+									  var imgSrc =  this.list[i].pimageArr[imgItem] + "?x-oss-process=style/thumb-594-840";
+									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ imgSrc + "></div>");
 								  }
 								  var mySwiper = new Swiper ('.swiper-container', {
 								    	loop: false,
@@ -240,6 +239,8 @@
 						if( !$('.cd-quick-view').hasClass('velocity-animating') && $('.cd-quick-view').hasClass('add-content')) {
 							//selectedImage.attr('src', activeSliderUrl +'?x-oss-process=style/thumb_210_300');
 							//还原点击之前的url
+							this.imgBox = this.imgBox.replace("?x-oss-process=style/thumb-594-840","?x-oss-process=style/thumb-198-280");
+							console.log(this.imgBox);
 							selectedImage.attr({src:this.imgBox});
 							//selectedImage.attr({src:this.imgBox +'?x-oss-process=style/thumb_210_300'});
 							this.animateQuickView(selectedImage, finalWidth, maxQuickWidth, 'close');

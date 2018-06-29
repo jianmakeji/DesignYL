@@ -48,10 +48,10 @@ var vm = new Vue({
                    	   		domProps: {
                                   type: 'primary',
                                   size: 'small',
-                                  src:  params.row.pimage.split(',')[0]
+                                  src:  params.row.pimage.split(',')[0] + "?x-oss-process=style/thumb-198-280"
                               },
                               style: {
-                                  width: '100px',
+                                  width: '99px',
                                   height:"140px",
                                   margin:"10px auto"
                               },
