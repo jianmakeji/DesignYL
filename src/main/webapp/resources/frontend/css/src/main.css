@@ -245,7 +245,8 @@ img{
     text-align: center!important;
 }
 .zyMargin60{
-    margin: 30px 60px;
+	width:80%;
+    margin: 30px auto;
     flex: 1 0 auto;
 }
 .zyMargin150{
@@ -311,6 +312,7 @@ img{
 .zyTwoSide .zyCLeft{
     width: 28%;
     float: left;
+    margin-left: 140px;
 }
 .zyTwoSide .zyCRight{
     margin-left: 40%;

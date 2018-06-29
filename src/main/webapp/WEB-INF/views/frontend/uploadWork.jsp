@@ -17,7 +17,7 @@
 	var id = "${production.id}";
 </script>
 </head>
-<body>
+<body style="max-width:none;">
 	<%@ include file="header.jsp"%>
 	<%@ include file="pageMenu.jsp"%>
 

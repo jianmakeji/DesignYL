@@ -10,7 +10,7 @@
 <link href="resources/frontend/css/src/main.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/src/JMCSS/Header.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body style="max-width:none;">
 	<%@ include file="header.jsp"%>
 
 	<div class="zyMargin60">

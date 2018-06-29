@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body  style="max-width:none;">
 
 	<%@ include file="header.jsp"%>
 
