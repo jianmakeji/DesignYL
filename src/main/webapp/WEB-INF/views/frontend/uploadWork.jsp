@@ -235,7 +235,7 @@
 							<div class="zyFormRow">
 								<label class="zyFormLabel" style="margin-top: -8px;">版面1</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg" class="conceptProductImage1" style="width: 297px;height:420px;margin-top: 25px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg" class="conceptProductImage1" style="width: 198px;height:280px;margin-top: 25px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo" style="width:300px">
 										<div id="ossBgfile">
 											<div><b id="bgFileDescribe"><span id="bgFileCompletePersent"></span></b>
@@ -252,7 +252,7 @@
 							<div class="zyFormRow">
 								<label class="zyFormLabel" style="margin-top: -8px;">版面2</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer2">
-									<img id="uploadBg4" class="conceptProductImage2" style="width: 297px;height:420px;margin-top: -40px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg4" class="conceptProductImage2" style="width: 198px;height:280px;margin-top: -40px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo4" style="width:300px">
 										<div id="ossBgfile">
 											<div><b id="bgFileDescribe4"><span id="bgFileCompletePersent4"></span></b>
@@ -269,7 +269,7 @@
 							<div class="zyFormRow">
 								<label class="zyFormLabel" style="margin-top: -8px;">版面3</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer3">
-									<img id="uploadBg5" class="conceptProductImage3" style="width: 297px;height:420px;margin-top: -40px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg5" class="conceptProductImage3" style="width: 198px;height:280px;margin-top: -40px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo5" style="width:300px">
 										<div id="ossBgfile">
 											<div><b id="bgFileDescribe5"><span id="bgFileCompletePersent5"></span></b>
@@ -289,7 +289,7 @@
 							<div class="zyFormRow">
 								<label class="zyFormLabel" style="margin-top: -8px;">版面1</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg1" class="innovatProductImage1" style="width: 297px;height:420px;margin-top: 25px ;" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg1" class="innovatProductImage1" style="width: 198px;height:280px;margin-top: 25px ;" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo" style="width:300px">
 										<div id="ossBgfile">
 											<div><b id="bgFileDescribe1"><span id="bgFileCompletePersent1"></span></b>
@@ -306,7 +306,7 @@
 							<div class="zyFormRow">
 								<label class="zyFormLabel" style="margin-top: -8px;">版面2</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg2" class="innovatProductImage2" style="width: 297px;height:420px;margin-top: -40px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg2" class="innovatProductImage2" style="width: 198px;height:280px;margin-top: -40px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo2" style="width:300px">
 										<div id="ossBgfile">
 											<div><b id="bgFileDescribe2"><span id="bgFileCompletePersent2"></span></b>
@@ -323,7 +323,7 @@
 							<div class="zyFormRow">
 								<label class="zyFormLabel" style="margin-top: -8px;">版面3</label>
 								<div class="zyFormControl zyUploadControl" id="uploadImageContainer1">
-									<img id="uploadBg3" class="innovatProductImage3" style="width: 297px;height:420px;margin-top: -40px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
+									<img id="uploadBg3" class="innovatProductImage3" style="width: 198px;height:280px;margin-top: -40px;" src="resources/frontend/images/app/defaultImage.jpg" /> 
 									<div id="uploadBgInfo3" style="width:300px">
 										<div id="ossBgfile">
 											<div><b id="bgFileDescribe3"><span id="bgFileCompletePersent3"></span></b>
