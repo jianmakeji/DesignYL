@@ -24,10 +24,12 @@ var vm = new Vue({
 	data:function(){
 		return{
 			groupModel:"",
+			subGroupModel:"",
 			roundModel:"",
 			statusModel:"",
 			totalPage:"",
 			GroupList:[{value:"0",label:"全部"},{value:"1",label:"概念作品组"},{value:"2",label:"创新作品组"}],
+			SubGroupList:[{value:"0",label:"全部"},{value:"1",label:"康复辅具类 "},{value:"2",label:"生活益智类"},{value:"3",label:"设施环境类"},{value:"4",label:"综合服务类"}],
 			JudgeRoundList: [{value: '0',label: '全部'}],				//顶部轮次筛选
 			StatusList: [					//顶部状态筛选
                 {value: '0',label: '全部'},{value: '1',label: '已提交'},{value: '2',label: '审核未通过'},{value: '3', label: '审核已通过'},{value: '4',label: '初选入围'},
@@ -137,7 +139,7 @@ var vm = new Vue({
                       }
                   }
               ],	
-              aoData1:{offset: 0,limit: 10,groupId: 0,round: 0,status: 0,groupNum: 0},
+              aoData1:{offset: 0,limit: 10,groupId: 0,round: 0,status: 0,groupNum: 0,subGroupNum: 0},
          	  aoData2:{offset: 0,limit: 1000},
            	  setstatusList:{id:"",status:""},
            	  setRoundList:{productId:"",round:""},
@@ -281,6 +283,27 @@ var vm = new Vue({
 	            }
 	        });
 		},
+		subGroupCheck:function(value){
+        	this.$Loading.start();
+			var that = this;
+			this.aoData1.subGroupNum = value;
+			$.ajax({
+	            "dataType":'json',
+	            "type":"post",
+	            "url":config.ajaxUrls.worksGetByPage,
+	            "data":this.aoData1,
+	            "success": function (response) {
+	                if(response.success===false){
+	                	that.$Notice.error({title:response.message});
+	                }else{
+	                	that.$Loading.finish();
+	                	that.dataList = [];
+	                	that.dataList = response.aaData;
+	                	that.totalPage = response.iTotalRecords;
+	                }
+	            }
+	        });
+		},
 		roundCheck:function(value){
         	this.$Loading.start();
 			var that = this;
@@ -349,6 +372,7 @@ var vm = new Vue({
     	this.$Loading.start();
     	$("#scoreTable").addClass("hidden");
 		var that = this;
+		this.subGroupModel = "0",
 		this.groupModel = "0",
 		this.statusModel = "0",
 		$.ajax({

@@ -951,6 +951,7 @@ img{
 }
 .zyStep .zyStepItem.zyActive{
     color: #47a8a9;
+    font-weight: bold;
 }
 .zyStepPanel{
 	/* max-width:1280px; */

@@ -142,8 +142,10 @@
 											results[i].pimage = results[i].pimageArr[0];
 											that.groupNum = 2;
 										}else if(results[i].groupNum == 1){
-											results[i].pimage = results[i].pimage;
+											/* results[i].pimage = results[i].pimage; */
 											/* results[i].pimage = results[i].pimage + '?x-oss-process=style/thumb_210_300'; */
+											results[i].pimageArr = results[i].pimage.split(",");
+											results[i].pimage = results[i].pimageArr[0];
 											that.groupNum = 1;
 										}
 									}
@@ -186,7 +188,10 @@
 							  if (this.list[i].id == event.target.id){
 								  slectedImageUrl = this.list[i].pimage;
 								  $(".swiper-wrapper").empty();
-								  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ this.list[i].pimage +"></div>");
+								  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
+									  console.log("pimageArr[imgItem]",imgItem,this.list[i].pimageArr[imgItem]);
+									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ this.list[i].pimageArr[imgItem] +"></div>");
+								  }
 								  var mySwiper = new Swiper ('.swiper-container', {
 								    	loop: false,
 								  });

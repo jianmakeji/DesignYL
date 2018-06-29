@@ -131,6 +131,7 @@ label.error{
     right: 0;
     padding: 0 10px;
     text-align: center;
+    margin-top: -15px;
 }
 .row.rememberMe{
     margin-bottom:0;
