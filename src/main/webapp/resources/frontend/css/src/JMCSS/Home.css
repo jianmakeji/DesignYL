@@ -100,8 +100,7 @@ img {
  */
 .zyList{
     font-size: 0px;
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding: 50px 20px 20px 20px;
 }
 .zyList .zyItem{
     width: 31%;
@@ -557,7 +556,7 @@ img {
 	 #JMTCenter{
 	    text-align: center!important;
 	}
-	#JMBtn{
+	/* #JMBtn{
 		   width: 150px;
 	    height: 50px;
 	    line-height: 50px;
@@ -567,17 +566,5 @@ img {
 	    text-align: center;
 	    color: #fff;
 	    border: none;
-	}
-}
-
-/*
- * footer
- *
- * */
-.JMFooter {
-	height: 80px;
-	line-height: 80px;
-	background: #363636;
-	color: #fff;
-	text-align: center;
+	} */
 }

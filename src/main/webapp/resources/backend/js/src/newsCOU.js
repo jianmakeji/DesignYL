@@ -43,8 +43,8 @@ var Component = new Vue({
             thumb: uploadImage
         },
         ruleDataSourse:{
-        	title:[{ required: true,max: 18, message: '请字数控制在18以内', trigger: 'blur' }],
-        	newsAbstract:[{ required: true,max: 35, message: '请字数控制在35以内', trigger: 'blur' }]
+        	title:[{ required: true,max: 50, message: '请字数控制在50以内', trigger: 'blur' }],
+        	newsAbstract:[{ required: true,max: 225, message: '请字数控制在225以内', trigger: 'blur' }]
         },
         imgShow:false,
         submitUrl: "",
@@ -163,7 +163,7 @@ var Component = new Vue({
     		var that = this;
     		var img = new Image();
     		img.src = this.dataSourse.thumb;
-    		if(img.width * 0.5 == img.height){
+    		if(img.width == img.height){
     			this.dataSourse.content = tinyMCE.activeEditor.getContent();
         		var that = this;
         		$.ajax({

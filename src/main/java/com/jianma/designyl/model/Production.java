@@ -28,12 +28,13 @@ public class Production implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String title;
+	private String title_en;
 	private int userId;
 	private String content;
+	private String content_en;
 	private String attachFile;
-	private byte fileType;
-	private String videoAddress;
-	private String h5Address;
+	private byte groupNum;
+	private byte subGroupNum;
 	private Date createTime;
 	private Float score;
 	private Byte status; //1.已提交、2.审核未通过、3.审核已通过、4.初选入围、5.初选未入围、6.复选入围、7复选未入围
@@ -46,6 +47,7 @@ public class Production implements java.io.Serializable {
 	private String affiliatedUnit;
 	private byte round;
 	private String weblink;
+	private String adviser;
 	
 	public Production() {
 	}
@@ -63,17 +65,15 @@ public class Production implements java.io.Serializable {
 		this.attachFile = attachFile;
 	}
 
-	public Production(String title, int userId, byte fileType, String pimage, String content,String attachFile,
-			String videoAddress, String h5Address,Byte status,byte participantType, String participantName,
+	public Production(String title, String title_en,int userId, byte groupNum, byte subGroupNum,String pimage, String content, String content_en,String attachFile,
+			Byte status,byte participantType, String participantName,
 			String participantIdNumber, String participantBrief, String teamMember, Float score,
 			Date createTime) {
 		this.title = title;
 		this.userId = userId;
-		this.fileType = fileType;
+		this.groupNum = groupNum;
 		this.pimage = pimage;
 		this.content = content;
-		this.videoAddress = videoAddress;
-		this.h5Address = h5Address;
 		this.status = status;
 		this.participantType = participantType;
 		this.participantName = participantName;
@@ -83,6 +83,9 @@ public class Production implements java.io.Serializable {
 		this.score = score;
 		this.createTime = createTime;
 		this.attachFile = attachFile;
+		this.title_en = title_en;
+		this.content_en = content_en;
+		this.subGroupNum = subGroupNum;
 	}
 
 	@Id
@@ -135,31 +138,13 @@ public class Production implements java.io.Serializable {
 		this.attachFile = attachFile;
 	}
 
-	@Column(name = "fileType")
-	public byte getFileType() {
-		return fileType;
+	@Column(name = "groupNum")
+	public byte getGroupNum() {
+		return groupNum;
 	}
 
-	public void setFileType(byte fileType) {
-		this.fileType = fileType;
-	}
-
-	@Column(name = "videoAddress")
-	public String getVideoAddress() {
-		return videoAddress;
-	}
-
-	public void setVideoAddress(String videoAddress) {
-		this.videoAddress = videoAddress;
-	}
-
-	@Column(name = "h5Address")
-	public String getH5Address() {
-		return h5Address;
-	}
-
-	public void setH5Address(String h5Address) {
-		this.h5Address = h5Address;
+	public void setGroupNum(byte groupNum) {
+		this.groupNum = groupNum;
 	}
 
 	@Column(name = "status")
@@ -271,5 +256,42 @@ public class Production implements java.io.Serializable {
 	public void setWeblink(String weblink) {
 		this.weblink = weblink;
 	}
+
+	@Column(name = "title_en", length = 255)
+	public String getTitle_en() {
+		return title_en;
+	}
+
+	public void setTitle_en(String title_en) {
+		this.title_en = title_en;
+	}
+
+	@Column(name = "content_en")
+	public String getContent_en() {
+		return content_en;
+	}
+
+	public void setContent_en(String content_en) {
+		this.content_en = content_en;
+	}
+
+	@Column(name = "subGroupNum")
+	public byte getSubGroupNum() {
+		return subGroupNum;
+	}
+
+	public void setSubGroupNum(byte subGroupNum) {
+		this.subGroupNum = subGroupNum;
+	}
+
+	@Column(name = "adviser")
+	public String getAdviser() {
+		return adviser;
+	}
+
+	public void setAdviser(String adviser) {
+		this.adviser = adviser;
+	}
+	
 	
 }

@@ -23,33 +23,31 @@
          </div>
      </div>
      <img src="resources/frontend/images/app/schedule.jpg">
-		<div style="width: 100%; background-color: #f7f7f7">
-             <section style="color: #5c5c5c; font-size: 32pt; padding-top: 35px; margin-left: 50px">NEWS | 新闻动态</section>
-                 <ul class="zyList">
-                 	<!-- <li class="zyItem">
-				          <a class="zyLink">
-				              <img class="zyThumb" src="resources/frontend/images/app/1.jpg">
-				              <h3 class="zyTitle">湖南省老年服务产品设计大赛</h3>
-				              <span class="zyDate">2019-09-09</span>
-				          </a>
-				      </li> -->
+	<div style="width: 100%; background-color: #f7f7f7">
+        <section style="color: #5c5c5c; font-size: 32pt; padding-top: 35px; margin-left: 50px">NEWS | 新闻动态</section>
+     	<ul class="zyList">
+                	<!-- <li class="zyItem">
+			          <a class="zyLink">
+			              <img class="zyThumb" src="resources/frontend/images/app/1.jpg">
+			              <h3 class="zyTitle">湖南省老年服务产品设计大赛</h3>
+			              <span class="zyDate">2019-09-09</span>
+			          </a>
+			      </li> -->
 
-	         <c:forEach items="${newsList}" var="item">
-	             <li class="zyItem">
-	                 <a class="zyLink" href="news/newsDetail/${item.id}" target="_blank"> <img class="zyThumb" src="${item.thumb}">
-	                     <h3 class="zyTitle">${item.title}</h3> <span class="zyDate">${fn:substring(item.publishTime, 0, 10)}</span>
-	                 </a>
-	             </li>
-	         </c:forEach>
-	     </ul>
-	
+         <c:forEach items="${newsList}" var="item">
+             <li class="zyItem">
+                 <a class="zyLink" href="news/newsDetail/${item.id}" target="_blank"> <img class="zyThumb" src="${item.thumb}">
+                     <h3 class="zyTitle">${item.title}</h3> <span class="zyDate">${fn:substring(item.publishTime, 0, 10)}</span>
+                 </a>
+             </li>
+         </c:forEach>
+     	</ul>
+
 	     <div id="JMTCenter">
-			<a id="JMBtn" style="margin-top: -15px;margin-bottom:45px;" href="news/news/1">查看更多</a>
+			<a id="JMBtn" style="margin-top: 86px;margin-bottom:48px;" href="news/news/1">查看更多</a>
 		</div>
-
-
-                    </div>
-	<div class="JMFooter">&copy;</div>
+   	</div>
+	<%@ include file="footer.jsp"%>
 
 	<script>
 		var pageName = "index";

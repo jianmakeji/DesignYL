@@ -10,8 +10,9 @@
 
 <link href="resources/css/lib/jquery.toastmessage.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/src/main.css" type="text/css" rel="stylesheet">
+<link href="resources/frontend/css/src/JMCSS/Header.css" type="text/css" rel="stylesheet">
 </head>
-<body>
+<body style="max-width:none;">
 
 	<%@ include file="header.jsp"%>
 	<%@ include file="pageMenu.jsp"%>
@@ -26,7 +27,7 @@
 				</div>
 			</div>
 			<div class="zyFormRow">
-				<label class="zyFormLabel"><spring:message code=""/>*</label>
+				<label class="zyFormLabel"><spring:message code="tel"/>*</label>
 				<div class="zyFormControl">
 					<input type="text" class="zyInput" name="mobile" value="${user.mobile}">
 				</div>
@@ -39,13 +40,13 @@
 			</div>
 			<div class="zyFormRow">
 				<div class="zyTCenter">
-					<button type="submit" class="zyBtn"><spring:message code="preservation"/></button>
+					<button type="submit" class="zyBtn" style="margin-top: 33px;"><spring:message code="preservation"/></button>
 				</div>
 			</div>
 		</form>
 
 		<br>
-		<hr>
+		<hr style="color: #6d6d6d;">
 		<br>
 		<h3 class="zyPanelTitle"><spring:message code="password"/></h3>
 		<form id="myForm1" class="zyForm" method="post" action="#">
@@ -63,7 +64,7 @@
 			</div>
 			<div class="zyFormRow">
 				<div class="zyTCenter">
-					<button type="submit" class="zyBtn"><spring:message code="preservation"/></button>
+					<button type="submit" class="zyBtn" style="margin-top: 33px;"><spring:message code="preservation"/></button>
 				</div>
 			</div>
 		</form>
@@ -72,7 +73,7 @@
 
 	<%@ include file="loading.jsp"%>
 
-	<div class="zyFooter">&copy;</div>
+	<%@ include file="footer.jsp"%>
 	<script>
 		var pageName = "setting";
 	</script>

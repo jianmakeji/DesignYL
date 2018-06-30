@@ -5,32 +5,54 @@ var uploadWork = (function (config, functions) {
         initData: function (id) {
             ZYCOUHandler.getDataDetail(config.ajaxUrls.workDetail.replace(":id", id), {id: id}, function (data) {
                 var personInfoPanel, workInfoPanel, targetPanel, targetPanel2;
-                $("#zySelectPersonType input[value='" + data.participantType + "']").prop("checked", true);
+                $("#zySelectPersonType input[value='" + data.participantType + "']").prop("checked", true);	//个人 团队 公司
                 targetPanel = $("#zySelectPersonType input:checked").data("target");
                 $(".zyPersonInfoPanel").addClass("zyHidden");
-                $(targetPanel).removeClass("zyHidden");
-                personInfoPanel = $(".zyPersonInfoPanel").not(".zyHidden");
-                personInfoPanel.find('input[name="participantName"]').val(data.participantName);
-                personInfoPanel.find('input[name="participantIdNumber"]').val(data.participantIdNumber);
-                personInfoPanel.find('textarea[name="participantBrief"]').val(data.participantBrief);
-                personInfoPanel.find('textarea[name="teamMember"]').val(data.teamMember);
-                personInfoPanel.find("input[name='affiliatedUnit']").val(data.affiliatedUnit);
+                $(targetPanel).removeClass("zyHidden");					//选中的显示
+                
+                personInfoPanel = $(".zyPersonInfoPanel").not(".zyHidden");		//没有隐藏的选项
+                personInfoPanel.find('input[name="participantName"]').val(data.participantName);		//队长名称
+                personInfoPanel.find('input[name="participantIdNumber"]').val(data.participantIdNumber);//队长身份证
+                personInfoPanel.find('textarea[name="participantBrief"]').val(data.participantBrief);	//队长简介
+                personInfoPanel.find('textarea[name="teamMember"]').val(data.teamMember);				//队长成员
+                personInfoPanel.find("input[name='affiliatedUnit']").val(data.affiliatedUnit);			//队长所属单位
                 
                 workInfoPanel = $(".zyWorkInfoPanel");
-                if(data.fileType == 1){
+                attachUrl = data.attachFile;
+                if(data.subGroupNum == 1){
+                	$("input[class ='zyProductSubGroupRadio1']").attr("checked", true);
+                }else if(data.subGroupNum == 2){
+                	$("input[class ='zyProductSubGroupRadio2']").attr("checked", true);
+                }else if(data.subGroupNum == 3){
+                	$("input[class ='zyProductSubGroupRadio3']").attr("checked", true);
+                }else if(data.subGroupNum == 4){
+                	$("input[class ='zyProductSubGroupRadio4']").attr("checked", true);
+                }
+                if(data.groupNum == 1){
                     workInfoPanel.find("input[name='title']").val(data.title);
-                    workInfoPanel.find("input[name='h5Address']").val(data.h5Address);
-                    workInfoPanel.find("textarea[name='videoAddress']").val(data.videoAddress);
-                    workInfoPanel.find("textarea[name='content']").val(data.content);
-                    workInfoPanel.find(".zyActionOtherImage").attr("src", data.pimage);
-                }else if(data.fileType == 3){
+                    workInfoPanel.find("input[name='title_en']").val(data.title_en);
+                    workInfoPanel.find("textarea[name='content']").val(data.content);	//简介
+                    workInfoPanel.find("textarea[name='content_en']").val(data.content_en);
+                    workInfoPanel.find("input[name='adviser']").val(data.adviser);
+//                    workInfoPanel.find(".conceptProductImage").attr("src", data.pimage);	//概念作品
+                    var arr1 = data.pimage.split(',');
+                    workInfoPanel.find(".conceptProductImage1").attr("src", arr1[0]);	//创新作品1
+                    workInfoPanel.find(".conceptProductImage2").attr("src", arr1[1]);	//创新作品2
+                    workInfoPanel.find(".conceptProductImage3").attr("src", arr1[2]);	//创新作品3
+                }else if(data.groupNum == 2){
                     workInfoPanel.find("input[name='title']").val(data.title);
+                    workInfoPanel.find("input[name='title_en']").val(data.title_en);
                     workInfoPanel.find("textarea[name='content']").val(data.content);
+                    workInfoPanel.find("textarea[name='content_en']").val(data.content_en);
+                    workInfoPanel.find("input[name='adviser']").val(data.adviser);
 //                  口号：slogan
-                    workInfoPanel.find("input[name='slogan']").val(data.slogan);
                     $("#zyProductImgInfo").addClass("zyHidden");
                     $("#zyProductSloganInfo").removeClass("zyHidden");
                     $("input[class ='zyProductsloganInfoRadio']").attr("checked", true);
+                    var arr = data.pimage.split(',');
+                    workInfoPanel.find(".innovatProductImage1").attr("src", arr[0]);	//创新作品1
+                    workInfoPanel.find(".innovatProductImage2").attr("src", arr[1]);	//创新作品2
+                    workInfoPanel.find(".innovatProductImage3").attr("src", arr[2]);	//创新作品3
                 }
             });
         },
@@ -45,24 +67,39 @@ var uploadWork = (function (config, functions) {
             obj.teamMember = personInfoPanel.find('textarea[name="teamMember"]').val();
             obj.affiliatedUnit = personInfoPanel.find("input[name='affiliatedUnit']").val();
             workInfoPanel = $(".zyWorkInfoPanel").not(".zyHidden");
-            
             productType = $("#zySelectProductType input:checked").val();
+            subGroupNum = $("#zySelectProductSubGroupType input:checked").val();
+            if(subGroupNum == "1"){
+            	obj.subGroupNum = 1;
+            }else if(subGroupNum == "2"){
+            	obj.subGroupNum = 2;
+            }else if(subGroupNum == "3"){
+            	obj.subGroupNum = 3;
+            }else if(subGroupNum == "4"){
+            	obj.subGroupNum = 4;
+            }
             if(productType == "1"){
                 obj.title = workInfoPanel.find("input[name='title']").val();
+                obj.title_en = workInfoPanel.find("input[name='title_en']").val();
                 obj.content = workInfoPanel.find("textarea[name='content']").val();
-                obj.videoAddress = workInfoPanel.find("textarea[name='videoAddress']").val();
-                obj.h5Address = workInfoPanel.find("input[name='h5Address']").val();
+                obj.content_en = workInfoPanel.find("textarea[name='content_en']").val();
+                obj.adviser = workInfoPanel.find("input[name='adviser']").val();
                 obj.attachFile = attachUrl;
-                obj.pimage = $("#uploadBg").attr('src');
-                obj.fileType = 1;
                 obj.status = 1;
-            }else if(productType == "3"){
-//              口号
-                obj.slogan = workInfoPanel.find("input[name='slogan']").val();
+                obj.pimageArr = [$("#uploadBg").attr('src'),$("#uploadBg4").attr('src'),$("#uploadBg5").attr('src')];
+                obj.pimage = $("#uploadBg").attr('src')+","+$("#uploadBg4").attr('src')+","+$("#uploadBg5").attr('src');
+                obj.groupNum = 1;
+            }else if(productType == "2"){
                 obj.title = workInfoPanel.find("input[name='title']").val();
+                obj.title_en = workInfoPanel.find("input[name='title_en']").val();
                 obj.content = workInfoPanel.find("textarea[name='content']").val();
-                obj.fileType = 3;
+                obj.content_en = workInfoPanel.find("textarea[name='content_en']").val();
+                obj.adviser = workInfoPanel.find("input[name='adviser']").val();
+                obj.attachFile = attachUrl;
                 obj.status = 1;
+                obj.pimageArr = [$("#uploadBg1").attr('src'),$("#uploadBg2").attr('src'),$("#uploadBg3").attr('src')];
+                obj.pimage = $("#uploadBg1").attr('src')+","+$("#uploadBg2").attr('src')+","+$("#uploadBg3").attr('src');
+                obj.groupNum = 2;
             }
             if (id) {
                 obj.id = id;
@@ -145,26 +182,17 @@ $(document).ready(function () {
     uploader.init();
 
     uploader.bind('FilesAdded',function(uploader,files){
-    	console.log("======文件======",files);
-//    	uploader.settings.multipart_params.file = files;
-//    	that.vedioTitle = files[0].name;
-//    	that.progressModel = true;
-    });
- 
-    uploader.bind('UploadProgress',function(uploader,file){
-    	console.log("======上传中======");
-//    	that.percent = file.percent; 
+    	$().toastmessage("showSuccessToast","已添加文件，确认无误请上传");
     });
     
     uploader.bind('FileUploaded',function(up, file, info){
-    	console.log("======成功======",info);
+    	$().toastmessage("showSuccessToast",config.messages.uploaded);
     	$("#zyFormAttachTitle").html(file.name);
     	attachUrl = JSON.parse(info.response).object;
     });
     
     uploader.bind('Error',function(uploader,file){
-    	console.log("======失败======");
-//    	that.percent = file.percent; 
+    	$().toastmessage("showErrorToast", config.messages.uploadIOError);
     });
     //最后给"开始上传"按钮注册事件
     document.getElementById('upload-btn').onclick = function(){
@@ -185,10 +213,35 @@ $(document).ready(function () {
         redirectUrl: config.viewUrls.works
     });
 
-    var productOSSUploaderObject = new uploadOSSObject("uploadBg","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'10mb',
+    var productOSSUploaderObject = new uploadOSSObject("uploadBg","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole"),$("#ossBgProgress"),$("#bgFileDescribe"),$("#ossBgfile .determinate"),$("#bgFileCompletePersent"),$("#uploadBg"));
 	var productUploader = createUploader(productOSSUploaderObject);
 	productUploader.init();
+	
+	var productOSSUploaderObject = new uploadOSSObject("uploadBg4","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+			$("#bgConsole4"),$("#ossBgProgress4"),$("#bgFileDescribe4"),$("#ossBgfile .determinate4"),$("#bgFileCompletePersent4"),$("#uploadBg4"));
+	var productUploader = createUploader(productOSSUploaderObject);
+	productUploader.init();
+	
+	var productOSSUploaderObject = new uploadOSSObject("uploadBg5","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+			$("#bgConsole5"),$("#ossBgProgress5"),$("#bgFileDescribe5"),$("#ossBgfile .determinate5"),$("#bgFileCompletePersent5"),$("#uploadBg5"));
+	var productUploader = createUploader(productOSSUploaderObject);
+	productUploader.init();
+	
+	var productOSSUploaderObject1 = new uploadOSSObject("uploadBg1","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+			$("#bgConsole1"),$("#ossBgProgress1"),$("#bgFileDescribe1"),$("#ossBgfile .determinate1"),$("#bgFileCompletePersent1"),$("#uploadBg1"));
+	var productUploader1 = createUploader(productOSSUploaderObject1);
+	productUploader1.init();
+	
+	var productOSSUploaderObject2 = new uploadOSSObject("uploadBg2","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+			$("#bgConsole2"),$("#ossBgProgress2"),$("#bgFileDescribe2"),$("#ossBgfile .determinate2"),$("#bgFileCompletePersent2"),$("#uploadBg2"));
+	var productUploader2 = createUploader(productOSSUploaderObject2);
+	productUploader2.init();
+	
+	var productOSSUploaderObject3 = new uploadOSSObject("uploadBg3","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+			$("#bgConsole3"),$("#ossBgProgress3"),$("#bgFileDescribe3"),$("#ossBgfile .determinate3"),$("#bgFileCompletePersent3"),$("#uploadBg3"));
+	var productUploader3 = createUploader(productOSSUploaderObject3);
+	productUploader3.init();
 
     $(".zyStep .zyStepItem, .zyActionNavBtn").click(function () {
         var targetPanel = $(this).data("target");
@@ -280,25 +333,6 @@ $(document).ready(function () {
     }
     $("#BusinessLicense").blur(function(){
     	formValidate2();
-    })
-//    ***************验证口号字数********************
-    function checkSlogan(){
-    	var str = "";
-	    if($.trim($('#slogan').val()).length > 20) { 
-	      	str += '口号字数超过限制\n';
-	      	$('#slogan').focus();
-	    }else if($.trim($('#slogan').val()).length == 0){
-	    	str += '请填写口号\n';
-		    $('#slogan').focus();
-	    }
-	    if(str != '') {
-	    	$("#slogan").val("");
-	    	$().toastmessage("showErrorToast", "口号输入有字数限制");
-	      	return false;
-	    } 
-    }
-    $("#slogan").blur(function(){
-    	checkSlogan();
     })
 //    *****************************作品上传**********************************
     	//  图幅、口号按钮选择

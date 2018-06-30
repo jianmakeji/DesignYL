@@ -9,10 +9,11 @@
 
 <link href="resources/css/lib/jquery.toastmessage.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/src/main.css" type="text/css" rel="stylesheet">
+<link href="resources/frontend/css/src/JMCSS/Header.css" type="text/css" rel="stylesheet">
 
 </head>
 
-<body>
+<body  style="max-width:none;">
 
 	<%@ include file="header.jsp"%>
 
@@ -70,7 +71,7 @@
 			
 			<div class="zyFormRow">
 				<div class="zyTCenter">
-					<button type="submit" class="zyBtn"><spring:message code="determine"/></button>
+					<button type="submit" class="zyBtn" style="margin-top: 86px;"><spring:message code="determine"/></button>
 				</div>
 			</div>
 		</form>
@@ -78,7 +79,7 @@
 
 	
 	</div>
-	<div class="zyFooter">&copy;</div>
+	<%@ include file="footer.jsp"%>
 	
 	<%@ include file="loading.jsp"%>
 

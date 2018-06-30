@@ -46,9 +46,9 @@ public class ProductionServiceImpl implements ProductionService {
 	}
 
 	@Override
-	public PagingModel getListProductionByPage(int offset, int limit, int groupId,int round,int status,int fileType) {
-		List<Production> list = productionDaoImpl.getListProductionByPage(offset, limit, groupId,round,status,fileType);
-		int count = productionDaoImpl.getCountProduction(groupId,round,status,fileType);
+	public PagingModel getListProductionByPage(int offset, int limit, int groupNum,int subGroupNum,int round,int status) {
+		List<Production> list = productionDaoImpl.getListProductionByPage(offset, limit, groupNum,subGroupNum,round,status);
+		int count = productionDaoImpl.getCountProduction(groupNum,round,subGroupNum,status);
 		PagingModel pagingModel = new PagingModel();
 		pagingModel.setList(list);
 		pagingModel.setCount(count);
@@ -56,10 +56,10 @@ public class ProductionServiceImpl implements ProductionService {
 	}
 
 	@Override
-	public PagingModel getListOnlyProductionInfoByPage(int offset, int limit, int groupId,int userId) {
+	public PagingModel getListOnlyProductionInfoByPage(int offset, int limit, int groupNum,int subGroupNum,int userId) {
 		
-		List<Production> list = productionDaoImpl.getListProductionByPageAndUserId(offset, limit, groupId,userId);
-		int count = productionDaoImpl.getCountProductionByUserId(groupId,userId);
+		List<Production> list = productionDaoImpl.getListProductionByPageAndUserId(offset, limit, groupNum,subGroupNum,userId);
+		int count = productionDaoImpl.getCountProductionByUserId(groupNum,subGroupNum,userId);
 		PagingModel pagingModel = new PagingModel();
 		pagingModel.setList(list);
 		pagingModel.setCount(count);
@@ -82,10 +82,10 @@ public class ProductionServiceImpl implements ProductionService {
 	}
 
 	@Override
-	public PagingModel getProductionPageByCondition(int groupId, int category, int status, int fileType, int userId, int round, int limit,
+	public PagingModel getProductionPageByCondition(int groupNum,int subGroupNum, int status, int userId, int round, int limit,
 			int offset) {
-		List<Production> list = productionDaoImpl.getProductionByCondition(groupId, category, status, fileType,userId, round, limit, offset);
-		int count = productionDaoImpl.getProductionCountByCondition(groupId, category, status, fileType, userId,round);
+		List<Production> list = productionDaoImpl.getProductionByCondition(groupNum,subGroupNum, status,userId, round, limit, offset);
+		int count = productionDaoImpl.getProductionCountByCondition(groupNum,subGroupNum, status, userId,round);
 		PagingModel pagingModel = new PagingModel();
 		pagingModel.setList(list);
 		pagingModel.setCount(count);

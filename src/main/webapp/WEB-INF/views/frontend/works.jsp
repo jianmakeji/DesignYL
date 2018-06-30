@@ -8,11 +8,12 @@
 <link href="resources/frontend/css/lib/kkpager_blue.css" type="text/css" rel="stylesheet">
 <link href="resources/css/lib/jquery.toastmessage.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/src/main.css" type="text/css" rel="stylesheet">
+<link href="resources/frontend/css/src/JMCSS/Header.css" type="text/css" rel="stylesheet">
 <script>
 	var userId = "${sessionScope.userId}";
 </script>
 </head>
-<body>
+<body style="max-width:none;">
 
 	<%@ include file="header.jsp"%>
 	<%@ include file="pageMenu.jsp"%>
@@ -20,14 +21,14 @@
 	<div class="zyMargin60">
 		<table class="zyTable" id="myTable">
 			<thead>
-				<tr>
+				<tr style="background: #47a8a9;color: white;">
 					<th><spring:message code="title"/></th>
 					<th><spring:message code="introduction"/></th>
 					<th><spring:message code="state"/></th>
 					<th><spring:message code="operation"/></th>
 				</tr>
 			</thead>
-			<tbody>
+			<tbody style="color: #212121;">
 				
 			</tbody>
 		</table>
@@ -36,7 +37,7 @@
 	<div id="kkpager"></div>
 
 
-    <div class="zyFooter">&copy;</div>
+    <%@ include file="footer.jsp"%>
     
 	<%@ include file="loading.jsp"%>
 

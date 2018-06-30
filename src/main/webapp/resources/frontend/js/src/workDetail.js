@@ -28,17 +28,11 @@ var workDetail = (function (config, functions) {
 
 $(document).ready(function () {
     workDetail.loadWorkDetail(productionId,function(response){
-    	if(response.pimage == null){
-    		var slogan = response.slogan;
-            $("#zyWorkDetail").append('<p style="margin:10px auto;text-align:center;font-size:26px;color:#ECC95D">口号：'+ slogan +'</p>');
-    	}else{
-    		var pimageArray=JSON.parse(response.pimage);
-            var pimageHtmlArray=[];
-            for(var i= 0,len=pimageArray.length;i<len;i++){
-                pimageHtmlArray.push('<img src="'+pimageArray[i]+'" style="margin:10px auto;">');
-            }
-            $("#zyWorkDetail").append(pimageHtmlArray.join(''));
-    	}
-        
+        var pimageHtmlArray = [], pimageArray = response.pimage.split(",");
+        for(var i= 0;i<pimageArray.length;i++){
+            pimageHtmlArray.push('<img src="'+pimageArray[i]+'" style="margin:10px auto;">');
+//        	$("#zyWorkDetail").append("<img src='"+ pimageArray[i] +"' style='margin:10px auto;'>");
+        }
+        $("#zyWorkDetail").append(pimageHtmlArray.join(''));
     });
 });

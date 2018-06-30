@@ -4,15 +4,15 @@
 <div class="JMHeader">
 
 	<div class="JMLogo">
-		<a href=""><img alt="" src="resources/frontend/images/app/Logo.jpg"></a>
+		<a href=""><img alt="" src="resources/frontend/images/app/Logo.png"></a>
 	</div>
 	<div class="JMNoticeBoard">
 		<div class="JMNoticeBoardLeft">
-			<a href="user/register"><spring:message code="sign_up"/></a>
+			<a href="login"><spring:message code="sign_up"/></a>
 		</div>
 		<div class="JMNoticeBoardRight">
 			<div class="JMItem">
-				<span id="countDown" class="countDown"></span><spring:message code="end_day"/>
+				<span id="countDown" class="countDown"></span>征稿剩余天数
 			</div>
 		</div>
 
@@ -31,7 +31,8 @@
 				<li class="JMItem"><a class="JMLink" href="logout"><spring:message code="logout"/><fmt:message key="logout"/></a></li>
 			</c:if>
 			<c:if test="${empty sessionScope.userId}">
-				<li class="JMItem"><a class="JMLink JMIconUser" href="login"> </a></li>
+				<li style="position: absolute;top: 15px;border-left: solid 2px #6d6d6d;height: 23px;"></li>
+				<li class="JMItem" style="width: 33px;margin-left: 33px;margin-right: 30px;"><a class="JMLink JMIconUser" href="login"> </a></li>
 			</c:if>
 		</ul>
 

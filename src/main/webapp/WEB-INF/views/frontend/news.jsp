@@ -40,7 +40,8 @@
     </div> 
 	<div id="kkpager"></div>
 
-   	<div class="JMFooter">&copy;</div>
+   	<!-- <div class="JMFooter">&copy;</div> -->
+   	<%@ include file="footer.jsp"%>
 	<script>
 		var pageName = "news";
 	</script>

@@ -8,7 +8,11 @@ public class ProductUserModel {
 	private String realname;
 	private String mobile;
 	private String address;
-	private int groupId;
+	private byte groupNum;
+	private byte subGroupNum;
+	private String title_en;
+	private String content_en;
+	private String adviser;
 	
 	public String getTitle() {
 		return title;
@@ -40,17 +44,42 @@ public class ProductUserModel {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public int getGroupId() {
-		return groupId;
-	}
-	public void setGroupId(int groupId) {
-		this.groupId = groupId;
-	}
+
 	public int getpId() {
 		return pId;
 	}
 	public void setpId(int pId) {
 		this.pId = pId;
+	}
+	public byte getGroupNum() {
+		return groupNum;
+	}
+	public void setGroupNum(byte groupNum) {
+		this.groupNum = groupNum;
+	}
+	public byte getSubGroupNum() {
+		return subGroupNum;
+	}
+	public void setSubGroupNum(byte subGroupNum) {
+		this.subGroupNum = subGroupNum;
+	}
+	public String getTitle_en() {
+		return title_en;
+	}
+	public void setTitle_en(String title_en) {
+		this.title_en = title_en;
+	}
+	public String getContent_en() {
+		return content_en;
+	}
+	public void setContent_en(String content_en) {
+		this.content_en = content_en;
+	}
+	public String getAdviser() {
+		return adviser;
+	}
+	public void setAdviser(String adviser) {
+		this.adviser = adviser;
 	}
 	
 	

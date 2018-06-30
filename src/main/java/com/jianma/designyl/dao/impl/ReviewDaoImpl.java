@@ -65,15 +65,15 @@ public class ReviewDaoImpl implements ReviewDao {
 		Session session = sessionFactory.getCurrentSession();
 		String hql = "";
 		if (scoreSign == 0){ //所有评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.videoAddress,p.createTime,p.pimage,p.fileType,r.score, p.h5Address  "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum,p.subGroupNum,p.attachFile "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? order by createtime desc";
 		}
 		else if (scoreSign == 1){ //已评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.videoAddress,p.createTime,p.pimage,p.fileType,r.score, p.h5Address "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum,p.subGroupNum,p.attachFile "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score > 0 order by createtime desc";
 		}
 		else if (scoreSign == 2){//未评分的作品
-			hql = " select p.id,p.title,p.userId,p.content,p.videoAddress,p.createTime,p.pimage,p.fileType,r.score, p.h5Address "
+			hql = " select p.id,p.title,p.userId,p.content,p.createTime,p.pimage,r.score,p.groupNum,p.subGroupNum,p.attachFile  "
 					+ " from Review r, Production p where r.userId = ? and r.productionId = p.id and r.round = ? and r.score = 0 order by createtime desc";
 		}
 		
@@ -89,27 +89,28 @@ public class ReviewDaoImpl implements ReviewDao {
 		for(int i=0; i<list.size(); i++)
         {
 			Production production = new Production();
-            Object []o = (Object[])list.get(i);
+			Object []o = (Object[])list.get(i);
             int pId = ((Number)o[0]).intValue();
             String title = (String)o[1];
             int uId = (Integer)o[2];
             String content = (String)o[3];
-            String videoAddress = (String)o[4];
-            Date createTime = (Date)o[5];
-            String pimage = (String)o[6];
-            byte fileType = (Byte)o[7];
-            float score = ((Number)o[8]).floatValue();
-            String h5Address = (String)o[9];
+            Date createTime = (Date)o[4];
+            String pimage = (String)o[5];
+            float score = ((Number)o[6]).floatValue();
+            byte groupNum = (Byte)o[7];
+            byte subGroupNum = (Byte)o[8];
+            String attachFile = (String)o[9];
+            
             production.setId(pId);
             production.setTitle(title);
             production.setUserId(uId);
             production.setContent(content);
-            production.setVideoAddress(videoAddress);
             production.setCreateTime(createTime);
             production.setPimage(pimage);
-            production.setFileType(fileType);;
             production.setScore(score);
-            production.setH5Address(h5Address);
+            production.setGroupNum(groupNum);
+            production.setSubGroupNum(subGroupNum);
+            production.setAttachFile(attachFile);
             pList.add(production);
         }
 		return pList;

@@ -206,19 +206,19 @@ public class ProductionController  extends DcController{
 	 * @param response
 	 * @param offset
 	 * @param limit
-	 * @param groupId
+	 * @param groupNumId
 	 * @return
 	 */
 	@ResponseBody
 	@RequestMapping(value="/getListProductionByPage", method = RequestMethod.POST)
 	public ResultModel getListProductionByPage(HttpServletRequest request, HttpServletResponse response,
-			@RequestParam int offset, @RequestParam int limit, @RequestParam(required=false) Integer groupId){
+			@RequestParam int offset, @RequestParam int limit, @RequestParam(required=false) Integer groupNum, @RequestParam(required=false) Integer subGroupNum){
 		
 		resultModel = new ResultModel();
 		try{
 			Subject subject = SecurityUtils.getSubject();
 			int userId = Integer.parseInt(subject.getSession().getAttribute("userId").toString());
-			PagingModel pagingModel = productionServiceImpl.getListOnlyProductionInfoByPage(offset, limit, groupId,userId);
+			PagingModel pagingModel = productionServiceImpl.getListOnlyProductionInfoByPage(offset, limit, groupNum,subGroupNum,userId);
 			resultModel.setResultCode(200);
 			resultModel.setObject(pagingModel);
 			resultModel.setSuccess(true);
@@ -236,7 +236,7 @@ public class ProductionController  extends DcController{
 	 * @param iDisplayStart
 	 * @param iDisplayLength
 	 * @param sEcho
-	 * @param groupId
+	 * @param groupNumId
 	 * @return
 	 */
 	@RequiresRoles(value ={"管理员"})
@@ -244,13 +244,13 @@ public class ProductionController  extends DcController{
 	@RequestMapping(value="/getDataTableProductionByPage", method = RequestMethod.POST)
 	public ListResultModel getDataTableProductionByPage(HttpServletRequest request, HttpServletResponse response,
 			 @RequestParam int offset, @RequestParam int limit,
-			 @RequestParam(required=false) Integer groupId,@RequestParam(required=false) Integer round,
-			 @RequestParam(required=false) Integer status,@RequestParam(required=false) int fileType){
+			 @RequestParam(required=false) Integer groupNum,@RequestParam(required=false) Integer round,
+			 @RequestParam(required=false) Integer status, @RequestParam(required=false) Integer subGroupNum){
 		
 		ListResultModel listResultModel = new ListResultModel();
 		try {
 			
-			PagingModel pagingModel = productionServiceImpl.getListProductionByPage(offset, limit, groupId, round, status,fileType);
+			PagingModel pagingModel = productionServiceImpl.getListProductionByPage(offset, limit, groupNum, subGroupNum,round, status);
 			
 			listResultModel.setAaData(pagingModel.getList());
 			
@@ -304,7 +304,7 @@ public class ProductionController  extends DcController{
 	 * 参赛者管理自己的投稿作品，可以进行有条件的查询
 	 * @param request
 	 * @param response
-	 * @param groupId
+	 * @param groupNumId
 	 * @param category
 	 * @param status
 	 * @param userId
@@ -317,7 +317,7 @@ public class ProductionController  extends DcController{
 	@ResponseBody
 	@RequestMapping(value="/getProductionPageByCondition", method = RequestMethod.GET)
 	public ListResultModel getProductionPageByCondition(HttpServletRequest request, HttpServletResponse response, 
-			@RequestParam int groupId, @RequestParam int category, @RequestParam int status, int fileType,
+			@RequestParam int groupNum, @RequestParam int status, @RequestParam(required=false) Integer subGroupNum,
 			@RequestParam int userId, @RequestParam int round, @RequestParam int iDisplayStart,
 			@RequestParam int iDisplayLength,@RequestParam String sEcho){
 		
@@ -334,7 +334,7 @@ public class ProductionController  extends DcController{
 			}
 
 			
-			PagingModel pagingModel = productionServiceImpl.getProductionPageByCondition(groupId, category, status, fileType, userId, round, iDisplayLength, iDisplayStart);
+			PagingModel pagingModel = productionServiceImpl.getProductionPageByCondition(groupNum, subGroupNum,status, userId, round, iDisplayLength, iDisplayStart);
 			
 			listResultModel.setAaData(pagingModel.getList());
 			
