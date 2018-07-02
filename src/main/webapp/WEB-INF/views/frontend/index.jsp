@@ -59,6 +59,6 @@
 	<script src="resources/frontend/js/src/config.js"></script>
 	<script src="resources/js/src/functions.js"></script>
 	<script src="resources/frontend/js/src/header.js"></script>
-
+	<script src="resources/frontend/js/src/index.js"></script>
 </body>
 </html>
