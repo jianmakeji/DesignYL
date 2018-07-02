@@ -1,0 +1,31 @@
+.zyPostDetail{
+	margin:200px auto 160px;
+}
+.zyPostDetail .zyTitle{
+    color: #47a8a9;
+    font-size: 20px;
+    margin: 0px;
+    text-align:center;
+}
+.zyPostDetail .zyDate{
+    color: #6d6d6d;
+    font-size: 14px;
+    margin: 20px 0px;
+    text-align:center;
+}
+.zyPostDetail .zyContent{
+	width:70%;
+	margin:0 auto;
+}
+.zyPostDetail .zyContent img{
+	margin:28px auto;
+}
+.zyPostDetail .zyContent p{
+    font-size: 15px;
+    text-indent: 2em;
+    line-height: 1.5em;
+}
+.zyPostDetail .zyContent p span{
+    line-height: 26px;
+    font-size:15px;
+}
