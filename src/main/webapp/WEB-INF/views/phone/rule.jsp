@@ -8,11 +8,11 @@
 
 <head>
 <%@ include file="../head.jsp"%>
-	<link href="/resources/css/lib/iview.css" type="text/css" rel="stylesheet">
-	<link href="/resources/frontend/css/src/phone/Rule.css" type="text/css" rel="stylesheet">
-	<link href="/resources/frontend/css/src/phone/header.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="/resources/js/lib/vue.min.js"></script>
-    <script type="text/javascript" src="/resources/js/lib/iview.min.js"></script>
+	<link href="resources/css/lib/iview.css" type="text/css" rel="stylesheet">
+	<link href="resources/frontend/css/src/phone/Rule.css" type="text/css" rel="stylesheet">
+	<link href="resources/frontend/css/src/phone/header.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="resources/js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="resources/js/lib/iview.min.js"></script>
 </head>
 
 <body>
@@ -193,8 +193,8 @@
 	<script>
 		var pageName = "rule";
 	</script>
-	<script type="text/javascript" src="/resources/js/lib/jquery-1.10.2.min.js"></script>
-	<script src="/resources/frontend/js/src/config.js"></script>
+	<script type="text/javascript" src="resources/js/lib/jquery-1.10.2.min.js"></script>
+	<script src="resources/frontend/js/src/config.js"></script>
 	<script>
 		$(document).ready(
 				function() {
