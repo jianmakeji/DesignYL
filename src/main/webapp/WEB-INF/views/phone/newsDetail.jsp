@@ -7,11 +7,12 @@
 <html>
 
 <head>
-	<link href="/DesignYL/resources/css/lib/iview.css" type="text/css" rel="stylesheet">
-	<link href="/DesignYL/resources/frontend/css/src/phone/NewsDetail.css" type="text/css" rel="stylesheet">
-	<link href="/DesignYL/resources/frontend/css/src/phone/header.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="/DesignYL/resources/js/lib/vue.min.js"></script>
-    <script type="text/javascript" src="/DesignYL/resources/js/lib/iview.min.js"></script>
+<%@ include file="../head.jsp"%>
+	<link href="/resources/css/lib/iview.css" type="text/css" rel="stylesheet">
+	<link href="/resources/frontend/css/src/phone/NewsDetail.css" type="text/css" rel="stylesheet">
+	<link href="/resources/frontend/css/src/phone/header.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="/resources/js/lib/vue.min.js"></script>
+    <script type="text/javascript" src="/resources/js/lib/iview.min.js"></script>
 </head>
 
 <body>
@@ -20,15 +21,15 @@
 		<div class="zyPostDetail zyMargin150" >
 			<h3 class="zyTitle">${news.title}</h3>
 			<p class="zyDate">${fn:substring(news.publishTime, 0, 10)}</p>
-			<div class="zyContent">${news.content.replace('../../../../','')}</div>
+			<div class="zyContent">${news.content.replace('../../','')}</div>
 		</div>
 	</div>
 	<%@ include file="../frontend/footer.jsp"%>
 	<script>
 		var pageName = "news";
 	</script>
-	<script type="text/javascript" src="/DesignYL/resources/js/lib/jquery-1.10.2.min.js"></script>
-	<script src="/DesignYL/resources/frontend/js/src/config.js"></script>
+	<script type="text/javascript" src="/resources/js/lib/jquery-1.10.2.min.js"></script>
+	<script src="/resources/frontend/js/src/config.js"></script>
 	<script type="text/javascript">
 		var phoneNewsDetail = new Vue({
 			el:"#phoneNewsDetail",
