@@ -3,7 +3,7 @@ body{
     padding: 0px;
     font-size: 14px;
     font-family: "Arail","Microsoft YaHei","Heiti";
-    padding-top:160px;
+    padding-top:90px;
     display: flex;
     min-height: 83vh;
     flex-direction: column;
@@ -27,6 +27,9 @@ img{
     height: auto;
     display: block;
     border: none;
+}
+.JMRule{
+	    padding-bottom: 90px;
 }
 .JMRuleTip{
     position: fixed;
@@ -68,26 +71,23 @@ img{
 
 /*正文文本*/
 .JMRuleDetail{
-	
-    max-width: 1280px;
-    margin: 60px auto;
+    margin: 15px auto;
 }
 .JMRuleDetail .JMSection{
 	margin-right: 20%;
-    padding: 40px 10% 40px 60px;
 }
 .JMRuleDetail .JMTitle{
-
+	margin-left:10px;
 }
 .JMRuleDetail .JMTitle .JMNum{
-    font-size: 45px;
+    font-size: 40px;
     color: #47a8a9;
     vertical-align: top;
     line-height: 45px;
-    margin-right: 20px;
+    margin-right: 5px;
 }
 .JMRuleDetail .JMTitle .JMText{
-    font-size: 24px;
+    font-size: 23px;
     color: #47a8a9;
     position: relative;
 }
@@ -97,32 +97,31 @@ img{
     bottom:-10px;
     left:0px;
     width: 50px;
-    /*border-bottom: 2px solid #47a8a9;*/
 }
 .JMRuleDetail .JMContent{
-    margin-left:80px;
+    margin-left:40px;
     font-size: 14px;
     line-height: 1.5em;
+    width:100%;
 }
 .JMRuleDetail .JMContent .JMText{
-	padding-left: 30px;
     color:#656564;
 }
 .JMRuleDetail .JMContent .JMSubTitle{
     border-left:2px solid #47a8a9;
     color: #47a8a9;
     font-weight: bold;
-    padding-left: 30px;
+    padding-left: 15px;
     font-size: 14px;
-    margin: 20px 0px;
+    margin: 10px 0px;
 }
 .JMRuleDetail .JMContent .JMSubTitle+.JMText{
-    padding-left: 30px;
+    padding-left: 10px;
 }
 .JMRuleDetail hr{
-    width: 60%;
+    width: 80%;
     height: 2px;
     background: #47a8a9;
-    margin-left: 10%;
+    margin: 15px auto;
     border: 0px;
 }

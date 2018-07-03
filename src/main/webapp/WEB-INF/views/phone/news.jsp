@@ -25,8 +25,8 @@
 					<a class="JMNewsTextBox" :href="newsItem.zyItemUrl">
 						<span class="JMNewsText_date">{{newsItem.publishTime}}</span>
 						<h3 class="JMNewsText_title">{{newsItem.title}}</h3>
-						<p class="JMNewsText_content">{{newsItem.newsAbstract}}</p>
 					</a>
+					<p class="JMNewsText_content">{{newsItem.newsAbstract}}</p>
 					<hr>
 				</li>
 	      	</ul>
@@ -57,12 +57,10 @@
 		            "url":"news/findManageNewsByPage",
 		            "data":{offset:0,limit:10000},
 		            "success": function (response) {
-		            	console.log(response);
 		            	that.newsData = response.aaData;
 		            	for(var i = 0;i<that.newsData.length;i++){
 		            		that.newsData[i].zyItemUrl = "mobile/newsDetail/" + that.newsData[i].id;
 		            	}
-		            	console.log(that.newsData);
 		            }
 		        })
 			}

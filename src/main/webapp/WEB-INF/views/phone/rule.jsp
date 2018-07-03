@@ -19,17 +19,6 @@
 	<%@ include file="phoneHeader.jsp"%>
 	<div id="phoneRule">
 		<div class="JMRule">
-			<ul class="JMRuleTip" id="JMRuleTip">
-				<li class="JMItem JMActive"><a class="JMLink" data-href="#JMSection1">大赛介绍</a></li>
-				<li class="JMItem"><a class="JMLink" data-href="#JMSection2">大赛目的</a></li>
-				<li class="JMItem"><a class="JMLink" data-href="#JMSection3">组织机构</a></li>
-				<li class="JMItem"><a class="JMLink" data-href="#JMSection4">大赛流程</a></li>
-				<li class="JMItem"><a class="JMLink" data-href="#JMSection5">作品征集</a></li>
-				<li class="JMItem"><a class="JMLink" data-href="#JMSection6">评选评审</a></li>
-				<li class="JMItem"><a class="JMLink" data-href="#JMSection7">奖项设置</a></li>
-				<li class="JMItem"><a class="JMLink" data-href="#JMSection8">承诺、保证与权利约定</a></li>
-			</ul>
-	
 			<div class="JMRuleDetail">
 				<div class="JMSection" id="JMSection1">
 					<div class="JMTitle">
@@ -195,50 +184,5 @@
 	</script>
 	<script type="text/javascript" src="resources/js/lib/jquery-1.10.2.min.js"></script>
 	<script src="resources/frontend/js/src/config.js"></script>
-	<script>
-		$(document).ready(
-				function() {
-					var timer, scrollTops = [];
-					function findIndex(list, value) {
-						var flag = 0;
-						for (var i = list.length - 1; i > 0; i--) {
-							if (value >= list[i]) {
-								flag = i;
-								break;
-							}
-						}
-
-						return flag;
-					}
-					$("#JMRuleTip .JMItem").click(function() {
-						var targetId = $(this).find(".JMLink").data("href");
-						$("#JMRuleTip .JMActive").removeClass("JMActive");
-						$(this).addClass("JMActive");
-						$('html,body').animate({
-							scrollTop : $(targetId).offset().top + 10
-						}, 500);
-					});
-
-					$(".JMSection").each(function(index, el) {
-						scrollTops.push($(this).offset().top);
-					});
-
-					$(window).scroll(
-							function() {
-								if (timer) {
-									clearTimeout(timer);
-								}
-								timer = setTimeout(function() {
-									var index = findIndex(scrollTops,
-											window.scrollY);
-
-									$("#JMRuleTip .JMActive").removeClass(
-											"JMActive");
-									$("#JMRuleTip .JMItem:eq(" + index + ")")
-											.addClass("JMActive");
-								}, 100);
-							});
-				});
-	</script>
 </body>
 </html>

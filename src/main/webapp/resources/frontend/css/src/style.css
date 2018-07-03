@@ -16,7 +16,6 @@ body {
   background-color: #47374e;
 }
 body::after {
-  /* dark overlay layer - visible when we fire .cd-quick-view */
   position: fixed;
   top: 0;
   left: 0;
