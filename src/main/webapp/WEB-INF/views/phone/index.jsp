@@ -36,7 +36,7 @@
 			</div>
 	   	</div>
 	</div>
-	<%@ include file="../frontend/footer.jsp"%>
+	<%@ include file="footer.jsp"%>
 	<script>
 		var pageName = "index";
 	</script>

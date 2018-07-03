@@ -24,7 +24,7 @@
 			<div class="zyContent">${news.content.replace('../../','')}</div>
 		</div>
 	</div>
-	<%@ include file="../frontend/footer.jsp"%>
+	<%@ include file="footer.jsp"%>
 	<script>
 		var pageName = "news";
 	</script>
