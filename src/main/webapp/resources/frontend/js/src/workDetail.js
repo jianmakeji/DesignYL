@@ -30,8 +30,9 @@ $(document).ready(function () {
     workDetail.loadWorkDetail(productionId,function(response){
         var pimageHtmlArray = [], pimageArray = response.pimage.split(",");
         for(var i= 0;i<pimageArray.length;i++){
-            pimageHtmlArray.push('<img src="'+pimageArray[i]+'" style="margin:10px auto;">');
-//        	$("#zyWorkDetail").append("<img src='"+ pimageArray[i] +"' style='margin:10px auto;'>");
+            if(pimageArray[i] != "resources/frontend/images/app/defaultImage.jpg"){
+                pimageHtmlArray.push('<img src="'+pimageArray[i]+'" style="margin:10px auto;">');
+            }
         }
         $("#zyWorkDetail").append(pimageHtmlArray.join(''));
     });
