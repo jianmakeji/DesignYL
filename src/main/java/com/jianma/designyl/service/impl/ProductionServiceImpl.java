@@ -48,7 +48,7 @@ public class ProductionServiceImpl implements ProductionService {
 	@Override
 	public PagingModel getListProductionByPage(int offset, int limit, int groupNum,int subGroupNum,int round,int status) {
 		List<Production> list = productionDaoImpl.getListProductionByPage(offset, limit, groupNum,subGroupNum,round,status);
-		int count = productionDaoImpl.getCountProduction(groupNum,round,subGroupNum,status);
+		int count = productionDaoImpl.getCountProduction(groupNum,subGroupNum,round,status);
 		PagingModel pagingModel = new PagingModel();
 		pagingModel.setList(list);
 		pagingModel.setCount(count);
@@ -84,6 +84,7 @@ public class ProductionServiceImpl implements ProductionService {
 	@Override
 	public PagingModel getProductionPageByCondition(int groupNum,int subGroupNum, int status, int userId, int round, int limit,
 			int offset) {
+		
 		List<Production> list = productionDaoImpl.getProductionByCondition(groupNum,subGroupNum, status,userId, round, limit, offset);
 		int count = productionDaoImpl.getProductionCountByCondition(groupNum,subGroupNum, status, userId,round);
 		PagingModel pagingModel = new PagingModel();
