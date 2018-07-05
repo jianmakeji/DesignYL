@@ -31,7 +31,7 @@ $(document).ready(function () {
         var pimageHtmlArray = [], pimageArray = response.pimage.split(",");
         for(var i= 0;i<pimageArray.length;i++){
             if(pimageArray[i] != "resources/frontend/images/app/defaultImage.jpg"){
-                pimageHtmlArray.push('<img src="'+pimageArray[i]+'?x-oss-process=style/thumb-594-840" style="margin:10px auto;">');
+                pimageHtmlArray.push('<img src="'+pimageArray[i]+'?x-oss-process=style/thumb-792-1120" style="margin:10px auto;">');
             }
         }
         $("#zyWorkDetail").append(pimageHtmlArray.join(''));
