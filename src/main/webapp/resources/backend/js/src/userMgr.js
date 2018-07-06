@@ -20,6 +20,7 @@ var vm = new Vue({
 	        			    },config.userStatus[this.dataList[params.index].valid])
 		              }
 		          },
+		          { title: '更新时间',key: 'createTime', align: 'center'},
 		          { title: '操作',key: 'valid', align: 'center',
 		       	   render: (h, params) => {
 		       		if (this.dataList[params.index].valid == 1) {
