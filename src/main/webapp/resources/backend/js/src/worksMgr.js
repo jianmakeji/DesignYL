@@ -121,6 +121,7 @@ var vm = new Vue({
               	        );  
               	    }
                   },
+                  { title: '更新时间',key: 'createTime', align: 'center'},
                   { title: '操作',key: 'opt', align: 'center',
                	   	render: (h, params) => {
                           return h('a', {
