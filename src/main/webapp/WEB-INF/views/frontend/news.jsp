@@ -50,7 +50,32 @@
 	<script type="text/javascript" src="resources/frontend/js/lib/kkpager.min.js"></script>
 	<script src="resources/frontend/js/src/header.js"></script>
 	<script>
+		function getBrowserInfo(){
+		    var ua = navigator.userAgent.toLocaleLowerCase();
+		    var browserType=null;
+		    if (ua.match(/msie/) != null || ua.match(/trident/) != null) {
+		        browserType = "IE";
+		        browserVersion = ua.match(/msie ([\d.]+)/) != null ? ua.match(/msie ([\d.]+)/)[1] : ua.match(/rv:([\d.]+)/)[1];
+		    }else if (ua.match(/chrome/) != null) {
+		    	var version = ua.split(" ");
+		    	var is360 = 0;
+		    	for(var i=0;i<version.length;i++){
+		    		if(version[i].match(/chrome/)){
+		    			is360 = version[i].split("/")[1];
+		    		}
+		    	}
+		        if(is360 < "42"){
+		            browserType = '360';
+		            $(".JMNewsList .JMNewsListUl .JMNews1").css("margin","30px auto");
+		            $(".JMNoticeBoardLeft").css("top","0px");
+		            $(".JMNoticeBoardRight .JMItem").css({"top":"0px","left":"0px"});
+		        }else{
+		            $('html').css("zoom",".80");
+		        }
+		    }
+		}
 		$(document).ready(function() {
+			getBrowserInfo();
 			var documentHeight = $(document.body).height(),
 				 JMNewsListHeight = $(".JMNewsList").height(),
 				 JMFooterHeight = $(".JMFooter").height(),

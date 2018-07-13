@@ -34,25 +34,23 @@ var uploadWork = (function (config, functions) {
                     workInfoPanel.find("textarea[name='content']").val(data.content);	//简介
                     workInfoPanel.find("textarea[name='content_en']").val(data.content_en);
                     workInfoPanel.find("input[name='adviser']").val(data.adviser);
-//                    workInfoPanel.find(".conceptProductImage").attr("src", data.pimage);	//概念作品
-                    var arr1 = data.pimage.split(',');
-                    workInfoPanel.find(".conceptProductImage1").attr("src", arr1[0]);	//创新作品1
-                    workInfoPanel.find(".conceptProductImage2").attr("src", arr1[1]);	//创新作品2
-                    workInfoPanel.find(".conceptProductImage3").attr("src", arr1[2]);	//创新作品3
+                    var conceptArr = data.pimage.split(',');
+                    workInfoPanel.find(".conceptProductImage1").attr("src", conceptArr[0]);	//创新作品1
+                    workInfoPanel.find(".conceptProductImage2").attr("src", conceptArr[1]);	//创新作品2
+                    workInfoPanel.find(".conceptProductImage3").attr("src", conceptArr[2]);	//创新作品3
                 }else if(data.groupNum == 2){
                     workInfoPanel.find("input[name='title']").val(data.title);
                     workInfoPanel.find("input[name='title_en']").val(data.title_en);
                     workInfoPanel.find("textarea[name='content']").val(data.content);
                     workInfoPanel.find("textarea[name='content_en']").val(data.content_en);
                     workInfoPanel.find("input[name='adviser']").val(data.adviser);
-//                  口号：slogan
                     $("#zyProductImgInfo").addClass("zyHidden");
                     $("#zyProductSloganInfo").removeClass("zyHidden");
                     $("input[class ='zyProductsloganInfoRadio']").attr("checked", true);
-                    var arr = data.pimage.split(',');
-                    workInfoPanel.find(".innovatProductImage1").attr("src", arr[0]);	//创新作品1
-                    workInfoPanel.find(".innovatProductImage2").attr("src", arr[1]);	//创新作品2
-                    workInfoPanel.find(".innovatProductImage3").attr("src", arr[2]);	//创新作品3
+                    var innovatArr = data.pimage.split(',');
+                    workInfoPanel.find(".innovatProductImage1").attr("src", innovatArr[0]);	//创新作品1
+                    workInfoPanel.find(".innovatProductImage2").attr("src", innovatArr[1]);	//创新作品2
+                    workInfoPanel.find(".innovatProductImage3").attr("src", innovatArr[2]);	//创新作品3
                 }
             });
         },

@@ -126,7 +126,7 @@ var Component = new Vue({
     methods:{
 //    **********************	图片上传		*******************************
     	handleSuccess: function(res, file, fileList) {
-            this.dataSourse.thumb = hostPrefix + g_object_name + "?x-oss-process=style/thumb-300";
+            this.dataSourse.thumb = hostPrefix + g_object_name;
         },
         handleFormatError: function(file) {
             this.$Message.error("文件格式错误！");

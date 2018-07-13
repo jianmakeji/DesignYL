@@ -125,8 +125,31 @@ var config = {
         scoreError:"请输入正确的分数"
     }
 };
-$(document).ready(function () {
 
+//判断360浏览器8以下版本
+function getBrowserInfo(){
+    var ua = navigator.userAgent.toLocaleLowerCase();
+    console.log("ua",ua.split(" "));
+    var browserType=null;
+    if (ua.match(/chrome/) != null) {
+    	var version = ua.split(" ");
+    	var is360 = 0;
+    	for(var i=0;i<version.length;i++){
+    		if(version[i].match(/chrome/)){
+    			is360 = version[i].split("/")[1];
+    		}
+    	}
+        if(is360 < "42"){
+            browserType = '360';
+            $(".JMNoticeBoardLeft").css("top","0px");
+            $(".JMNoticeBoardRight .JMItem").css({"top":"0px","left":"0px"});
+        }
+    }
+}
+$(document).ready(function () { 
+	
+	getBrowserInfo();
+	
     $("input[type='text'],input[type='email']").blur(function () {
         $(this).val($(this).val().trim());
     });

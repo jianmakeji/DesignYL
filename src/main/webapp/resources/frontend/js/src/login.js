@@ -3,8 +3,27 @@ var login = (function (config) {
 
     }
 })(config);
+function getBrowserInfo(){
+    var ua = navigator.userAgent.toLocaleLowerCase();
+    var browserType=null;
+    if (ua.match(/chrome/) != null) {
+    	var version = ua.split(" ");
+    	var is360 = 0;
+    	for(var i=0;i<version.length;i++){
+    		if(version[i].match(/chrome/)){
+    			is360 = version[i].split("/")[1];
+    		}
+    	}
+        if(is360 < "42"){
+            browserType = '360';
+            $("body .pCenter").css({position:"initial",left:"0px",top:"0px",margin:"10% auto 0"});
+            $("body").css("height","auto");
+            $(".close").css("margin-top","-170px");
+        }
+    }
+}
 $(document).ready(function () {
-
+	getBrowserInfo();
     $("#myForm").validate({
         rules: {
             username: {

@@ -9,7 +9,7 @@
 <link href="resources/frontend/css/src/login.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<div><a href="" style="color:#47a8a9;font-size:14px;margin-top:15px;margin-right:15px;float:right"><spring:message code="close"/></a></div>
+<div><a class="close" href=""><spring:message code="close"/></a></div>
 
 	<form class="pCenter" id="myForm" method="post" action="dologin">
 		<div class="logo">
@@ -43,7 +43,6 @@
 	<script src="resources/js/lib/jquery.validate.min.js"></script>
 	<script src="resources/frontend/js/src/config.js"></script>
 	<script src="resources/frontend/js/src/login.js"></script>
-
 
 </body>
 </html>

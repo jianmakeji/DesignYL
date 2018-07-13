@@ -1,5 +1,5 @@
-
 $(document).ready(function(){
+	
 	var ua = navigator.userAgent;
 
 	var ipad = ua.match(/(iPad).*OS\s([\d_]+)/),
@@ -15,5 +15,4 @@ $(document).ready(function(){
 	}else{
 
 	}
-    
 })
