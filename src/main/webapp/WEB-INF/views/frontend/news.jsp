@@ -70,7 +70,6 @@
 		            $(".JMNoticeBoardLeft").css("top","0px");
 		            $(".JMNoticeBoardRight .JMItem").css({"top":"0px","left":"0px"});
 		        }else{
-		            $('html').css("zoom",".80");
 		        }
 		    }
 		}
