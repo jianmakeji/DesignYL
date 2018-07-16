@@ -80,7 +80,7 @@
 						</div> -->
 
 						<div class="zyFormRow">
-							<label class="zyFormLabel"><spring:message code="ID_number"/></label>	<!-- 身份证号 -->
+							<label class="zyFormLabel">身份证或护照号</label>	<!-- 身份证号 -->
 							<div class="zyFormControl">
 								<input id="identityPersonal" type="text" name="participantIdNumber" class="zyInput zyActionRequired">
 							</div>

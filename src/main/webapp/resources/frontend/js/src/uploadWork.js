@@ -253,58 +253,7 @@ $(document).ready(function () {
         $(".zyPersonInfoPanel").addClass("zyHidden");
         $(targetPanel).removeClass("zyHidden");
     });
-//    *****************************验证身份证信息****************************
- // 验证身份证 
-    function isCardNo(card) {
-    	var pattern = /(^[1-9]\d{5}(18|19|([23]\d))\d{2}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)/; 
-    	return pattern.test(card); 
-    }
-// 	个人
-    function formValidate() {
-     	var str = '';
-    	// 验证身份证
-	     if($.trim($('#identityPersonal').val()).length == 0) { 
-	      	str += '身份证号码没有输入\n';
-	      	$('#identityPersonal').focus();
-	     } else {
-	      	if(isCardNo($.trim($('#identityPersonal').val())) == false) {
-	      		 str += '身份证号不正确；\n';
-	      		 $('#identityPersonal').focus();
-	     	 }
-	     }
-	     // 如果没有错误则提交
-	     if(str != '' && $("#zySelectPersonType input[value='1']").is(':checked')) {
-	    	$("#identityPersonal").val("");
-	    	$().toastmessage("showErrorToast", "身份证信息有误");
-	      	return false;
-	     } 
-    }
-    $("#identityPersonal").blur(function(){
-    	formValidate();
-    })
-//  队长
-    function formValidate1() {
-     	var str = '';
-    	// 验证身份证
-	    if($.trim($('#identityCaptain').val()).length == 0) { 
-	      	str += '身份证号码没有输入\n';
-	      	$('#identityCaptain').focus();
-	     } else {
-	      	if(isCardNo($.trim($('#identityCaptain').val())) == false) {
-	       		str += '身份证号不正确；\n';
-	       		$('#identityCaptain').focus();
-	      	}
-	     }
-	     // 如果没有错误则提交
-	     if(str != ''  && $("#zySelectPersonType input[value='2']").is(':checked')) {
-	    	$("#identityCaptain").val("");
-	    	$().toastmessage("showErrorToast", "身份证信息有误");
-	      	return false;
-	     } 
-    }
-    $("#identityCaptain").blur(function(){
-    	formValidate1();
-    }) 
+
 //    *****************************验证营业执照信息****************************
     //  验证营业执照
     function isBusinessLicenseNo(BusinessLicense) { 
