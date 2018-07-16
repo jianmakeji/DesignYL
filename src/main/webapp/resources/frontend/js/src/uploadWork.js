@@ -296,7 +296,6 @@ $(document).ready(function () {
     });
 
     $("#zySubmitData").click(function () {
-        formValidate();
         zyFormHandler.submitFormWithJSON(null, uploadWork.getSubmitData());
     });
 
