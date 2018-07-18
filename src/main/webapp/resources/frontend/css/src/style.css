@@ -8,7 +8,9 @@ Primary style
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+[v-cloak] {
+  display: none;
+}
 body {
   font-size: 100%;
   font-family: "PT Sans", sans-serif;
@@ -187,7 +189,7 @@ header h1 {
   width: 100%;
   bottom: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(71,168,169, 0.5);
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -230,47 +232,45 @@ header h1 {
   /* quick view non available on small devices */
   display: none;
 }
-/* @media only screen and (max-width: 1920px) and (min-height: 900px) { */
-  .cd-quick-view {
-    display: block;
-    position: fixed;
-    max-width: 1200px;
-  	height:auto;
-    visibility: hidden;
-    /* Force Hardware Acceleration in WebKit */
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: left, top, width;
-    z-index: 99;
+ .cd-quick-view {
+   display: block;
+   position: fixed;
+   max-width: 1200px;
+ 	height:auto;
+   visibility: hidden;
+   /* Force Hardware Acceleration in WebKit */
+   -webkit-transform: translateZ(0);
+   -moz-transform: translateZ(0);
+   -ms-transform: translateZ(0);
+   -o-transform: translateZ(0);
+   transform: translateZ(0);
+   -webkit-backface-visibility: hidden;
+   backface-visibility: hidden;
+   will-change: left, top, width;
+   z-index: 99;
+ }
+ .cd-quick-view:after {
+   content: "";
+   display: table;
+   clear: both;
+ }
+ .cd-quick-view.is-visible {
+   /* class added when user clicks on .cd-trigger */
+   visibility: visible;
+ }
+ .cd-quick-view.animate-width {
+   /* class added at the end of the first zoom-in animation */
+   background-color: #ffffff;
+   box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+   -webkit-transition: box-shadow 0.3s;
+   -moz-transition: box-shadow 0.3s;
+   transition: box-shadow 0.3s;
+ }
+ .cd-slider li img {
+display: block;
+  	width: 594px;
+   height: auto;
   }
-  .cd-quick-view:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .cd-quick-view.is-visible {
-    /* class added when user clicks on .cd-trigger */
-    visibility: visible;
-  }
-  .cd-quick-view.animate-width {
-    /* class added at the end of the first zoom-in animation */
-    background-color: #ffffff;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-    -webkit-transition: box-shadow 0.3s;
-    -moz-transition: box-shadow 0.3s;
-    transition: box-shadow 0.3s;
-  }
-  .cd-slider li img {
-	display: block;
-   	width: 594px;
-    height: 750px;
-   }
-/* } */
 
 
 .cd-slider-wrapper {
@@ -439,7 +439,7 @@ header h1 {
   -moz-osx-font-smoothing: grayscale;
   font-family: "PT Sans", sans-serif;
   font-size: 23px;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   cursor: pointer;
 }
 .add-content .cd-item-info {
@@ -564,79 +564,3 @@ header h1 {
   -moz-transition: -moz-transform .3s 0s, visibility 0s 0s;
   transition: transform .3s 0s, visibility 0s 0s;
 }
-/* @media only screen and (max-width: 1024px) and (max-height: 768px) {
-  .cd-quick-view {
-    display: block;
-    position: fixed;
-    max-width: 1000px;
-    height:700px;
-    visibility: hidden;
-    Force Hardware Acceleration in WebKit
-    -webkit-transform: translateZ(0);
-    -moz-transform: translateZ(0);
-    -ms-transform: translateZ(0);
-    -o-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: left, top, width;
-    z-index: 99;
-  }
-  .cd-quick-view:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .cd-quick-view.is-visible {
-    visibility: visible;
-  }
-  .cd-quick-view.animate-width {
-    background-color: #ffffff;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-    -webkit-transition: box-shadow 0.3s;
-    -moz-transition: box-shadow 0.3s;
-    transition: box-shadow 0.3s;
-  }
-  .cd-slider li img {
-	  display: block;
-	  width: 100%;
-	  max-width: 533px;
-	  height:700px;
-	}
-	.cd-item-info h3 {
-	  font-size: 20px;
-	  margin-top:-40px;
-	}
-	.add-content .cd-item-info p{
-		font-size:1em;
-	}
-	.cd-item-info p {
-	  line-height: 1.3em;
-	  color: #67919c;
-	}
-	.add-content .cd-item-info .cd-item-action{
-		margin-top:40px;
-	}
-	.add-content .cd-item-info .cd-item-action input{
-		    line-height: 1.5em;
-    color: rgb(255, 0, 0);
-    font-size: 26px;
-    text-align: center;
-    display: block;
-    width: 96px;
-    margin-top: 5px;
-	}
-	.cd-item-info .downImg{
-		position:absolute;
-	}
-	.cd-item-info .add-to-cart{
-	    border-radius: 0.25em;
-	    border: none;
-	    padding: 0.5em 1.2em;
-	    background-color: #f82f53;
-	    color: #ffffff;
-	    font-size: 23px;
-	    font-size: 1rem;
-	    cursor: pointer;
-	}
-} */

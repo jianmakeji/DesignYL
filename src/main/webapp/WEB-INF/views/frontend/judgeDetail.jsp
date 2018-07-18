@@ -6,6 +6,7 @@
 <head>
 <%@ include file="../head.jsp"%>
 <link href="resources/frontend/css/src/main.css" type="text/css" rel="stylesheet">
+<link href="resources/frontend/css/src/JMCSS/Header.css" type="text/css" rel="stylesheet">
 </head>
 <body>
 
@@ -38,7 +39,7 @@
 		$(document).ready(function(){
 			var documentHeight = $(document.body).height(),
 				zyJudgeDetailHeight = $("zyJudgeDetail").height(),
-				zyFooterHeight = $(".zyFooter").height();
+				zyFooterHeight = $(".JMFooter").height();
 				
 				var minHeightNumber = documentHeight - 2*zyFooterHeight - 40;
 				var totalHeight = zyJudgeDetailHeight + zyFooterHeight ;

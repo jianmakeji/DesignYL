@@ -36,7 +36,7 @@
 		 $(document).ready(function(){
 			 var documentHeight = $(document.body).height(),
 				 zyPostDetailHeight = $(".zyPostDetail").height(),
-				 zyFooterHeight = $(".zyFooter").height(),
+				 zyFooterHeight = $(".JMFooter").height(),
 				 addHeight = documentHeight - 2*zyFooterHeight;
 			 if(zyPostDetailHeight+zyFooterHeight < documentHeight){
 				 $(".zyPostDetail").css({ "min-height": addHeight +"px" });

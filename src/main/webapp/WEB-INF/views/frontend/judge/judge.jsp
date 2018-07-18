@@ -21,7 +21,7 @@
 </head>
 <body>
 	<%@ include file="../header.jsp"%>
-	<div id="productList" style="width: 100%">
+	<div id="productList" style="width: 100%" v-cloak>
 		<div style="text-align: center">
 			<i-menu mode="horizontal" :theme="theme1" active-name="1" @on-select="menuSelect" style="width:100%;margin-top:10px;z-index:0"> <menu-item name="1">
 			<icon type="settings"></icon> <spring:message code="all_productions"/> </menu-item> <menu-item name="2"> <icon type="settings"></icon> <spring:message code="graded_productions"/> </menu-item> <menu-item name="3"> <icon type="settings"></icon>
@@ -50,19 +50,21 @@
 						<div class="swiper-container" >
 						    <div class="swiper-wrapper">
 						    </div>
+						    <div class="swiper-pagination"></div>
 						</div>
 					</li>
 				</ul>
 			</div>
 
 			<div class="cd-item-info">
-				<h3><spring:message code="title"/>：{{title}}</h3>
-				<p><spring:message code="introduction"/>：{{content}}</p>
-				<div>
+				<h3 style="padding:5px 5px;"><spring:message code="title"/>：{{title}}</h3>
+				<p style="padding:5px 5px;"><spring:message code="introduction"/>：{{content}}</p>
+				<div style="padding:5px 5px;">
 					<ul class="cd-item-action">
-						<li><input type="text" v-model="score" placeholder="请输入分数  0-100 之间数字"
-							style="line-height: 1.5em; color: #ff0000; font-size: 32px; text-align: center; display: block; width: 96px; margin-top: 5px;" /></li>
-						<li><button class="add-to-cart" v-on:click="scoreBtnClick"><spring:message code="score"/></button></li>
+						<i-col style="color:red;">请输入分数0-100之间数字</i-col>
+						<li><input type="text" v-model="score" style="line-height: 1.5em; color: #ff0000; font-size: 32px; text-align: center; display: block; width: 96px; margin-top: 5px;float:left;" />
+							<i-button type="error" v-on:click="scoreBtnClick" style="margin-left:10px;height: 52px;width: 100px; margin-top: 5px;font-size: 24px;"><spring:message code="score"/></i-button>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -158,6 +160,7 @@
 			            })
 				  },
 				  openDetail:function(event){
+					  $(".JMHeader .JMNoticeBoard").css("opacity","0.1");
 					  var slectedImageUrl = '';
 					  var title = '';
 					  var content = '';
@@ -173,8 +176,13 @@
 									  var imgSrc =  this.list[i].pimageArr[imgItem] + "?x-oss-process=style/thumb-594-840";
 									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ imgSrc + "></div>");
 								  }
+								  $(".swiper-wrapper .swiper-slide img").css("cursor", "pointer");
 								  var mySwiper = new Swiper ('.swiper-container', {
 								    	loop: false,
+								    	pagination: {
+							    	      	el: '.swiper-pagination',
+							    	      	clickable :true,
+							    	    },
 								  });
 								  $("img[id='productImage']").each(function(index){
 									  $(this).click(function(){
@@ -191,14 +199,20 @@
 							  } 
 						  }else{
 							  if (this.list[i].id == event.target.id){
+								  var that = this;
 								  slectedImageUrl = this.list[i].pimageArr[0] + "?x-oss-process=style/thumb-594-840";
 								  $(".swiper-wrapper").empty();
 								  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
 									  var imgSrc =  this.list[i].pimageArr[imgItem] + "?x-oss-process=style/thumb-594-840";
 									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ imgSrc + "></div>");
 								  }
+								  $(".swiper-wrapper .swiper-slide img").css("cursor", "pointer");
 								  var mySwiper = new Swiper ('.swiper-container', {
 								    	loop: false,
+								    	pagination: {
+							    	      	el: '.swiper-pagination',
+							    	      	clickable :true,
+							    	    },
 								  });
 								  $("img[id='productImage']").each(function(index){
 									  $(this).click(function(){
@@ -237,6 +251,7 @@
 						});
 				  }, 
 				  closeQuickView:function(finalWidth, maxQuickWidth) {
+					  $(".JMHeader .JMNoticeBoard").css("opacity","1");
 						var selectedImage = $('.empty-box').find('img')
 					  if(this.groupNum == 2){
 						  	var close = $('.cd-close');

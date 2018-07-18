@@ -129,7 +129,6 @@ var config = {
 //判断360浏览器8以下版本
 function getBrowserInfo(){
     var ua = navigator.userAgent.toLocaleLowerCase();
-    console.log("ua",ua.split(" "));
     var browserType=null;
     if (ua.match(/chrome/) != null) {
     	var version = ua.split(" ");
