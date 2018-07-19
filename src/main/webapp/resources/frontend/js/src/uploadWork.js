@@ -35,9 +35,9 @@ var uploadWork = (function (config, functions) {
                     workInfoPanel.find("textarea[name='content_en']").val(data.content_en);
                     workInfoPanel.find("input[name='adviser']").val(data.adviser);
                     var conceptArr = data.pimage.split(',');
-                    workInfoPanel.find(".conceptProductImage1").attr("src", conceptArr[0]);	//创新作品1
-                    workInfoPanel.find(".conceptProductImage2").attr("src", conceptArr[1]);	//创新作品2
-                    workInfoPanel.find(".conceptProductImage3").attr("src", conceptArr[2]);	//创新作品3
+                    workInfoPanel.find(".conceptProductImage1").attr("src", conceptArr[0]);	//概念作品1
+                    workInfoPanel.find(".conceptProductImage2").attr("src", conceptArr[1]);	//概念作品2
+                    workInfoPanel.find(".conceptProductImage3").attr("src", conceptArr[2]);	//概念作品3
                 }else if(data.groupNum == 2){
                     workInfoPanel.find("input[name='title']").val(data.title);
                     workInfoPanel.find("input[name='title_en']").val(data.title_en);
@@ -211,35 +211,35 @@ $(document).ready(function () {
         redirectUrl: config.viewUrls.works
     });
 
-    var productOSSUploaderObject = new uploadOSSObject("uploadBg","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+    var conceptProductOSSUploaderObject1 = new uploadOSSObject("uploadBg","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole"),$("#ossBgProgress"),$("#bgFileDescribe"),$("#ossBgfile .determinate"),$("#bgFileCompletePersent"),$("#uploadBg"));
-	var productUploader = createUploader(productOSSUploaderObject);
-	productUploader.init();
+	var conceptProductUploader1 = createUploader(conceptProductOSSUploaderObject1);
+	conceptProductUploader1.init();
 	
-	var productOSSUploaderObject = new uploadOSSObject("uploadBg4","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+	var conceptProductOSSUploaderObject2 = new uploadOSSObject("uploadBg4","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole4"),$("#ossBgProgress4"),$("#bgFileDescribe4"),$("#ossBgfile .determinate4"),$("#bgFileCompletePersent4"),$("#uploadBg4"));
-	var productUploader = createUploader(productOSSUploaderObject);
-	productUploader.init();
+	var conceptProductUploader2 = createUploader(conceptProductOSSUploaderObject2);
+	conceptProductUploader2.init();
 	
-	var productOSSUploaderObject = new uploadOSSObject("uploadBg5","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+	var conceptProductOSSUploaderObject3 = new uploadOSSObject("uploadBg5","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole5"),$("#ossBgProgress5"),$("#bgFileDescribe5"),$("#ossBgfile .determinate5"),$("#bgFileCompletePersent5"),$("#uploadBg5"));
-	var productUploader = createUploader(productOSSUploaderObject);
-	productUploader.init();
+	var conceptProductUploader3 = createUploader(conceptProductOSSUploaderObject3);
+	conceptProductUploader3.init();
 	
-	var productOSSUploaderObject1 = new uploadOSSObject("uploadBg1","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+	var innovatProductOSSUploaderObject1 = new uploadOSSObject("uploadBg1","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole1"),$("#ossBgProgress1"),$("#bgFileDescribe1"),$("#ossBgfile .determinate1"),$("#bgFileCompletePersent1"),$("#uploadBg1"));
-	var productUploader1 = createUploader(productOSSUploaderObject1);
-	productUploader1.init();
+	var innovatProductUploader1 = createUploader(innovatProductOSSUploaderObject1);
+	innovatProductUploader1.init();
 	
-	var productOSSUploaderObject2 = new uploadOSSObject("uploadBg2","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+	var innovatProductOSSUploaderObject2 = new uploadOSSObject("uploadBg2","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole2"),$("#ossBgProgress2"),$("#bgFileDescribe2"),$("#ossBgfile .determinate2"),$("#bgFileCompletePersent2"),$("#uploadBg2"));
-	var productUploader2 = createUploader(productOSSUploaderObject2);
-	productUploader2.init();
+	var innovatProductUploader2 = createUploader(innovatProductOSSUploaderObject2);
+	innovatProductUploader2.init();
 	
-	var productOSSUploaderObject3 = new uploadOSSObject("uploadBg3","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
+	var innovatProductOSSUploaderObject3 = new uploadOSSObject("uploadBg3","image/jpg,image/jpeg,image/png","jpg,jpeg,png",'5mb',
 			$("#bgConsole3"),$("#ossBgProgress3"),$("#bgFileDescribe3"),$("#ossBgfile .determinate3"),$("#bgFileCompletePersent3"),$("#uploadBg3"));
-	var productUploader3 = createUploader(productOSSUploaderObject3);
-	productUploader3.init();
+	var innovatProductUploader3 = createUploader(innovatProductOSSUploaderObject3);
+	innovatProductUploader3.init();
 
     $(".zyStep .zyStepItem, .zyActionNavBtn").click(function () {
         var targetPanel = $(this).data("target");
