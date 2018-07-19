@@ -213,7 +213,7 @@
 						<div class="zyFormRow" style="    margin-top: -8px;">
 							<label class="zyFormLabel">指导老师</label>	<!-- 简介 -->
 							<div class="zyFormControl">
-								<input type="text" name="adviser" class="zyInput zyActionRequired">
+								<input type="text" name="adviser" class="zyInput">
 							</div>
 						</div>
 						
