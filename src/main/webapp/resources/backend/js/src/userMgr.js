@@ -20,6 +20,19 @@ var vm = new Vue({
 	        			    },config.userStatus[this.dataList[params.index].valid])
 		              }
 		          },
+		          { title: '邮箱状态',key: 'activesign', align: 'center',
+		        	  render: (h, params) => {
+	        			    return h('div',{
+	        			    	props: {
+		                              type: 'primary',
+		                              size: 'small'
+		                          },
+		                          style: {
+		                              marginRight: '5px'
+		                          }
+	        			    },config.emailStatus[this.dataList[params.index].activesign])
+		              }
+			      },
 		          { title: '更新时间',key: 'createtime', align: 'center'},
 		          { title: '操作',key: 'valid', align: 'center',
 		       	   render: (h, params) => {
@@ -37,7 +50,7 @@ var vm = new Vue({
 	                                       this.statusChange(params.index)
 	                                   }
 	                               }
-	        			    },"激活")
+	        			    },"有效")
 	        			  } else {
 	        				  return h('Button',{
 	        					  props: {

@@ -105,8 +105,12 @@ var config={
         "7": "复选未入围"
     },
     userStatus:{
-        "0":"激活",
+        "0":"有效",
         "1":"禁用"
+    },
+    emailStatus:{
+        "0":"未激活",
+        "1":"已激活"
     },
     validErrors:{
         required:"请输入此字段！",
