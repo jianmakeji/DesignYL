@@ -28,7 +28,7 @@ var vm = new Vue({
 			roundModel:"",
 			statusModel:"",
 			totalPage:"",
-			GroupList:[{value:"0",label:"全部"},{value:"1",label:"概念作品组"},{value:"2",label:"创新作品组"}],
+			GroupList:[{value:"0",label:"全部"},{value:"1",label:"概念设计组"},{value:"2",label:"产品创新组"}],
 			SubGroupList:[{value:"0",label:"全部"},{value:"1",label:"康复辅具类 "},{value:"2",label:"生活益智类"},{value:"3",label:"设施环境类"},{value:"4",label:"综合服务类"}],
 			JudgeRoundList: [{value: '0',label: '全部'}],				//顶部轮次筛选
 			StatusList: [					//顶部状态筛选
