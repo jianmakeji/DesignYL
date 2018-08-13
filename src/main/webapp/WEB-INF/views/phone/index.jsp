@@ -8,9 +8,11 @@
 
 <head>
 <%@ include file="../head.jsp"%>
+	<link href="resources/backend/css/lib/swiper.css" type="text/css" rel="stylesheet">
 	<link href="resources/css/lib/iview.css" type="text/css" rel="stylesheet">
 	<link href="resources/frontend/css/src/phone/index.css" type="text/css" rel="stylesheet">
 	<link href="resources/frontend/css/src/phone/header.css" type="text/css" rel="stylesheet">
+	<script src="resources/backend/js/lib/swiper.js"></script>
     <script type="text/javascript" src="resources/js/lib/vue.min.js"></script>
     <script type="text/javascript" src="resources/js/lib/iview.min.js"></script>
 </head>
@@ -18,7 +20,19 @@
 <body>
 	<%@ include file="phoneHeader.jsp"%>
 	<div id="phoneIndex">
-		<img :src="topShowImg" style="width:100%;height:auto;">
+		<div class="zyTopShow">
+	         <div class="zyItem">
+	             <div class="swiper-container">
+					 <div class="swiper-wrapper">
+					 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow.jpg"></div>
+					 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow2.jpg"></div>
+					 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow3.jpg"></div>
+					 </div>
+					 <!-- Add Pagination -->
+				    <div class="swiper-pagination"></div>
+				</div>
+	         </div>
+	     </div>
 		<img :src="scheduleImg" style="width:100%;height:auto;">
 		<div style="width: 100%; background-color: #f7f7f7">
 	        <section style="color: #5c5c5c; font-size: 18pt; padding-top: 20px; margin-left: 30px">NEWS | 新闻动态</section>
@@ -47,7 +61,6 @@
 			el:"#phoneIndex",
 			data:function(){
 				return{
-					topShowImg:"resources/frontend/images/app/topShow.jpg",
 					scheduleImg:"resources/frontend/images/app/schedule.jpg",
 					newsData:[]
 				}
@@ -72,6 +85,15 @@
 		            }
 		        })
 	       	}
+		})
+		var mySwiper = new Swiper('.swiper-container', {
+			loop: true,
+			autoplay: {
+				delay:3000
+			},//可选选项，自动滑动
+			pagination: {
+		        el: '.swiper-pagination'
+		    }
 		})
 	</script>
 </body>

@@ -8,6 +8,8 @@
 
 <head>
 <%@ include file="../head.jsp"%>
+
+<link href="resources/backend/css/lib/swiper.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/lib/kkpager_blue.css" type="text/css" rel="stylesheet">
 <link href="resources/css/lib/jquery.toastmessage.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/src/JMCSS/Home.css" type="text/css" rel="stylesheet">
@@ -19,7 +21,19 @@
 	<%@ include file="header.jsp"%>
 	<div class="zyTopShow">
          <div class="zyItem">
-             <img src="resources/frontend/images/app/topShow.jpg">
+             <!-- <img src="resources/frontend/images/app/topShow.jpg"> -->
+             <div class="swiper-container">
+				 <div class="swiper-wrapper">
+				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow.jpg"></div>
+				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow2.jpg"></div>
+				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow3.jpg"></div>
+				 </div>
+				 <!-- Add Pagination -->
+			    <div class="swiper-pagination"></div>
+			    <!-- Add Arrows -->
+			    <div class="swiper-button-next"></div>
+			    <div class="swiper-button-prev"></div>
+			</div>
          </div>
      </div>
      <img src="resources/frontend/images/app/schedule.jpg">
@@ -54,11 +68,27 @@
 	</script>
 	<script src="resources/js/lib/jquery-1.10.2.min.js"></script>
 	<script src="resources/frontend/js/lib/kkpager.min.js"></script>
+	<script src="resources/backend/js/lib/swiper.js"></script>
 	<script src="resources/js/lib/jquery.toastmessage.js"></script>
 	<script src="resources/js/lib/juicer-min.js"></script>
 	<script src="resources/frontend/js/src/config.js"></script>
 	<script src="resources/js/src/functions.js"></script>
 	<script src="resources/frontend/js/src/header.js"></script>
 	<script src="resources/frontend/js/src/index.js"></script>
+	<script> 
+		var mySwiper = new Swiper('.swiper-container', {
+			loop: true,
+			autoplay: {
+				delay:3000
+			},//可选选项，自动滑动
+			pagination: {
+		        el: '.swiper-pagination'
+		    },
+		    navigation: {
+		        nextEl: '.swiper-button-next',
+		        prevEl: '.swiper-button-prev',
+		    },
+		})
+	</script>
 </body>
 </html>
