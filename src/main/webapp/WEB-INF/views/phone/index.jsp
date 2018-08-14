@@ -89,7 +89,7 @@
 		var mySwiper = new Swiper('.swiper-container', {
 			loop: true,
 			autoplay: {
-				delay:3000
+				delay:5000
 			},//可选选项，自动滑动
 			pagination: {
 		        el: '.swiper-pagination'
