@@ -762,7 +762,7 @@ img{
 	border: 2px solid #FFFFFF;
 }
 .zyJudgeDetail .zyInfo .zyTitle{
-    font-size: 24px;
+    font-size: 20px;
     margin: 10px 0px;
     color: #47a8a9;
     font-weight: normal;
@@ -784,7 +784,7 @@ img{
     width: 60%;
 }
 .zyJudgeDetail .zyDetail .zyTip{
-    color: #bb8229;
+    color: #47a8a9;
     font-size: 16px;
 }
 
