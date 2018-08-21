@@ -81,7 +81,7 @@
 		<property name="credentialsMatcher" ref="credentialsMatcher" />
 	</bean>
 
-
+	<bean id="authcFilter" class="com.jianma.designyl.shiro.ShiroFormAuthenticationFilter"></bean>
 	<!-- 安全管理器 -->
 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
 		<property name="realm" ref="userRealm" />
@@ -107,6 +107,11 @@
 		<!-- <property name="successUrl" value="/" ></property> -->
 		<!-- 用户访问未对其授权的资源时，所显示的连接 -->
 		<property name="unauthorizedUrl" value="/"></property>
+		<property name="filters">
+		    <map>
+		    	<entry key="authc" value-ref="authcFilter"></entry>
+		    </map>
+    	</property>
 		<property name="filterChainDefinitions">
 			<value>
 				/login=anon
