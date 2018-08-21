@@ -81,8 +81,13 @@ ZYFormHandler.prototype.submitFormWithJSON=function(form,data){
                 functions.ajaxReturnErrorHandler(response.message);
             }
         },
-        error:function(){
-            functions.ajaxErrorHandler();
+        error:function(XMLHttpRequest, textStatus, errorThrown){
+             if(textStatus == "parsererror"){
+            	 $().toastmessage("showErrorToast","登陆会话超时，请重新登陆");
+            	 functions.hideLoading();
+             }else{
+                 functions.ajaxErrorHandler();
+             }
         }
     });
 }
