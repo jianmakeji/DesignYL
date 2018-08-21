@@ -135,18 +135,12 @@ public class ProductionController  extends DcController{
 		try{
 			if(DateUtil.compareDate(configInfo.contribute_end_time)){
 				Subject subject = SecurityUtils.getSubject();
-				Object userId = subject.getSession().getAttribute("userId");
-				if (userId == null){
-					throw new DCException(400, "请重新登录！");
-				}
-				else{
-					production.setUserId(Integer.parseInt(userId.toString()));
-					production.setCreateTime(new Date());
-					productionServiceImpl.createProduction(production);
-					resultModel.setResultCode(200);
-					resultModel.setSuccess(true);
-					return resultModel;
-				}
+				production.setUserId(Integer.parseInt(subject.getSession().getAttribute("userId").toString()));
+				production.setCreateTime(new Date());
+				productionServiceImpl.createProduction(production);
+				resultModel.setResultCode(200);
+				resultModel.setSuccess(true);
+				return resultModel;
 			}
 			else{
 				throw new DCException(600, "投稿日期结束");
