@@ -27,20 +27,25 @@ public class ShiroFormAuthenticationFilter extends FormAuthenticationFilter {
 	            HttpServletRequest req = (HttpServletRequest)request;
 	            HttpServletResponse resp = (HttpServletResponse) response;
 	            
-	            //前端Ajax请求，则不会重定向
-	            resp.setHeader("Access-Control-Allow-Origin",  req.getHeader("Origin"));
-	            resp.setHeader("Access-Control-Allow-Credentials", "true");
-	            resp.setContentType("application/json; charset=utf-8");
-	            resp.setCharacterEncoding("UTF-8");
+	            String requestType = req.getHeader("X-Requested-With");
+	            if("XMLHttpRequest".equals(requestType)){
+	            	 //前端Ajax请求，则不会重定向
+		            resp.setHeader("Access-Control-Allow-Origin",  req.getHeader("Origin"));
+		            resp.setHeader("Access-Control-Allow-Credentials", "true");
+		            resp.setContentType("application/json; charset=utf-8");
+		            resp.setCharacterEncoding("UTF-8");
+		            
+		            PrintWriter out = resp.getWriter();
+		            JSONObject result = new JSONObject();
+		            result.put("message", "请重新登录！");
+		            result.put("statusCode", -500);
+		            out.println(result);
+		            out.flush();
+		            out.close();
+	            }else{
+	            	resp.sendRedirect("/login");
+	            }
 	            
-	            PrintWriter out = resp.getWriter();
-	            JSONObject result = new JSONObject();
-	            result.put("message", "请重新登录！");
-	            result.put("statusCode", -500);
-	            out.println(result);
-	            out.flush();
-	            out.close();
-	           
 	            return false;
 	        }
 	    }
