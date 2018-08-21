@@ -38,26 +38,26 @@ img{
   	width: 90%;
 }
 #JMJudge hr{
-  width:80%;height:3px;background-color:#47a8a9;margin-top:10px;border:0px;
+      width: 80%;
+    height: 2px;
+    background-color: #47a8a9;
+    margin-top: 30px;
+    border: 0px;
+    margin-right: 0px;
 }
 .JMList2{
     font-size: 0px;
     width: 100%;
-    margin: 60px 5% 60px 8%;
+    margin: 10px 5% 60px 8%;
 }
 .JMList2 .JMItem{
     width: 80%;
-    margin: 2.5%;
+    margin-top: 30px;
     position: relative;
 }
 .JMList2 .JMItem .JMThumb{
     width: 15%;
     border: 2px solid #FFFFFF;
-    border-radius: 20px;
-}
-
-.JMList2 .JMItem .JMThumb:hover{
-    filter:sepia(1);
 }
 .JMList2 .JMItem .JMInfo{
     position: absolute;
@@ -77,6 +77,6 @@ img{
     font-size: 16px;
     font-weight: bold;
     color: #656464;
-    margin: 0px;
+    margin: -20px 0px;
     line-height:30px;
 }

@@ -13,6 +13,7 @@
 
 	<%@ include file="header.jsp"%>
 	<div id="JMJudge">
+		<section style="color: #5c5c5c; font-size: 20pt;margin: 30px 5% 0px 8%;">初评评委</section>
 		<ul class="JMList2">
 
 			<c:forEach items="${judgeList}" var="item">

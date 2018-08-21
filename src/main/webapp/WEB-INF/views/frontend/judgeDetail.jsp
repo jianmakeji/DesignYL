@@ -15,11 +15,11 @@
 	<div class="zyJudgeDetail">
 		<div class="zyInfo">
 			<img class="zyThumb" src="${judge.headicon}">
-			<h2 class="zyTitle">姓名：${judge.name}</h2>
-			<div class="zySubTitle">职位：${judge.subTitle}</div>
+			<%-- <h2 class="zyTitle">姓名：${judge.name}</h2>
+			<div class="zySubTitle">职位：${judge.subTitle}</div> --%>
 		</div>
 		<div class="zyDetail">
-			<label class="zyTip">个人简介：</label>
+			<label class="zyTip">${judge.name}</label>
 			<div class="description">${judge.description.replace('../../','')}</div>
 		</div>
 	</div>
