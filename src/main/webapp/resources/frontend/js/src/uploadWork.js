@@ -85,7 +85,13 @@ var uploadWork = (function (config, functions) {
                 obj.attachFile = attachUrl;
                 obj.status = 1;
                 obj.pimageArr = [$("#uploadBg").attr('src'),$("#uploadBg4").attr('src'),$("#uploadBg5").attr('src')];
-                obj.pimage = $("#uploadBg").attr('src')+","+$("#uploadBg4").attr('src')+","+$("#uploadBg5").attr('src');
+                for(var i = 0;i<obj.pimageArr.length;i++){
+                	if(obj.pimageArr[i] == "resources/frontend/images/app/defaultImage.jpg"){
+                		obj.pimageArr.splice(obj.pimageArr.indexOf("resources/frontend/images/app/defaultImage.jpg"),1);
+                		i--;
+                	}
+                }
+                obj.pimage = obj.pimageArr.join(",");
                 obj.groupNum = 1;
             }else if(productType == "2"){
                 obj.title = workInfoPanel.find("input[name='title']").val();
@@ -96,7 +102,13 @@ var uploadWork = (function (config, functions) {
                 obj.attachFile = attachUrl;
                 obj.status = 1;
                 obj.pimageArr = [$("#uploadBg1").attr('src'),$("#uploadBg2").attr('src'),$("#uploadBg3").attr('src')];
-                obj.pimage = $("#uploadBg1").attr('src')+","+$("#uploadBg2").attr('src')+","+$("#uploadBg3").attr('src');
+                for(var i = 0;i<obj.pimageArr.length;i++){
+                	if(obj.pimageArr[i] == "resources/frontend/images/app/defaultImage.jpg"){
+                		obj.pimageArr.splice(obj.pimageArr.indexOf("resources/frontend/images/app/defaultImage.jpg"),1);
+                    	i--;
+                	}
+                }
+                obj.pimage = obj.pimageArr.join(",");
                 obj.groupNum = 2;
             }
             if (id) {
@@ -296,7 +308,14 @@ $(document).ready(function () {
     });
 
     $("#zySubmitData").click(function () {
-        zyFormHandler.submitFormWithJSON(null, uploadWork.getSubmitData());
+    	console.log(uploadWork.getSubmitData());
+    	if(uploadWork.getSubmitData().pimageArr[0] == "resources/frontend/images/app/defaultImage.jpg" || uploadWork.getSubmitData().pimage == ""){
+    		$().toastmessage("showErrorToast", "请上传作品图！");
+    	}else if(uploadWork.getSubmitData().participantBrief.length >= 600){
+    		$().toastmessage("showErrorToast", "简介不能超过600个字符！");
+    	}else{
+    		zyFormHandler.submitFormWithJSON(null, uploadWork.getSubmitData());
+    	}
     });
 
 });

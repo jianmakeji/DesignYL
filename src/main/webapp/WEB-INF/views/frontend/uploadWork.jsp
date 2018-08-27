@@ -347,6 +347,7 @@
 							<label class="zyFormLabel">附件</label>
 							<button type="default" id="browse">选择文件</button>
 		           			<button type="default" id="upload-btn">开始上传</button><br/>
+		           			<label>请上传zip、rar格式压缩文件</label><br/>
 		           			<label id="zyFormAttachTitle"></label>
 						</div>
 					</div>
