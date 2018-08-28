@@ -51,6 +51,8 @@
 						    <div class="swiper-wrapper">
 						    </div>
 						    <div class="swiper-pagination"></div>
+						    <div class="swiper-button-prev"></div>
+    						<div class="swiper-button-next"></div>
 						</div>
 					</li>
 				</ul>
@@ -61,7 +63,7 @@
 				<p style="padding:5px 5px;"><spring:message code="introduction"/>：{{content}}</p>
 				<div style="padding:5px 5px;">
 					<ul class="cd-item-action">
-						<i-col style="color:red;">请输入分数0-100之间数字</i-col>
+						<i-col style="color:red;">请输入分数0-100的整数</i-col>
 						<li><input type="text" v-model="score" style="line-height: 1.5em; color: #ff0000; font-size: 32px; text-align: center; display: block; width: 96px; margin-top: 5px;float:left;" />
 							<i-button type="error" v-on:click="scoreBtnClick" style="margin-left:10px;height: 52px;width: 100px; margin-top: 5px;font-size: 24px;"><spring:message code="score"/></i-button>
 						</li>
@@ -71,7 +73,7 @@
 
 			<a href="#0" class="cd-close" v-on:click="closeQuickView">Close</a>
 		</div>
-		 <modal v-model="previewModal" title="图片预览" width="auto" cancel-text="" ok-text="">
+		 <modal v-model="previewModal" title="图片预览 (按Esc可返回)" width="auto" cancel-text="" ok-text="">
 	        <img style="width:100%;heigth:auto;" :src="modelImg" />
 	    </modal>
 	</div>
@@ -161,72 +163,48 @@
 				  },
 				  openDetail:function(event){
 					  $(".JMHeader .JMNoticeBoard").css("opacity","0.1");
-					  var slectedImageUrl = '';
+					  var slectedImageUrl = "";
 					  var title = '';
 					  var content = '';
 					  var score = '';
 					  for (var i = 0; i < this.list.length; i++){
-						  //判断是否为口号作品
-						  if(this.list[i].groupNum == 2){
-							  if (this.list[i].id == event.target.id){
-								  var that = this;
-								  slectedImageUrl = this.list[i].pimageArr[0] + "?x-oss-process=style/thumb-594-840";
-								  $(".swiper-wrapper").empty();
-								  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
-									  var imgSrc =  this.list[i].pimageArr[imgItem] + "?x-oss-process=style/thumb-594-840";
-									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ imgSrc + "></div>");
-								  }
-								  $(".swiper-wrapper .swiper-slide img").css("cursor", "pointer");
-								  var mySwiper = new Swiper ('.swiper-container', {
-								    	loop: false,
-								    	pagination: {
-							    	      	el: '.swiper-pagination',
-							    	      	clickable :true,
-							    	    },
-								  });
-								  $("img[id='productImage']").each(function(index){
-									  $(this).click(function(){
-										  that.previewModal = true;
-										  that.modelImg = that.list[i].pimageArr[index];
-									  })
-								  })
-								  this.content = this.list[i].content;
-								  this.score = this.list[i].score;
-								  this.title = this.list[i].title;
-								  this.productionId = this.list[i].id;
-								  break;
-								 
-							  } 
-						  }else{
-							  if (this.list[i].id == event.target.id){
-								  var that = this;
-								  slectedImageUrl = this.list[i].pimageArr[0] + "?x-oss-process=style/thumb-594-840";
-								  $(".swiper-wrapper").empty();
-								  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
-									  var imgSrc =  this.list[i].pimageArr[imgItem] + "?x-oss-process=style/thumb-594-840";
-									  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ imgSrc + "></div>");
-								  }
-								  $(".swiper-wrapper .swiper-slide img").css("cursor", "pointer");
-								  var mySwiper = new Swiper ('.swiper-container', {
-								    	loop: false,
-								    	pagination: {
-							    	      	el: '.swiper-pagination',
-							    	      	clickable :true,
-							    	    },
-								  });
-								  $("img[id='productImage']").each(function(index){
-									  $(this).click(function(){
-										  that.previewModal = true;
-										  that.modelImg = that.list[i].pimageArr[index];
-									  })
-								  })
-								  this.content = this.list[i].content;
-								  this.score = this.list[i].score;
-								  this.title = this.list[i].title;
-								  this.productionId = this.list[i].id;
-								  break;  
+						  if (this.list[i].id == event.target.id){
+							  $(".selected").empty();
+							  $(".selected").append("<div class='swiper-container' > <div class='swiper-wrapper'></div><div class='swiper-pagination'>"
+							  + "</div><div class='swiper-button-prev'></div><div class='swiper-button-next'></div></div>");
+							  slectedImageUrl = this.list[i].pimageArr[0] + "?x-oss-process=style/thumb-594-840";
+							  for(var imgItem = 0;imgItem<this.list[i].pimageArr.length;imgItem++){
+								  var imgSrc =  this.list[i].pimageArr[imgItem] + "?x-oss-process=style/thumb-594-840";
+								  $(".swiper-wrapper").append("<div class='swiper-slide'><img id='productImage' src="+ imgSrc + "></div>");
 							  }
+							  $(".swiper-wrapper .swiper-slide img").css("cursor", "pointer");
+							  var mySwiper = new Swiper ('.swiper-container', {
+							    	loop: false,
+							    	pagination: {
+						    	      	el: '.swiper-pagination',
+						    	      	clickable :true
+						    	    },
+						    	    navigation: {
+						    	        nextEl: '.swiper-button-next',
+						    	        prevEl: '.swiper-button-prev',
+						    	    }
+							  });
+							  mySwiper.updateSlides();
+							  mySwiper.updateProgress();
+							  var that = this;
+							  $("img[id='productImage']").each(function(index){
+								  $(this).click(function(){
+									  that.previewModal = true;
+									  that.modelImg = that.list[i].pimageArr[index];
+								  })
+							  })
+							  this.content = this.list[i].content;
+							  this.score = this.list[i].score;
+							  this.title = this.list[i].title;
+							  this.productionId = this.list[i].id;
+							  break;
 						  }
+						  
 					  }
 					  
 					  var selectedImage = $("#"+event.target.id);
@@ -365,7 +343,7 @@
 					        }
 					}
 			  },
-			})          
+			})   
   </script>
 </body>
 </html>

@@ -1083,4 +1083,6 @@ img{
     align-items: center;
 }
 
-
+.cd-quick-view .swiper-button-prev.swiper-button-disabled, .cd-quick-view .swiper-button-next.swiper-button-disabled{
+	pointer-events:auto;
+}
