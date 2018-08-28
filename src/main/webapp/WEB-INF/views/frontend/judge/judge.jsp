@@ -7,6 +7,7 @@
 <title>评审</title>
 <link href="resources/frontend/css/src/style.css" type="text/css" rel="stylesheet">
 <link href="resources/css/lib/iview.css" type="text/css" rel="stylesheet">
+<link href="resources/frontend/css/lib/animation.css" type="text/css" rel="stylesheet">
 <link href="resources/css/lib/jquery.toastmessage.css" type="text/css" rel="stylesheet">
 <link href="resources/backend/css/lib/swiper.css" type="text/css" rel="stylesheet">
 <link href="resources/frontend/css/src/main.css" type="text/css" rel="stylesheet">
@@ -270,27 +271,16 @@
 						
 						if( animationType == 'open') {
 							parentListItem.addClass('empty-box');
-							$('.cd-quick-view').css({
-							    "top": topSelected,
-							    "left": leftSelected,
-							    "width": widthSelected,
-							}).velocity({
-							    'top': finalTop + 'px',
-							    'left': finalLeft +'px',
-							    'width': finalWidth +'px',
-							}, 1000, [ 400, 20 ], function(){
-								$('.cd-quick-view').addClass('animate-width').velocity({
-									'left': quickViewLeft+'px',
-							    	'width': quickViewWidth+'px',
-								}, 300, 'ease' ,function(){
-									$('.cd-quick-view').addClass('add-content');
-								});
-							}).addClass('is-visible');
+							$('.cd-quick-view').css({'top': finalTop + 'px','left': quickViewLeft +'px','width': quickViewWidth +'px',}).addClass('is-visible');
+							$('.cd-quick-view').addClass('animate-width');
+							$('.cd-quick-view').addClass('add-content');
+							$('.cd-quick-view').removeClass("animated zoomOut");
+							$('.cd-quick-view').addClass("animated zoomIn");	
 						} else {
-							$('.cd-quick-view').removeClass('add-content');
+							$('.cd-quick-view').removeClass("animated zoomIn");
+							$('.cd-quick-view').addClass("animated zoomOut");
+							$('.cd-quick-view').removeClass('add-content animate-width is-visible');
 							$('body').removeClass('overlay-layer');
-							$('.cd-quick-view').removeClass('animate-width');
-							$('.cd-quick-view').removeClass('is-visible');
 							parentListItem.removeClass('empty-box');
 						}
 					},
