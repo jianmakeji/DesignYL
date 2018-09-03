@@ -25,8 +25,8 @@
              <div class="swiper-container">
 				 <div class="swiper-wrapper">
 				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow.jpg"></div>
-				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow2.jpg"></div>
-				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow3.jpg"></div>
+				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow2_later.jpg"></div>
+				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow3_later.jpg"></div>
 				 </div>
 				 <!-- Add Pagination -->
 			    <div class="swiper-pagination"></div>
@@ -36,7 +36,7 @@
 			</div>
          </div>
      </div>
-     <img src="resources/frontend/images/app/schedule.jpg">
+     <img src="resources/frontend/images/app/schedule_later.jpg">
 	<div style="width: 100%; background-color: #f7f7f7">
         <section style="color: #5c5c5c; font-size: 32pt; padding-top: 35px; margin-left: 50px">NEWS | 新闻动态</section>
      	<ul class="zyList">
