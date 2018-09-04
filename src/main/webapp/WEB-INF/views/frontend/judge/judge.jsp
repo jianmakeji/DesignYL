@@ -15,6 +15,7 @@
 <script>
 	var judgeId = "${param.judgeId}";
 	var round = "${param.round}";
+	var attachFile = "${param.attachFile}";
 	var pageName = "judge";
 	var sliderFinalWidth = 400,
 	maxQuickWidth = 1200;
@@ -62,6 +63,7 @@
 			<div class="cd-item-info">
 				<h3 style="padding:5px 5px;"><spring:message code="title"/>：{{title}}</h3>
 				<p style="padding:5px 5px;"><spring:message code="introduction"/>：{{content}}</p>
+				<a v-if="attachFileShow" :href="attachFile">点击进行附件下载</a>
 				<div style="padding:5px 5px;">
 					<ul class="cd-item-action">
 						<i-col style="color:red;">请输入分数0-100的整数</i-col>
@@ -98,6 +100,8 @@
 			      score:0,
 			      title:'',
 				  content:'',
+				  attachFile:"",
+				  attachFileShow:false,
 				  imgUrl:"",
 				  productionId:'',
 				  scoreSign:0,
@@ -200,6 +204,12 @@
 								  })
 							  })
 							  this.content = this.list[i].content;
+							  this.attachFile = "file/downloadFile?filePath=" + this.list[i].attachFile;
+							  if(this.list[i].attachFile.length == 0){
+								  this.attachFileShow = false;
+							  }else{
+								  this.attachFileShow = true;
+							  }
 							  this.score = this.list[i].score;
 							  this.title = this.list[i].title;
 							  this.productionId = this.list[i].id;

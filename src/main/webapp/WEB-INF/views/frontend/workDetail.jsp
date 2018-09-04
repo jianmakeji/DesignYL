@@ -22,6 +22,12 @@
 		
 		<p class="zyText"><spring:message code="introduction"/>：${production.content}</p>
 		
+		<c:if test="${!empty production.attachFile}">
+			<div class="zy20C7BE">
+				附件下载:&nbsp;&nbsp;<a class="zy20C7BE" href="file/downloadFile?filePath=${production.attachFile}" target="_blank">${production.attachFile}</a>
+			</div>
+			<br>
+		</c:if>
 		<%-- <c:if test="${!empty production.pimage}">
 			<div class="zy20C7BE">
 				<img src="${production.pimage}" style="margin:10px auto;">
