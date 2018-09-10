@@ -40,7 +40,7 @@
 			</li>
 		</ul>
 		<div style="text-align: center; margin-bottom: 30px;">
-			<page :total="total" @on-change="loadData"></page>
+			<page :total="total" :page-size="pageSize" @on-change="loadData"></page>
 		</div>
 
 		<%@ include file="../footer.jsp"%>
@@ -95,6 +95,7 @@
 			  data:function () {
 			    return {
 			      total:0,
+			      pageSize:12,
 			      list:[],
 			      theme1: 'light',
 			      score:0,
