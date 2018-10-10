@@ -15,16 +15,39 @@
 	<div id="JMJudge">
 		<section style="color: #5c5c5c; font-size: 20pt;margin: 60px 5% 0px 8%;">初评评委</section>
 		<ul class="JMList2">
-
 			<c:forEach items="${judgeList}" var="item">
-				<li class="JMItem"><a class="JMLink" href="judge/judgeDetail/${item.id}"> <img class="JMThumb" src="${item.headicon}">
-						<div class="JMInfo">
-							<h3 class="JMTitle">${item.name}</h3>
-							<div class="JMExcerpt">${item.subTitle}</div>
-						</div>
-				</a>
-					<hr class="JMJudgeLine"></li>
+				<c:if test="${item.id <= 54}">
+				   <%-- <p>我的工资为: <c:out value="${salary}"/><p> --%>
+				   <li class="JMItem">
+				   		<a class="JMLink" href="judge/judgeDetail/${item.id}"> <img class="JMThumb" src="${item.headicon}">
+							<div class="JMInfo">
+								<h3 class="JMTitle">${item.name}</h3>
+								<div class="JMExcerpt">${item.subTitle}</div>
+							</div>
+						</a>
+						<hr class="JMJudgeLine">
+					</li>
+				</c:if>
 
+			</c:forEach>
+
+		</ul>
+		
+		<section style="color: #5c5c5c; font-size: 20pt;margin: 60px 5% 0px 8%;">终评评委</section>
+		<ul class="JMList2">
+			
+			<c:forEach items="${judgeList}" var="item">
+				<c:if test="${item.id > 54}">
+					<li class="JMItem">
+						<a class="JMLink" href="judge/judgeDetail/${item.id}"> <img class="JMThumb" src="${item.headicon}">
+							<div class="JMInfo">
+								<h3 class="JMTitle">${item.name}</h3>
+								<div class="JMExcerpt">${item.subTitle}</div>
+							</div>
+						</a>
+						<hr class="JMJudgeLine">
+					</li>
+				</c:if>
 			</c:forEach>
 
 		</ul>
