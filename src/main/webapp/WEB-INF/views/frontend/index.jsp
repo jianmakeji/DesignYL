@@ -19,23 +19,24 @@
 <body>
 
 	<%@ include file="header.jsp"%>
-	<div class="zyTopShow">
+	<!-- <div class="zyTopShow">
          <div class="zyItem">
-             <!-- <img src="resources/frontend/images/app/topShow.jpg"> -->
+             <img src="resources/frontend/images/app/topShow.jpg">
              <div class="swiper-container">
 				 <div class="swiper-wrapper">
 				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow.jpg"></div>
 				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow2_later.jpg"></div>
 				 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow3_later.jpg"></div>
 				 </div>
-				 <!-- Add Pagination -->
+				 Add Pagination
 			    <div class="swiper-pagination"></div>
-			    <!-- Add Arrows -->
+			    Add Arrows
 			    <div class="swiper-button-next"></div>
 			    <div class="swiper-button-prev"></div>
 			</div>
          </div>
-     </div>
+     </div> -->
+     <img src="resources/frontend/images/app/topShow.jpg">
      <img src="resources/frontend/images/app/schedule_later.jpg">
 	<div style="width: 100%; background-color: #f7f7f7">
         <section style="color: #5c5c5c; font-size: 32pt; padding-top: 35px; margin-left: 50px">NEWS | 新闻动态</section>

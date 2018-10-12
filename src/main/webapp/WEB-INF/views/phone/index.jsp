@@ -20,7 +20,7 @@
 <body>
 	<%@ include file="phoneHeader.jsp"%>
 	<div id="phoneIndex">
-		<div class="zyTopShow">
+		<!-- <div class="zyTopShow">
 	         <div class="zyItem">
 	             <div class="swiper-container">
 					 <div class="swiper-wrapper">
@@ -28,11 +28,12 @@
 					 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow2_later.jpg"></div>
 					 	<div class="swiper-slide"><img src="resources/frontend/images/app/topShow3_later.jpg"></div>
 					 </div>
-					 <!-- Add Pagination -->
+					 Add Pagination
 				    <div class="swiper-pagination"></div>
 				</div>
 	         </div>
-	     </div>
+	     </div> -->
+	     <img src="resources/frontend/images/app/topShow.jpg">
 		<img :src="scheduleImg" style="width:100%;height:auto;">
 		<div style="width: 100%; background-color: #f7f7f7">
 	        <section style="color: #5c5c5c; font-size: 18pt; padding-top: 20px; margin-left: 30px">NEWS | 新闻动态</section>
